@@ -1,13 +1,138 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/***************************************************************/
+/*                          Fonts                              */
+/***************************************************************/
+
+@font-face {
+  font-family: SophiaPro;
+  src: url("./public/fonts/Sofia\ Pro\ Regular\ Az.otf") format("opentype");
+}
+@font-face {
+  font-family: SophiaPro;
+  font-style: italic;
+  src: url("./public/fonts/Sofia\ Pro\ Regular\ Italic\ Az.otf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Black */
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 800;
+  src: url("./public/fonts/Sofia\ Pro\ Black\ Az.otf") format("opentype");
+}
+
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 800;
+  font-style: italic;
+  src: url("./public/fonts/Sofia\ Pro\ Black\ Italic\ Az.otf")
+    format("opentype");
+}
+
+/* Bold */
+@font-face {
+  font-family: SophiaPro;
+  font-weight: bold;
+  src: url("./public/fonts/Sofia\ Pro\ Bold\ Az.otf") format("opentype");
+}
+
+@font-face {
+  font-family: SophiaPro;
+  font-weight: bold;
+  font-style: italic;
+  src: url("./public/fonts/Sofia\ Pro\ Bold\ Italic\ Az.otf") format("opentype");
+}
+
+/* Semi Bold */
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 600;
+  src: url("./public/fonts/Sofia\ Pro\ Semi\ Bold\ Az.otf");
+}
+
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 600;
+  font-style: italic;
+  src: url("./public/fonts/Sofia\ Pro\ Semi\ Bold\ Italic\ Az.otf");
+}
+
+/* Medium */
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 500;
+  src: url("./public/fonts/Sofia\ Pro\ Medium\ Az.otf");
+}
+
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 500;
+  font-style: italic;
+  src: url("./public/fonts/Sofia\ Pro\ Medium\ Italic\ Az.otf");
+}
+
+/* Light */
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 300;
+  src: url("./public/fonts/Sofia\ Pro\ Light\ Az.otf");
+}
+
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 300;
+  font-style: italic;
+  src: url("./public/fonts/Sofia\ Pro\ Light\ Italic\ Az.otf");
+}
+
+/* Extra Light */
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 200;
+  src: url("./public/fonts/Sofia\ Pro\ ExtraLight\ Az.otf");
+}
+
+@font-face {
+  font-family: SophiaPro;
+  font-style: italic;
+  font-weight: 200;
+  src: url("./public/fonts/Sofia\ Pro\ ExtraLight\ Italic\ Az.otf");
+}
+
+/* Ultra Light */
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 100;
+  src: url("./public/fonts/Sofia\ Pro\ UltraLight\ Az.otf");
+}
+
+@font-face {
+  font-family: SophiaPro;
+  font-weight: 100;
+  font-style: italic;
+  src: url("./public/fonts/Sofia\ Pro\ UltraLight\ Italic\ Az.otf");
+}
+
+/***************************************************************/
+/*                     Design Guideline                        */
+/***************************************************************/
+:root {
+  font-family: SophiaPro;
+  --blue: #00b4d8;
+  --orange: #f3752b;
+  --gray: #dddddd;
+  --white: #ffffff;
+  --black: #000000;
+  --grayLight: #979797;
+  --grayDark: #434343;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
