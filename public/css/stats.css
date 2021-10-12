@@ -1,0 +1,42 @@
+.stats {
+  width: 100%;
+  display: grid;
+  margin-right: 2vw;
+  margin-left: 2vw;
+  grid-column-gap: 1vh;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 14vh;
+}
+.stats-rect {
+  grid-column: 3 / 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  min-height: 150px;
+  height: 15vh;
+  box-shadow: 0px 1px 27px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  justify-content: center;
+  align-content: center;
+}
+
+.stats-content {
+  height: 100%;
+  display: grid;
+  border-right: solid 3px #e5e5e5;
+}
+.stats-content-last {
+  height: 100%;
+
+  display: grid;
+}
+
+.stats-caption {
+  font-weight: bold;
+  margin: 0 auto;
+}
+.stats-num {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--blue);
+  margin: 0 auto;
+}

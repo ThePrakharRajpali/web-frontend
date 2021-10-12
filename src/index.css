@@ -136,3 +136,13 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+.grid-main {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-right: 2vw;
+  margin-left: 2vw;
+  grid-column-gap: 1vh;
+}

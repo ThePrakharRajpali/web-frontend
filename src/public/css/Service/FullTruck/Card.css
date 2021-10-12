@@ -1,0 +1,26 @@
+.card {
+  background: var(--blue);
+  max-height: 20vw;
+  max-width: 20vw;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  min-width: 200px;
+}
+
+.card p {
+  width: 74%;
+  text-align: center;
+  color: var(--white);
+}
+
+.service-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  margin-bottom: 100px;
+}

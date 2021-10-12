@@ -1,0 +1,35 @@
+.service-page-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-right: 2vw;
+  margin-left: 2vw;
+  grid-column-gap: 1vh;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.content {
+  grid-column: 3 / span 4;
+  text-align: left;
+}
+
+.illustration {
+  grid-column: 7 / span 4;
+  display: flex;
+  justify-content: right;
+}
+
+.heading {
+  font-size: 3em;
+  font-weight: 500;
+  margin: -55px 0 0 60px;
+}
+
+.heading span {
+  color: var(--orange);
+}
+
+.content p {
+  margin-left: 60px;
+}

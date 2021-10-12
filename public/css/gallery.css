@@ -1,0 +1,29 @@
+.gallery-header {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-right: 2vw;
+  margin-left: 2vw;
+  grid-column-gap: 1vh;
+  margin-top: 75px;
+}
+
+.gallery-main-header {
+  grid-column: 6/7;
+  font-weight: 500;
+  font-size: 3em;
+  margin: 0;
+}
+
+.gallery-header-img {
+  grid-column: 6;
+  margin-bottom: -24px;
+  margin-left: -34px;
+}
+
+.image-main {
+  max-width: 38vw;
+  max-height: 32vw;
+  border-radius: 14px;
+}
