@@ -1,0 +1,59 @@
+.contact-form {
+  margin-bottom: 100px;
+}
+.section-header {
+  grid-column: 5 / span 4;
+  margin-bottom: 50px;
+}
+
+.section-header p {
+  text-align: center;
+  font-size: 2.5em;
+  margin: -30px 0 0 0;
+}
+
+.section-header img {
+  margin-left: 85px;
+}
+
+.background-left {
+  grid-column: 1 / span 3;
+  min-height: 100%;
+  max-width: 100%;
+}
+
+.background-right {
+  grid-column: 10 / span 3;
+  min-height: 100%;
+  max-width: 100%;
+}
+
+form {
+  grid-column: 4 / span 6;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1vw;
+}
+
+form .form-left {
+  grid-column: 1 / span 4;
+  margin-left: 30px;
+}
+
+form .form-right {
+  grid-column: 5 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.form-left label {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.submit-button {
+  color: var(--white);
+  inset: 0;
+}
