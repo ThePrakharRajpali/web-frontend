@@ -1,0 +1,18 @@
+.vision-section {
+  margin-top: 100px;
+}
+
+.section-header {
+  grid-column: 6 / span 2;
+}
+
+.section-header img {
+  margin-left: 25px;
+}
+
+.section-header {
+  grid-column: 2 / span 8;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-column-gap: 1vw;
+}

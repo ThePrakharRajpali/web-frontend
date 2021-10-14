@@ -13,7 +13,7 @@ import arrowLeft from "../../public/photos/ArrowLeft.svg";
 
 const Services = () => {
   return (
-    <div className="services">
+    <div className="services" id="service-section">
       <div className="services-header">
         <img src={preServicesHeader} alt="" className="services-header-img" />
         <p className="services-main-header">Services</p>

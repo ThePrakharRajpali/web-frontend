@@ -10,7 +10,7 @@ import map from "../../public/photos/map.svg";
 
 export const Contact = () => {
   return (
-    <div class="contact">
+    <div class="contact" id="contact-section">
       <div className="contact-header">
         <img src={preServicesHeader} alt="" className="contact-header-img" />
         <p className="contact-main-header">Contact Form</p>

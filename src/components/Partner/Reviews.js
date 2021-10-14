@@ -9,10 +9,14 @@ import customer from "../../public/photos/customer.jpg";
 const ReviewCard = ({ imgSrc, name, company, review, color }) => {
   return (
     <div className="review-card">
-      <img src={imgSrc} alt="" className="customer-img" />
+      <img
+        src={imgSrc}
+        alt=""
+        className={"customer-img " + "customer-img-" + color}
+      />
       <p className="customer-name">{name}</p>
-      <p className="customer-company">{company}</p>
-      <p className="review">{review}</p>
+      <p className={"customer-company " + "text-" + color}>{company}</p>
+      <p className="customer-review">{review}</p>
     </div>
   );
 };
@@ -28,14 +32,14 @@ export const Reviews = () => {
       <div className="cards">
         <ReviewCard
           imgSrc={customer}
-          name={"lorem ipsum"}
+          name={"Lorem ipsum"}
           company={"lorem ipsum"}
           review={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia odit facilis repellat nulla dicta laudantium provident aspernatur quidem suscipit omnis. Quos, placeat consectetur nam dolorem accusantium sed impedit cupiditate rem."
           }
           color={"blue"}
         />
-        {/* <ReviewCard
+        <ReviewCard
           imgSrc={customer}
           name={"lorem ipsum"}
           company={"lorem ipsum"}
@@ -43,7 +47,25 @@ export const Reviews = () => {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
           }
           color={"orange"}
-        /> */}
+        />
+        <ReviewCard
+          imgSrc={customer}
+          name={"Lorem ipsum"}
+          company={"lorem ipsum"}
+          review={
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia odit facilis repellat nulla dicta laudantium provident aspernatur quidem suscipit omnis. Quos, placeat consectetur nam dolorem accusantium sed impedit cupiditate rem."
+          }
+          color={"blue"}
+        />
+        <ReviewCard
+          imgSrc={customer}
+          name={"lorem ipsum"}
+          company={"lorem ipsum"}
+          review={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+          }
+          color={"orange"}
+        />
       </div>
     </div>
   );
