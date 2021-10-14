@@ -142,7 +142,7 @@ body {
   height: auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  margin-right: 2vw;
-  margin-left: 2vw;
+  margin-right: 1vw;
+  margin-left: 1vw;
   grid-column-gap: 1vw;
 }

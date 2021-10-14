@@ -7,7 +7,7 @@ import Navbar from "./components/navbar";
 import Services from "./components/Home/services";
 import Stats from "./components/Home/stats";
 
-class App extends Component {
+class Home extends Component {
   render() {
     return (
       <div className="App">
@@ -23,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
