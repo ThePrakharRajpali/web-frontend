@@ -7,7 +7,7 @@ import { Content } from "./components/Service/LastMile/Content";
 const LastMile = () => {
   return (
     <div className="ServicePage">
-      <Navbar />
+      <Navbar className="Service" />
       <Content />
       <Cards />
       <Footer />

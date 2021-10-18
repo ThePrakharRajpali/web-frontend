@@ -1,4 +1,4 @@
-.service-page-content {
+.fulltruck-page-content {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -8,25 +8,25 @@
   margin-top: 100px;
   margin-bottom: 100px;
 }
-.illustration {
+.fulltruck-illustration {
   grid-column: 3 / span 4;
 }
 
-.content {
+.fulltruck-content {
   grid-column: 7 / span 4;
   text-align: right;
 }
 
-.heading {
+.fulltruck-heading {
   font-size: 3em;
   font-weight: 500;
   margin: -55px 65px 0 0;
 }
 
-.heading span {
+.fulltruck-heading span {
   color: var(--orange);
 }
 
-.content p {
+.fulltruck-content p {
   margin-right: 65px;
 }

@@ -8,12 +8,12 @@ import illustration from "../../public/photos/Vision.svg";
 const Vision = () => {
   return (
     <Fragment>
-      <div className="vision-section grid-main">
-        <div className="section-header">
+      <div className="vision-section">
+        <div className="vision-section-header">
           <img src={grid} alt="" />
           <p>Vision</p>
         </div>
-        <div className="section-content">
+        <div className="vision-section-content">
           <img src={illustration} alt="" />
           <p>
             Our vision is to become the most outstanding global logistics and

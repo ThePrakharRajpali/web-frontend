@@ -51,7 +51,14 @@ export const Contact = () => {
           </p>
         </div>
         <div className="contact-right">
-          <img src={map} alt="" />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14888.216752498989!2d79.0983953!3d21.1104057!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1634536285939!5m2!1sen!2sin"
+            width="450"
+            height="300"
+            style={{ border: 0 }}
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>

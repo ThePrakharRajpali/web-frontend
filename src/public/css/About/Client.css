@@ -1,21 +1,21 @@
-.fleet-section {
+.client-section {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 1vw;
   margin-top: 100px;
 }
 
-.fleet-section-header {
+.client-header {
   grid-column: 6 / span 2;
   font-size: 2.5em;
 }
 
-.fleet-section-header p {
-  margin: -30px 0 0 15px;
+.client-header p {
+  margin: -30px 0 0 30px;
   text-align: center;
 }
 
-.fleet-section-content {
+.client-content {
   grid-column: 3 / span 8;
   text-align: center;
   font-weight: 300;

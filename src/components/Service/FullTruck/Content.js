@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../index.css";
+
 import "../../../public/css/Service/FullTruck/Content.css";
 
 import illustration from "../../../public/photos/loading.svg";
@@ -7,13 +7,13 @@ import grid from "../../../public/photos/PreServices2.svg";
 
 const serviceContent = () => {
   return (
-    <div className="service-page-content">
-      <div className="illustration">
+    <div className="fulltruck-page-content">
+      <div className="fulltruck-illustration">
         <img src={illustration} alt="" />
       </div>
-      <div className="content">
+      <div className="fulltruck-content">
         <img src={grid} alt="" />
-        <p className="heading">
+        <p className="fulltruck-heading">
           <span>Full</span> Truck <br />
           Load
         </p>

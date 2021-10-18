@@ -24,15 +24,20 @@ nav {
   flex-direction: row;
 }
 
-li {
+li a {
   padding: 0 10px;
   font-weight: 700;
+  text-decoration: none;
 }
 
-.active {
+li a:visited {
+  color: var(--black);
+}
+
+li.active a {
   color: var(--blue);
 }
 
-li:hover {
+li:hover a {
   color: var(--orange);
 }

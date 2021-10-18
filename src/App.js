@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar activeTab="Home" />
         <Landing />
         <Stats />
         <Services />

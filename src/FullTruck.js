@@ -9,7 +9,7 @@ import "./index.css";
 function ServicePage() {
   return (
     <div className="ServicePage">
-      <Navbar />
+      <Navbar className="Service" />
       <Content />
       <Cards />
       <Footer />
