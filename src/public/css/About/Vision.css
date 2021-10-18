@@ -1,18 +1,38 @@
 .vision-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1vw;
   margin-top: 100px;
 }
 
-.section-header {
+.vision-section-header {
   grid-column: 6 / span 2;
+  font-size: 2.5em;
 }
 
-.section-header img {
-  margin-left: 25px;
+.vision-section-header p {
+  margin: -30px 0 0 40px;
 }
 
-.section-header {
-  grid-column: 2 / span 8;
+.vision-section-content {
+  grid-column: 3 / span 8;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-column-gap: 1vw;
+}
+
+.vision-section-content img {
+  grid-column: span 3;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.vision-section-content p {
+  grid-column: span 5;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-weight: 300;
+  line-height: 153%;
 }

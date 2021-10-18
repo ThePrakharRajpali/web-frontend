@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "../../index.css";
 import "../../public/css/Home/services.css";
@@ -25,7 +26,9 @@ const Services = () => {
             <span className="color-orange">Full</span> truck
             <br />
             load
-            <img src={arrowRight} alt="" className="arrowRight" />
+            <Link to="/FullTruck">
+              <img src={arrowRight} alt="" className="arrowRight" />
+            </Link>
           </p>
           <p className="service-content">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
@@ -33,7 +36,7 @@ const Services = () => {
           </p>
         </div>
         <div className="service-right">
-          <img src={loading} alt="" />
+          <img src={loading} alt="" className="loading" />
         </div>
       </div>
       <div className="last-mile">
@@ -43,8 +46,11 @@ const Services = () => {
         <div className="service-right">
           <img src={preServices2} alt="" />
           <p className="loading-header">
-            <span className="color-orange">Last</span> - Mile <br />
-            <img src={arrowLeft} alt="" className="arrowLeft" />
+            <span className="color-orange">Last</span>-Mile
+            <br />
+            <Link to="/LastMile">
+              <img src={arrowLeft} alt="" className="arrowLeft" />
+            </Link>
             delivery
           </p>
           <p className="service-content">

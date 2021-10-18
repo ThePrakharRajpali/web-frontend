@@ -16,10 +16,10 @@ const Display = () => {
         <Route exact path="/">
           <App />
         </Route>
-        <Route exact path="/service/Fulltruck">
+        <Route exact path="/Fulltruck">
           <FullTruck />
         </Route>
-        <Route exact path="/service/LastMile">
+        <Route exact path="/LastMile">
           <LastMile />
         </Route>
         <Route exact path="/partner">

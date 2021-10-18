@@ -7,7 +7,7 @@ import { Reviews } from "./components/Partner/Reviews";
 const Partner = () => {
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar className="Partner" />
       <Reviews />
       <Form />
       <Footer />

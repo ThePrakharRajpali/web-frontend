@@ -5,7 +5,7 @@ import logo from "../public/photos/logo_english.svg";
 import "../index.css";
 import "../public/css/navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ activeTab }) => {
   const [colorChange, setColorChange] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -27,19 +27,19 @@ const Navbar = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li className="active">
+          <li className={activeTab === "Home" ? "active" : ""}>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/about">About Us </Link>
+          <li className={activeTab === "About" ? "active" : ""}>
+            <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className={activeTab === "Service" ? "active" : ""}>
             <a href="/#service-section">Services</a>
           </li>
-          <li>
+          <li className={activeTab === "Partner" ? "active" : ""}>
             <Link to="/partner">Partner</Link>
           </li>
-          <li>
+          <li className={activeTab === "Contact" ? "active" : ""}>
             <a href="/#contact-section">Contact Us</a>
           </li>
         </ul>
