@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import Login from "./Login";
+import Login_OTP from "./Login_OTP";
 import FullTruck from "./FullTruck";
 import LastMile from "./LastMile";
 import Partner from "./Partner";
@@ -27,6 +29,12 @@ const Display = () => {
         </Route>
         <Route exact path="/about">
           <About />
+        </Route>
+		<Route exact path="/login">
+          <Login />
+        </Route>
+		<Route exact path="/login_otp">
+          <Login_OTP />
         </Route>
       </Switch>
     </Router>
