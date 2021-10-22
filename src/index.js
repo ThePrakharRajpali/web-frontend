@@ -43,7 +43,7 @@ const Display = () => {
           <Login_OTP />
         </Route>
       </Switch>
-    <Footer /
+    <Footer />
     </Router>
   );
 };
