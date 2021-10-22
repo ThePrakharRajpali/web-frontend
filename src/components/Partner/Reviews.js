@@ -12,10 +12,10 @@ const ReviewCard = ({ imgSrc, name, company, review, color }) => {
       <img
         src={imgSrc}
         alt=""
-        className={"customer-img " + "customer-img-" + color}
+        className={"customer-img customer-img-" + color}
       />
       <p className="customer-name">{name}</p>
-      <p className={"customer-company " + "text-" + color}>{company}</p>
+      <p className={"customer-company text-" + color}>{company}</p>
       <p className="customer-review">{review}</p>
     </div>
   );

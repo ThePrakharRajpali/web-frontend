@@ -6,7 +6,6 @@ import "../../public/css/Home/contact.css";
 import preServicesHeader from "../../public/photos/preServicesHeader.svg";
 import background from "../../public/photos/background.svg";
 import contactImg from "../../public/photos/contact.svg";
-import map from "../../public/photos/map.svg";
 
 export const Contact = () => {
   return (
@@ -58,6 +57,7 @@ export const Contact = () => {
             style={{ border: 0 }}
             allowfullscreen=""
             loading="lazy"
+            title="googleMap"
           ></iframe>
         </div>
       </div>

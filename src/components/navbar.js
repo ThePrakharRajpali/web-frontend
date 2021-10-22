@@ -5,8 +5,11 @@ import logo from "../public/photos/logo_english.svg";
 import "../index.css";
 import "../public/css/navbar.css";
 
-const Navbar = ({ activeTab }) => {
+const Navbar = () => {
   const [colorChange, setColorChange] = useState(false);
+  const [activeTab, setActiveTab] = useState("Home");
+  const [dropdown, setDropdown] = useState("none");
+
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
       setColorChange(true);
@@ -15,37 +18,80 @@ const Navbar = ({ activeTab }) => {
     }
   };
 
+  const changeActiveTab = (data) => {
+    setActiveTab(data);
+  };
+
+  const activateDropwdown = () => {
+    setDropdown("");
+  };
+  const deactivateDropdown = () => {
+    setDropdown("none");
+  };
   useEffect(() => {
     changeNavbarColor();
     window.addEventListener("scroll", changeNavbarColor);
   }, []);
 
   return (
-    <nav className={colorChange ? "solid-nav" : ""}>
-      <div>
-        <img src={logo} alt="" />
+    <React.Fragment>
+      <nav className={colorChange ? "solid-nav" : ""}>
+        <div className="nav-logo">
+          <img src={logo} alt="" />
+        </div>
+        <div className="nav-items">
+          <ul>
+            <li className={activeTab === "Home" ? "active" : ""}>
+              <a href="/#" onClick={() => changeActiveTab("Home")}>
+                Home
+              </a>
+            </li>
+            <li className={activeTab === "About" ? "active" : ""}>
+              <a href="/about#" onClick={() => changeActiveTab("About")}>
+                About Us
+              </a>
+            </li>
+            <li className={activeTab === "Service" ? "active" : ""}>
+              <a
+                // href="/#service-section"
+                onClick={() => {
+                  changeActiveTab("Service");
+                  if (dropdown === "none") activateDropwdown();
+                  else deactivateDropdown();
+                }}
+              >
+                Services
+              </a>
+            </li>
+            <li className={activeTab === "Partner" ? "active" : ""}>
+              <a href="/partner#" onClick={() => changeActiveTab("Partner")}>
+                Partner
+              </a>
+            </li>
+            <li className={activeTab === "Contact" ? "active" : ""}>
+              <a
+                href="/#contact-section"
+                onClick={() => changeActiveTab("Contact")}
+              >
+                Contact Us
+              </a>
+            </li>
+          </ul>
+
+          <div />
+        </div>
+      </nav>
+      <div className="extra-class" style={{ display: dropdown }}>
+        <div
+          className={
+            colorChange ? "Service-Dropdown solid-nav" : "Service-Dropdown"
+          }
+        >
+          <a href="/FullTruck#">Full truck Load</a>
+          <a href="/LastMile#">Last Mile Delivery</a>
+        </div>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li className={activeTab === "Home" ? "active" : ""}>
-            <Link to="/">Home</Link>
-          </li>
-          <li className={activeTab === "About" ? "active" : ""}>
-            <Link to="/about">About Us</Link>
-          </li>
-          <li className={activeTab === "Service" ? "active" : ""}>
-            <a href="/#service-section">Services</a>
-          </li>
-          <li className={activeTab === "Partner" ? "active" : ""}>
-            <Link to="/partner">Partner</Link>
-          </li>
-          <li className={activeTab === "Contact" ? "active" : ""}>
-            <a href="/#contact-section">Contact Us</a>
-          </li>
-        </ul>
-        <div />
-      </div>
-    </nav>
+    </React.Fragment>
   );
 };
 

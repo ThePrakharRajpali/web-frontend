@@ -9,27 +9,27 @@
   margin-bottom: 100px;
 }
 
-.content {
+.lastmile-content {
   grid-column: 3 / span 4;
   text-align: left;
 }
 
-.illustration {
+.lastmile-illustration {
   grid-column: 7 / span 4;
   display: flex;
   justify-content: right;
 }
 
-.heading {
+.lastmile-heading {
   font-size: 3em;
   font-weight: 500;
   margin: -55px 0 0 60px;
 }
 
-.heading span {
+.lastmile-heading span {
   color: var(--orange);
 }
 
-.content p {
+.lastmile-content p {
   margin-left: 60px;
 }
