@@ -11,14 +11,12 @@ import Map from "./components/About/Map";
 const About = () => {
   return (
     <div className="AboutPage">
-      <Navbar activeTab="About" />
       <Vision />
       <Value />
       <Fleet />
       <Client />
       <Team />
       <Map />
-      <Footer />
     </div>
   );
 };

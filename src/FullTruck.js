@@ -9,10 +9,8 @@ import "./index.css";
 function ServicePage() {
   return (
     <div className="ServicePage">
-      <Navbar className="Service" />
       <Content />
       <Cards />
-      <Footer />
     </div>
   );
 }

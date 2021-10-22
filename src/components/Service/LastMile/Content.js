@@ -9,9 +9,9 @@ import grid from "../../../public/photos/PreServices.svg";
 export const Content = () => {
   return (
     <div className="service-page-content">
-      <div className="content">
+      <div className="lastmile-content">
         <img src={grid} alt="" />
-        <p className="heading">
+        <p className="lastmile-heading">
           <span>Last</span>-Mile <br />
           Delivery
         </p>
@@ -26,7 +26,7 @@ export const Content = () => {
           quality of our services.
         </p>
       </div>
-      <div className="illustration">
+      <div className="lastmile-illustration">
         <img src={illustration} alt="" />
       </div>
     </div>
