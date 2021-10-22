@@ -35,16 +35,16 @@ const Display = () => {
             <About />
           </Route>
 
-        
-		<Route exact path="/login">
-          <Login />
-        </Route>
-		<Route exact path="/login_otp">
-          <Login_OTP />
-        </Route>
-      </Switch>
-    <Footer />
-    </Router>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/login_otp">
+            <Login_OTP />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </Fragment>
   );
 };
 
