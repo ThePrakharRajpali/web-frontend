@@ -70,7 +70,7 @@ class LoginContainer extends React.Component {
     return (
       <div className="login-container">
 		<div className="logo"></div>
-        <div className="title">Naata</div>
+        <div className="title">NAATA</div>
 		<input className="input icon" placeholder='Email or Phone number'></input>
 		<div className="button-custom">
 			<div className="button-title">Next</div>
