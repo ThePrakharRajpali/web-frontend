@@ -5,7 +5,7 @@ import "../public/css/footer.css";
 
 import logoGray from "../public/photos/logoGray.svg";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <div className="footer-overall">
       <div className="footer">
@@ -31,3 +31,5 @@ export const Footer = () => {
     </div>
   );
 };
+
+export default Footer;
