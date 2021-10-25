@@ -140,12 +140,18 @@ canvas {
 	font-size:1vw;
 	margin-right: 2vw;
 	color: #7B7B7B;
+	font-family: SophiaPro;
+font-style: normal;
+font-weight: 400;
 
 }
 
 .otp_resend{
 	font-size:1vw;
 	color: #7B7B7B;
+	font-family: SophiaPro;
+font-style: normal;
+font-weight: 400;
 
 }
 
@@ -165,6 +171,9 @@ canvas {
 	font-size: 1.7vw;
 	line-height: 1.8vw;
 	color: #7B7B7B;
+	font-family: SophiaPro;
+font-style: normal;
+font-weight: bold;
 }
 
 .button-arrow{
