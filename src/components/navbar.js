@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import logo from "../public/photos/logo_english.svg";
 import "../index.css";
@@ -88,6 +87,7 @@ const Navbar = () => {
           }
         >
           <a href="/FullTruck#">Full truck Load</a>
+          <hr />
           <a href="/LastMile#">Last Mile Delivery</a>
         </div>
       </div>

@@ -16,61 +16,58 @@ import Footer from "./components/footer";
 
 import "./index.css";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Display = () => {
   return (
     <Fragment>
       <Router>
         <Switch>
-			
           <Route exact path="/">
-			<Navbar />
+            <Navbar />
             <App />
-			<Footer />
+            <Footer />
           </Route>
-			
-		  <Route exact path="/FullTruck">
-			<Navbar />
+
+          <Route exact path="/FullTruck">
+            <Navbar />
             <FullTruck />
-			<Footer />
+            <Footer />
           </Route>
-			
-		  <Route exact path="/LastMile">
-			<Navbar />
+
+          <Route exact path="/LastMile">
+            <Navbar />
             <LastMile />
-			<Footer />
+            <Footer />
           </Route>
-		  
-			
+
           <Route exact path="/partner">
-			<Navbar />
+            <Navbar />
             <Partner />
-			<Footer />
+            <Footer />
           </Route>
-			
+
           <Route exact path="/about">
-			<Navbar />
+            <Navbar />
             <About />
-			<Footer />
+            <Footer />
           </Route>
-			
+
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/login_otp">	  
+          <Route exact path="/login_otp">
             <Login_OTP />
           </Route>
-			
-		  <Route exact path="/Dashboard_MyProfile">
-            <CotrolPanel/>
-			<MyProfile />
+
+          <Route exact path="/Dashboard_MyProfile">
+            <CotrolPanel />
+            <MyProfile />
           </Route>
-		  <Route exact path="/Dashboard_UserProfile">
-            <CotrolPanel/>
-			<UserProfile />
+          <Route exact path="/Dashboard_UserProfile">
+            <CotrolPanel />
+            <UserProfile />
           </Route>
-			
         </Switch>
       </Router>
     </Fragment>

@@ -25,14 +25,15 @@ canvas {
   background-color: transparent;
   border: none;
   text-decoration: none;
-  font-family: "Roboto";
+  /* font-family: "Roboto"; */
   user-select: none;
   list-style: none;
   position: relative;
 }
 
-.html, body {
-  background-color: #FAFAFA;
+.html,
+body {
+  background-color: #fafafa;
   margin: 0;
   padding: 0;
 }
@@ -43,11 +44,12 @@ canvas {
   justify-content: center;
   flex-direction: row;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.12);
-  background-color: #F2F8FF;
+  background-color: #f2f8ff;
   text-transform: capitalize;
   cursor: pointer;
 }
-.button:hover, .button:focus {
+.button:hover,
+.button:focus {
   transition: 0.15s ease-in-out;
 }
 
@@ -65,14 +67,14 @@ canvas {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.login-container .logo{
-	width: 7vw;
-	height: 7vw;
-	margin-top: 3vw;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:0.5vw;
-	background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/final%20logo.png?token=APXZ46I23T6ZFKGTKJ4G2BDBPGEO6")
+.login-container .logo {
+  width: 7vw;
+  height: 7vw;
+  margin-top: 3vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5vw;
+  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/final%20logo.png?token=APXZ46I23T6ZFKGTKJ4G2BDBPGEO6")
     no-repeat;
   background-size: contain;
 }
@@ -83,7 +85,7 @@ canvas {
   font-size: 2vw;
   font-weight: 300;
   padding-bottom: 10px;
-	color: #7B7B7B;
+  color: #7b7b7b;
 }
 .login-container .login-button {
   border-top-left-radius: 5px;
@@ -92,79 +94,80 @@ canvas {
   border-bottom-right-radius: 5px;
   width: 60%;
   padding: 20px 15px;
-  background-color: #007AFF;
+  background-color: #007aff;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 400;
   margin: 40px 0;
 }
-.login-container .login-button:hover, .login-container .login-button:focus {
+.login-container .login-button:hover,
+.login-container .login-button:focus {
   box-shadow: 0px 3px 20px 3px rgba(0, 122, 255, 0.3);
-  background-color: #007AFF;
+  background-color: #007aff;
 }
 
 .login-container .input {
-	width: 23vw ;
-	height: 4vw;
-	margin: 0.5vw auto;
-	padding-left: 0.25vw;
-	padding-right: 0.25vw;
-	background: #E8F6F9;
-	border-radius: 0.75vw;
-	font-size: 1.5vw;
-	line-height: 1.7vw;
-	border-width:thin;
-	border-color:#00B4D8;
-	font-family: Sofia Pro;
-font-style: normal;
-font-weight: normal;
-	text-align: center;
-	color: #00B4D8;	
+  width: 23vw;
+  height: 4vw;
+  margin: 0.5vw auto;
+  padding-left: 0.25vw;
+  padding-right: 0.25vw;
+  background: #e8f6f9;
+  border-radius: 0.75vw;
+  font-size: 1.5vw;
+  line-height: 1.7vw;
+  border-width: thin;
+  border-color: #00b4d8;
+  font-family: Sofia Pro;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  color: #00b4d8;
 }
 
-.login-container .input::placeholder{
-	font-size: 1.5vw;
-	line-height: 1.7vw;
-	text-align: center;
-	color: #00B4D8;
-	font-family: SophiaPro;
-font-style: normal;
-font-weight: normal;
+.login-container .input::placeholder {
+  font-size: 1.5vw;
+  line-height: 1.7vw;
+  text-align: center;
+  color: #00b4d8;
+  font-family: SophiaPro;
+  font-style: normal;
+  font-weight: normal;
 }
 
-.icon::placeholder{
-	background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/User.png?token=APXZ46LFDU5FFC3PLTWL2UTBPGKRY")
+.icon::placeholder {
+  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/User.png?token=APXZ46LFDU5FFC3PLTWL2UTBPGKRY")
     no-repeat;
   background-size: contain;
-	align:center;
+  align: center;
 }
 
-.button-custom{
-	display:flex;
-	flex-direction: row;
-	width:auto;
-	height:2vw;
-	margin-bottom: 2vw;
-	align-items: center;
-	margin-top: 2vw;
+.button-custom {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 2vw;
+  margin-bottom: 2vw;
+  align-items: center;
+  margin-top: 2vw;
 }
-.button-title{
-	font-weight: bold;
-	font-size: 1.7vw;
-	line-height: 1.8vw;
-	color: #7B7B7B;
-	
-font-family: SophiaPro;
-font-style: normal;
-font-weight: bold;
+.button-title {
+  font-weight: bold;
+  font-size: 1.7vw;
+  line-height: 1.8vw;
+  color: #7b7b7b;
+
+  font-family: SophiaPro;
+  font-style: normal;
+  font-weight: bold;
 }
 
-.button-arrow{
-	margin-left:0.6vw;
-	width:2vw;
-	height:2vw;
-	background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Next%20button.png?token=APXZ46KMMJ5PAB22ERAUXILBPGL62")
+.button-arrow {
+  margin-left: 0.6vw;
+  width: 2vw;
+  height: 2vw;
+  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Next%20button.png?token=APXZ46KMMJ5PAB22ERAUXILBPGL62")
     no-repeat;
   background-size: contain;
 }
