@@ -1,0 +1,185 @@
+.ControlPanel{
+	position: relative;
+    width: 25vw;
+    height: 100vh;
+    left:0;
+	top:0;
+    background: #00B4D8;
+	padding-top:6.09vw;
+	overflow-x:auto;
+	overflow-y:auto;
+}
+
+.LogoAndTitle{
+	display:flex;
+	height:4.16vw;
+	margin-left:5.97vw;
+	margin-bottom:4vw;
+	align-items:row;
+	background: #00B4D8;
+}
+
+.Logo{
+	height:4.16vw;
+	width:4.86vw;
+	background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Group%2033980.png?token=APXZ46IOUCM75DLH5BEPYPDBQEHJK")
+    no-repeat;
+  background-size: contain;
+}
+
+.Title{
+	margin-top:auto;
+	margin-bottom:auto;
+    height: 1.9vw;
+	font-family: Nasalization;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.6vw;
+	line-height: 1.9vw;
+	color: #FFFFFF;
+}
+
+  /* .metismenu{
+	background:#000000;
+	border:none;
+	 -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+ } 
+ .metismenu-container{
+	padding-left:2vw;
+	background:#00B4D8;
+	border:none;
+	  -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}
+ 
+ .metismenu-item{
+	background: #00B4D8;
+	border-radius: 2vw 0px 0px 2vw;
+	  -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+	font-family: SophiaPro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: 1.2vw;
+    color: #FFFFFF;
+  } 
+
+ .metismenu-tem:active{
+	background: #FFFFFF;
+	border-radius: 2vw 0px 0px 2vw;
+	  -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}
+
+
+.metismenu-item{
+	background: #00B4D8;
+	font-family: SophiaPro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3vw;
+    line-height: 1.5vw;
+    color: white;
+	text-shadow:none;
+	border-radius: 2vw 0px 0px 2vw;
+	 -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}
+
+.metismenu-item.active{
+	background: #00B4D8;
+	font-family: SophiaPro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3vw;
+    line-height: 1.5vw;
+    color: white;
+	text-shadow:none;
+	border-radius: 2vw 0px 0px 2vw;
+	 -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}
+
+
+.metismenu-link{
+	background: #00B4D8;
+	padding-bottom:1vw;
+	padding-top:1vw;
+	font-family: SophiaPro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3vw;
+    line-height: 1.5vw;
+    color: white;
+	text-shadow:none;
+	border-radius: 2vw 0px 0px 2vw;
+	 -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}
+
+.metismenu-link.active{
+	background: #FFFFFF;
+	padding-bottom:1vw;
+	padding-top:1vw;
+	font-family: SophiaPro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3vw;
+    line-height: 1.5vw;
+    color: #FB6D3A;
+	text-shadow:none;
+	border-radius: 2vw 0px 0px 2vw;
+	 -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}
+
+
+.metismenu-link.hover{
+	background: #00B4D8;
+	padding-bottom:1vw;
+	padding-top:1vw;
+	font-family: SophiaPro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3vw;
+    line-height: 1.5vw;
+    color: white;
+	text-shadow:none;
+	border-radius: 2vw 0px 0px 2vw;
+	 -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}
+
+.metismenu-link.has-active-child{
+	background: #00B4D8;
+	padding-bottom:1vw;
+	padding-top:1vw;
+	font-family: SophiaPro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3vw;
+    line-height: 1.5vw;
+    color: white;
+	text-shadow:none;
+	border-radius: 2vw 0px 0px 2vw;
+	 -moz-box-shadow:   none;
+   -webkit-box-shadow: none;
+   box-shadow:         none;
+}  */
+
+
+.arrow{
+	position: absolute;
+	right:10%;
+}
