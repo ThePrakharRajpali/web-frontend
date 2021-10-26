@@ -1,6 +1,9 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import "./index.css";
+
 import App from "./App";
 import Login from "./Login";
 import Login_OTP from "./Login_OTP";
@@ -10,8 +13,6 @@ import Partner from "./Partner";
 import About from "./About";
 import Navbar from "./components/navbar";
 import { Footer } from "./components/footer";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const Display = () => {
   return (
