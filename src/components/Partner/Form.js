@@ -6,7 +6,7 @@ import contact from "../../public/photos/contact.svg";
 
 import "../../public/css/Partner/Form.css";
 
-const Form = () => {
+export const Form = () => {
   return (
     <Fragment>
       <div className="contact-form grid-main">
@@ -39,5 +39,3 @@ const Form = () => {
     </Fragment>
   );
 };
-
-export default Form;

@@ -78,9 +78,12 @@ canvas {
 }
 .login-container .title {
   text-transform: capitalize;
+  font-family: Nasalization;
+  font-weight: 400;
   font-size: 2vw;
   font-weight: 300;
   padding-bottom: 10px;
+	color: #7B7B7B;
 }
 .login-container .login-button {
   border-top-left-radius: 5px;
@@ -113,7 +116,9 @@ canvas {
 	line-height: 1.7vw;
 	border-width:thin;
 	border-color:#00B4D8;
-	font-family: "FontAwesome";
+	font-family: Sofia Pro;
+font-style: normal;
+font-weight: normal;
 	text-align: center;
 	color: #00B4D8;	
 }
@@ -123,6 +128,9 @@ canvas {
 	line-height: 1.7vw;
 	text-align: center;
 	color: #00B4D8;
+	font-family: SophiaPro;
+font-style: normal;
+font-weight: normal;
 }
 
 .icon::placeholder{
@@ -146,6 +154,10 @@ canvas {
 	font-size: 1.7vw;
 	line-height: 1.8vw;
 	color: #7B7B7B;
+	
+font-family: SophiaPro;
+font-style: normal;
+font-weight: bold;
 }
 
 .button-arrow{

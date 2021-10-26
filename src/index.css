@@ -111,6 +111,12 @@
   src: url("./public/fonts/Sofia\ Pro\ UltraLight\ Italic\ Az.otf");
 }
 
+@font-face {
+  font-family: Nasalization;
+  font-weight: 400;
+  src: url("./public/fonts/nasalization-rg.otf");
+}
+
 /***************************************************************/
 /*                     Design Guideline                        */
 /***************************************************************/
