@@ -16,7 +16,7 @@ import Footer from "./components/footer";
 
 import "./index.css";
 
-import { Router, Switch, Route } from "react-router";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Display = () => {
   return (

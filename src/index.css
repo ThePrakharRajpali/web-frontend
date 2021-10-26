@@ -120,6 +120,13 @@
 /***************************************************************/
 /*                     Design Guideline                        */
 /***************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: SophiaPro;
+}
+
 :root {
   font-family: SophiaPro;
   --blue: #00b4d8;
@@ -130,7 +137,7 @@
   --grayLight: #979797;
   --grayDark: #434343;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
