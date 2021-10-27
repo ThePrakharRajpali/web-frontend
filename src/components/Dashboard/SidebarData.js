@@ -6,81 +6,67 @@ import * as RiIcons from "react-icons/ri";
 
 export const SidebarData = [
 {
-	title: "My Profile 1",
+	title: "My Profile",
 	path: "/Dashboard_MyProfile",
-	icon: <AiIcons.AiFillHome />,
+	icon: <RiIcons.RiProfileLine />,
 	iconClosed: <RiIcons.RiArrowDownSFill />,
 	iconOpened: <RiIcons.RiArrowUpSFill />,
-
-	subNav: [
-	{
-		title: "User Profile 2",
-		path: "/Dashboard_UserProfile",
-		icon: <IoIcons.IoIosPaper />,
-	},
-	{
-		title: "My Profile 3",
-		path: "/Dashboard_MyProfile",
-		icon: <IoIcons.IoIosPaper />,
-	},
-	],
 },
 {
-	title: "User Profile 4",
-	path: "/Dashboard_UserProfile",
-	icon: <IoIcons.IoIosPaper />,
+	title: "Attendance",
+	path: "/Dashboard_Attendance",
+	icon: <FaIcons.FaRegCalendarAlt />,
 	iconClosed: <RiIcons.RiArrowDownSFill />,
 	iconOpened: <RiIcons.RiArrowUpSFill />,
-
-	subNav: [
-	{
-		title: "My Profile 5",
-		path: "/Dashboard_MyProfile",
-		icon: <IoIcons.IoIosPaper />,
-		cName: "sub-nav",
-	},
-	{
-		title: "My Profile 6",
-		path: "/Dashboard_MyProfile",
-		icon: <IoIcons.IoIosPaper />,
-		cName: "sub-nav",
-	},
-	{
-		title: "My Profile 7",
-		path: "/Dashboard_MyProfile",
-		icon: <IoIcons.IoIosPaper />,
-	},
-	],
 },
 {
-	title: "User Profile 8",
-	path: "/Dashboard_UserProfile",
-	icon: <FaIcons.FaPhone />,
-},
-{
-	title: "User Profile 9",
-	path: "/Dashboard_UserProfile",
-	icon: <FaIcons.FaEnvelopeOpenText />,
-
+	title: "Live Location",
+	path: "/Dashboard_LiveLocation",
+	icon: <FaIcons.FaMapMarkerAlt />,
 	iconClosed: <RiIcons.RiArrowDownSFill />,
 	iconOpened: <RiIcons.RiArrowUpSFill />,
-
-	subNav: [
-	{
-		title: "My Profile 10",
-		path: "/Dashboard_MyProfile",
-		icon: <IoIcons.IoIosPaper />,
-	},
-	{
-		title: "User Profile 11",
-		path: "/Dashboard_UserProfile",
-		icon: <IoIcons.IoIosPaper />,
-	},
-	],
 },
 {
-	title: "My Profile 12",
-	path: "/Dashboard_MyProfile",
+	title: "User Profile",
+	path: "/Dashboard_UserProfile",
+	icon: <AiIcons.AiOutlineTeam />,
+	iconClosed: <RiIcons.RiArrowDownSFill />,
+	iconOpened: <RiIcons.RiArrowUpSFill />,
+},
+{
+	title: "Vehicle Registration",
+	path: "/Dashboard_VehicleRegistration",
+	icon: <RiIcons.RiCaravanLine />,
+	iconClosed: <RiIcons.RiArrowDownSFill />,
+	iconOpened: <RiIcons.RiArrowUpSFill />,
+},
+{
+	title: "Service Requests",
 	icon: <IoIcons.IoMdHelpCircle />,
+	path: "/Dashboard_ServiceRequests_CreateNew",
+	iconClosed: <RiIcons.RiArrowDownSFill />,
+	iconOpened: <RiIcons.RiArrowUpSFill />,
+	subNav: [
+	{
+		title: "Create New",
+		path: "/Dashboard_ServiceRequests_CreateNew",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	{
+		title: "Pending",
+		path: "/Dashboard_ServiceRequests_Pending",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	{
+		title: "Active",
+		path: "/Dashboard_ServiceRequests_Active",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	{
+		title: "Completed",
+		path: "/Dashboard_ServiceRequests_Completed",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	],
 },
 ];
