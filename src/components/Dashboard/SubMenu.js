@@ -87,8 +87,8 @@ padding-left:1vw;
 `;
 const SubMenu = ({ item }) => {
 const [subnav, setSubnav] = useState(false);
-const [colorMenuLinkIcon, setcolorMenuLinkIcon] = useState("#ffffff");
-const [colorSubMenuLinkIcon, setColorSubMenuLinkIcon] = useState("#ffffff");
+// const [colorMenuLinkIcon, setcolorMenuLinkIcon] = useState("#ffffff");
+// const [colorSubMenuLinkIcon, setColorSubMenuLinkIcon] = useState("#ffffff");
 
 const showSubnav = () => setSubnav(!subnav);
 	
@@ -105,9 +105,11 @@ const activateMenuLink = (props) => {
 			b=true;
 			menuLink.style.background= "#ffffff";
 			menuLink.style.color="#FB6D3A";
+			menuLink.firstChild.style.color="#FB6D3A";
 		}else{
 			menuLink.style.background= "#00B4D8";
 			menuLink.style.color="#ffffff";
+			menuLink.firstChild.style.color="#ffffff";
 		}
 	});
 	
@@ -116,6 +118,7 @@ const activateMenuLink = (props) => {
 		subMenuLinks.forEach((subMenuLink)=>{
 			subMenuLink.style.background= "#00B4D8";
 			subMenuLink.style.color="#ffffff";
+			subMenuLink.firstChild.style.color="#ffffff";
 	    });
 	}
 } ;
@@ -128,9 +131,11 @@ const activateSubMenuLink = (clicked_item_id) => {
 		if(subMenuLink_id==clicked_item_id){
 			subMenuLink.style.background= "#ffffff";
             subMenuLink.style.color="#FB6D3A";
+			subMenuLink.firstChild.style.color="#FB6D3A";
 		}else{
 			subMenuLink.style.background= "#00B4D8";
             subMenuLink.style.color="#ffffff";
+			subMenuLink.firstChild.style.color="#ffffff";
 		}
 	});
 	
@@ -138,6 +143,7 @@ const activateSubMenuLink = (clicked_item_id) => {
 	menuLinks.forEach((menuLink)=>{
 		menuLink.style.background= "#00B4D8";
 		menuLink.style.color="#ffffff";
+		menuLink.firstChild.style.color="#ffffff";
 	});
 } ;
 	
@@ -148,7 +154,7 @@ return (
 			onClick={()=>{if(item.subNav) setSubnav(!subnav);
 						  activateMenuLink([item.title,item.subNav ? 1 :0]);}}>
 
-				<IconContext.Provider value={{ color: colorMenuLinkIcon }}>
+				<IconContext.Provider value={{ color: "#ffffff" }}>
 					{item.icon}
 				</IconContext.Provider>
 				&nbsp; &nbsp;   {item.title}
@@ -163,7 +169,7 @@ return (
 				{subnav && item.subNav.map((item, index) => {
 					return (
 						<DropdownLink className="subMenuLink" id={item.title} to={item.path} key={index} onClick={()=>activateSubMenuLink(item.title)}>
-							<IconContext.Provider value={{ color: colorSubMenuLinkIcon }}>
+							<IconContext.Provider value={{ color: "#ffffff" }}>
 								{item.icon}  
 							</IconContext.Provider>
 							&nbsp; &nbsp; {item.title}
