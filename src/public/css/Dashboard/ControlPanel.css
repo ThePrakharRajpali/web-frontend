@@ -39,6 +39,12 @@
 	color: #FFFFFF;
 }
 
+.subMenu{
+	background:#00B4D8;
+	margin-left: 2vw;
+	width: 23vw;
+}
+
   /* .metismenu{
 	background:#000000;
 	border:none;

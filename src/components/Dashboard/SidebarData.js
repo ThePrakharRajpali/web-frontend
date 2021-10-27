@@ -14,19 +14,19 @@ export const SidebarData = [
 
 	subNav: [
 	{
-		title: "User Profile 1",
+		title: "User Profile 2",
 		path: "/Dashboard_UserProfile",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
-		title: "My Profile 1",
+		title: "My Profile 3",
 		path: "/Dashboard_MyProfile",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	],
 },
 {
-	title: "User Profile 1",
+	title: "User Profile 4",
 	path: "/Dashboard_UserProfile",
 	icon: <IoIcons.IoIosPaper />,
 	iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -34,31 +34,31 @@ export const SidebarData = [
 
 	subNav: [
 	{
-		title: "My Profile 1",
+		title: "My Profile 5",
 		path: "/Dashboard_MyProfile",
 		icon: <IoIcons.IoIosPaper />,
 		cName: "sub-nav",
 	},
 	{
-		title: "My Profile 1",
+		title: "My Profile 6",
 		path: "/Dashboard_MyProfile",
 		icon: <IoIcons.IoIosPaper />,
 		cName: "sub-nav",
 	},
 	{
-		title: "My Profile 1",
+		title: "My Profile 7",
 		path: "/Dashboard_MyProfile",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	],
 },
 {
-	title: "User Profile 1",
+	title: "User Profile 8",
 	path: "/Dashboard_UserProfile",
 	icon: <FaIcons.FaPhone />,
 },
 {
-	title: "User Profile 1",
+	title: "User Profile 9",
 	path: "/Dashboard_UserProfile",
 	icon: <FaIcons.FaEnvelopeOpenText />,
 
@@ -67,19 +67,19 @@ export const SidebarData = [
 
 	subNav: [
 	{
-		title: "My Profile 1",
+		title: "My Profile 10",
 		path: "/Dashboard_MyProfile",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
-		title: "User Profile 1",
+		title: "User Profile 11",
 		path: "/Dashboard_UserProfile",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	],
 },
 {
-	title: "My Profile 1t",
+	title: "My Profile 12",
 	path: "/Dashboard_MyProfile",
 	icon: <IoIcons.IoMdHelpCircle />,
 },

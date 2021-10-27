@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { IconContext } from "react-icons/lib";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
 import "../../public/css/Dashboard/ControlPanel.css";
 
 const SidebarLink = styled(Link)`
@@ -21,16 +24,6 @@ const SidebarLink = styled(Link)`
     line-height: 1.5vw;
 	
 	border-radius: 2vw 0px 0px 2vw;
-
-&:hover {
-	background: #00B4D8;
-	cursor: pointer;
-}
-
-&:active{
-   background: #ffffff;
-   color:#FB6D3A;
-}
 `;
 
 const SidebarLabel = styled.span`
@@ -54,7 +47,7 @@ padding-left:1vw;
 `;
 
 const DropdownLink = styled(Link)`
-background: pink;
+background: #00B4D8;
  padding-top:1vw;
  padding-bottom:1vw;
  padding-left:1vw;
@@ -71,16 +64,6 @@ background: pink;
     line-height: 1.5vw;
 	
 	border-radius: 2vw 0px 0px 2vw;
-
-&:hover {
-	background: red;
-	cursor: pointer;
-}
-
-&:active{
-   background: #ffffff;
-   color:#FB6D3A;
-}
 `;
 
 const SidebarLabel2 = styled.span`
@@ -104,32 +87,92 @@ padding-left:1vw;
 `;
 const SubMenu = ({ item }) => {
 const [subnav, setSubnav] = useState(false);
+const [colorMenuLinkIcon, setcolorMenuLinkIcon] = useState("#ffffff");
+const [colorSubMenuLinkIcon, setColorSubMenuLinkIcon] = useState("#ffffff");
 
 const showSubnav = () => setSubnav(!subnav);
 	
-// const active = () => 
+const activateMenuLink = (props) => {
+	
+	var clicked_item_id = props[0];
+	var clicked_item_have_subMenu = props[1];
+	console.log(clicked_item_id,clicked_item_have_subMenu);
+	var b = false;
+	var menuLinks = document.querySelectorAll(".menuLink");
+	menuLinks.forEach((menuLink)=>{
+		var menuLink_id = menuLink.id;
+		if(clicked_item_id==menuLink_id && clicked_item_have_subMenu==0){
+			b=true;
+			menuLink.style.background= "#ffffff";
+			menuLink.style.color="#FB6D3A";
+		}else{
+			menuLink.style.background= "#00B4D8";
+			menuLink.style.color="#ffffff";
+		}
+	});
+	
+	if(b){
+		var subMenuLinks = document.querySelectorAll(".subMenuLink");
+		subMenuLinks.forEach((subMenuLink)=>{
+			subMenuLink.style.background= "#00B4D8";
+			subMenuLink.style.color="#ffffff";
+	    });
+	}
+} ;
+	
+const activateSubMenuLink = (clicked_item_id) => {
+	// console.log(clicked_item_id);
+	var subMenuLinks = document.querySelectorAll(".subMenuLink");
+	subMenuLinks.forEach((subMenuLink)=>{
+		var subMenuLink_id = subMenuLink.id;
+		if(subMenuLink_id==clicked_item_id){
+			subMenuLink.style.background= "#ffffff";
+            subMenuLink.style.color="#FB6D3A";
+		}else{
+			subMenuLink.style.background= "#00B4D8";
+            subMenuLink.style.color="#ffffff";
+		}
+	});
+	
+	var menuLinks = document.querySelectorAll(".menuLink");
+	menuLinks.forEach((menuLink)=>{
+		menuLink.style.background= "#00B4D8";
+		menuLink.style.color="#ffffff";
+	});
+} ;
+	
 
 return (
-	<>
-	<SidebarLink to={item.path}
-	onClick={item.subNav && showSubnav}>
-		
-		{item.icon} &nbsp; &nbsp;   {item.title}
-		
-		<div className="arrow">
-			{item.subNav && subnav? item.iconOpened: item.subNav? item.iconClosed: null}
+		<div>
+			<SidebarLink className="menuLink" id={item.title} to={item.path}
+			onClick={()=>{if(item.subNav) setSubnav(!subnav);
+						  activateMenuLink([item.title,item.subNav ? 1 :0]);}}>
+
+				<IconContext.Provider value={{ color: colorMenuLinkIcon }}>
+					{item.icon}
+				</IconContext.Provider>
+				&nbsp; &nbsp;   {item.title}
+
+				<div className="arrow">
+					{item.subNav && subnav? item.iconOpened: item.subNav? item.iconClosed: null}
+				</div>
+
+			</SidebarLink>
+            
+		    <div className="subMenu">
+				{subnav && item.subNav.map((item, index) => {
+					return (
+						<DropdownLink className="subMenuLink" id={item.title} to={item.path} key={index} onClick={()=>activateSubMenuLink(item.title)}>
+							<IconContext.Provider value={{ color: colorSubMenuLinkIcon }}>
+								{item.icon}  
+							</IconContext.Provider>
+							&nbsp; &nbsp; {item.title}
+						</DropdownLink>
+						 );
+				})}
+			</div>
 		</div>
-		
-	</SidebarLink>
-	{subnav && item.subNav.map((item, index) => {
-		return (
-			<DropdownLink to={item.path} key={index}>
-			{item.icon}  &nbsp; &nbsp; {item.title}
-			</DropdownLink>
-		     );
-	})}
-	</>
-);
+     );
 };
 
 export default SubMenu;

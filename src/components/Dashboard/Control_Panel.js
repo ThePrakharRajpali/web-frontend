@@ -9,16 +9,14 @@ import { IconContext } from "react-icons/lib";
 
 
 const SidebarNav = styled.nav`
-background: pink;
-width: 250px;
-height: 100vh;
+background: #00B4D8;
+width: 25vw;
 display: flex;
 justify-content: center;
-position: fixed;
-top: 0;
-left: 0;
+position: relative;
 transition: 350ms;
 z-index: 10;
+margin-bottom:4vw;
 `;
 
 const SidebarWrap = styled.div`
@@ -29,8 +27,7 @@ const ControlPanel = () => {
 const [sidebar, setSidebar] = useState(true);
 
 return (
-    <div>
-		<IconContext.Provider value={{ color: "#ffffff" }}>
+    <div className="ControlPanel">
 			<div className="LogoAndTitle">
 				<div className="Logo"></div>
 				<div className="Title">NAATA</div>
@@ -42,7 +39,6 @@ return (
 					})}
 				</SidebarWrap>
 			</SidebarNav>
-		</IconContext.Provider>
 	</div>
 );
 };
