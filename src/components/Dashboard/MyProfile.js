@@ -4,7 +4,7 @@ import "../../public/css/Dashboard/Dashboard.css";
 function MyProfile ()  {
   return (
     <div className="Dashboard">
-      myyyyyyyyyyyyyyyyyyyyy Profile
+      MyProfile
     </div>
   );
 };
