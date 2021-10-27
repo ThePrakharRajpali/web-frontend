@@ -60,7 +60,7 @@
   grid-column: 5 / span 2;
 }
 
-.submit-button {
+.contact-form .submit-button {
   grid-column: 5 / span 2;
   height: 34px;
   width: 95px;
@@ -70,7 +70,7 @@
   font-weight: 500;
 }
 
-input {
+.contact-form input {
   width: 80%;
   background-color: #e5e5e5;
   border: none;
