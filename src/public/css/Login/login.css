@@ -108,22 +108,22 @@ body {
 }
 
 .login-container .input {
-  width: 23vw;
-  height: 4vw;
-  margin: 0.5vw auto;
-  padding-left: 0.25vw;
-  padding-right: 0.25vw;
-  background: #e8f6f9;
-  border-radius: 0.75vw;
-  font-size: 1.5vw;
-  line-height: 1.7vw;
-  border-width: thin;
-  border-color: #00b4d8;
-  font-family: Sofia Pro;
-  font-style: normal;
-  font-weight: normal;
-  text-align: center;
-  color: #00b4d8;
+	width: 23vw ;
+	height: 4vw;
+	margin: 0.5vw auto;
+	padding-left: 0.25vw;
+	padding-right: 0.25vw;
+	background: #E8F6F9;
+	border-radius: 0.75vw;
+	font-size: 1.5vw;
+	line-height: 1.7vw;
+	border-width:thin;
+	border-color:#00B4D8;
+	font-family: SophiaPro;
+font-style: normal;
+font-weight: normal;
+	text-align: center;
+	color: #00B4D8;	
 }
 
 .login-container .input::placeholder {

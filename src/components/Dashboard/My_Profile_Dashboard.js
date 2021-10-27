@@ -1,8 +1,9 @@
 import React from "react";
+import "../../public/css/Dashboard/Dashboard.css";
 
 function MyProfile ()  {
   return (
-    <div >
+    <div className="Dashboard">
       myyyyyyyyyyyyyyyyyyyyy Profile
     </div>
   );
