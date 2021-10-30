@@ -66,6 +66,7 @@
 .Profile_Docs{
 	position: relative;
     width: 21.34vw;
+	max-height:27vw;
     margin-left: 2.5vw;
     margin-top: 1.5vw;
 	margin-bottom: 1.5vw;
@@ -73,6 +74,7 @@
 	border-radius: 2.77vw;
 	padding-bottom:1.18vw;
 	padding-top:1.52vw;
+	overflow:auto;
 }
 
 .Profile_Docs_Title{
@@ -103,7 +105,6 @@
 .Profile_Doc_Label{
 	position: relative;
 	width: fit-content;
-	/* height: 3.6vw; */
 	margin-top: 0.11vw;
 	background: #F3752B;
 	border-radius: 0.97vw;
@@ -129,12 +130,15 @@
 	margin-left: 26.9vw;
 	background: #F6F6F5;
 	border-radius: 3.33vw;
+	padding-left:3.26vw;
+	padding-right:3.26vw;
 }
 
 .Profile_PersonalInfo_Title{
 	position: relative;
 	margin-left: 4.72vw;
 	margin-top: 2.4vw;
+	margin-button: 2.4vw;
 	font-family: SophiaPro;
 	font-style: normal;
 	font-weight: normal;
@@ -143,4 +147,163 @@
 	display:flex;
 	align-items: center;
 	color: #646464;
+}
+
+.Profile_Edit_Button{
+	position: absolute;
+	width: fit-content;
+	height: 2.67vw;
+	margin-left:35.56vw;
+	padding-bottom:0.96vw;
+	padding-left:0.59vw;
+	padding-right:0.59vw;	
+	background: #F3752B;
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
+	cursor:pointer;
+}
+
+.Profile_Edit_Button_Disabled{
+	position: absolute;
+	width: fit-content;
+	height: 2.67vw;
+	margin-left:35.56vw;
+	padding-bottom:0.96vw;
+	padding-left:0.59vw;
+	padding-right:0.59vw;	
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
+	background: #7E8080;
+}
+
+.Profile_Edit_Icon{
+	font-size: 1.11vw;
+	padding-top:0.96vw;
+}
+
+.Profile_Field_Container{
+	display:flex;
+	flex-direction:column;
+	
+}
+
+.Profile_Fields{
+	display:flex;
+	flex-direction:row;
+	position:relative;
+	margin-top:2.375vw;
+	width:38.75vw;
+	height:fit-content;
+}
+
+.Profile_field{
+	display:flex;
+	flex-direction:column;
+	width:fit-content;
+	height:fit-content;
+	margin-right:1.7vw;
+}
+
+.Profile_field_label{
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #7E8080;
+	margin-bottom:0.36vw;
+	padding-left:0.76vw;
+}
+
+.Profile_field_input_enabled{
+	position: relative;
+	background: #FFFFFF;
+	border-radius: 0.74vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	color: #000000;
+	padding:0.76vw;
+	-webkit-box-shadow:0 0.5vw 0.5vw rgba(0, 0, 0, 0.5);   
+    -moz-box-shadow:0 0.5vw 0.5vw rgba(0, 0, 0, 0.5);
+    box-shadow:0 0.5vw 0.5vw rgba(0, 0, 0, 0.5);
+}
+
+.Profile_field_input{
+	position: relative;
+	background: #FFFFFF;
+	border-radius: 0.74vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #000000;
+	padding:0.76vw;
+}
+
+.Profile_Save_Button{
+	position: absolute;
+	width: fit-content;
+	height: 2.67vw;
+	margin-left:34.56vw;
+	padding-bottom:0.96vw;
+	padding-left:0.59vw;
+	padding-right:0.59vw;	
+	background: #F3752B;
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
+	margin-top:33.6vw;
+	cursor:pointer;
+}
+
+.Profile_Save_Button_Disabled{
+	position: absolute;
+	width: fit-content;
+	height: 2.67vw;
+	margin-left:34.56vw;
+	padding-bottom:0.96vw;
+	padding-left:0.59vw;
+	padding-right:0.59vw;	
+	background: #7E8080;
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
+	margin-top:33.6vw;
+}
+
+.Profile_Save_Icon{
+	font-size: 1.11vw;
+	padding-top:0.96vw;
 }
