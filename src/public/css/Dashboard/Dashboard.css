@@ -1,8 +1,10 @@
 .Dashboard{
 	position: absolute;
-    width: 74vw ;
+    width: 75vw ;
     height: 100vh;
-    left: 26vw;
+    left: 25vw;
     top: 0px;
 	align-content: center;
+	background:#ffffff;
+	overflow:auto;
 }
