@@ -1,0 +1,61 @@
+.SearchBarInput{
+	position: relative;
+	margin-top:2.02vw;
+	margin-left:2.02vw;
+	width: 55vw;
+	height: 3.76vw;
+	background: #F6F6F5;
+	border-radius: 1.38vw;
+	padding-left:1.33vw;
+	z-index:1;
+	
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.33vw;
+	line-height: 1.5vw;
+	align-items: center;
+	color: #7E8080;
+}
+
+.SearchBarIcon{
+	position: absolute;
+	top:2.02vw;
+	left:53.9vw;
+	width: 3.76vw;
+	height: 3.76vw;
+	background:  #F3752B;
+	border-radius: 1.38vw;
+	z-index:2;
+	padding:1.2vw;
+}
+
+.SearchResult{
+	position: relative;
+	width: 52vw;
+	height: 3.76vw;
+	margin-left:2.72vw;
+	background: #E9E9E9;
+	z-index:10;
+	display:flex;
+	flex-direction:row;
+	padding:1.33vw;
+	
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.33vw;
+	line-height: 1.5vw;
+	align-items: center;
+	color: #7E8080;
+}
+
+.SearchResultItem{
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.33vw;
+	line-height: 1.5vw;
+	align-items: center;
+	color: #7E8080;
+}

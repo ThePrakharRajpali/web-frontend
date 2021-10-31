@@ -1,5 +1,11 @@
 import React, { useState,useRef } from "react";
-import "../../public/css/Dashboard/Dashboard.css";
+import * as AiIcons from "react-icons/ai";
+import { IconContext } from "react-icons/lib";
+import "../../../public/css/Dashboard/Dashboard.css";
+import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
+import "../../../public/css/Dashboard/UserProfile/Customer.css";
+import "../../../public/css/Dashboard/MyProfile.css";
+
 const info = {
 		Admin1 : {
 			"_id" : "615ae85f288c4050a2c49bc4",
@@ -11,7 +17,8 @@ const info = {
 			"userCode":"NCADMIN0001",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0
+			"__v":0,
+			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 		},	
 		Admin2 : {
 			"_id" : "615ae85f288c4050a2c49bc4",
@@ -23,7 +30,8 @@ const info = {
 			"userCode":"NCADMIN0002",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0
+			"__v":0,
+			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 		},
 		Admin3 : {
 			"_id" : "615ae85f288c4050a2c49bc4",
@@ -35,7 +43,8 @@ const info = {
 			"userCode":"NCADMIN0003",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0
+			"__v":0,
+			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 		},	
 		Admin4 : {
 			"_id" : "615ae85f288c4050a2c49bc4",
@@ -47,29 +56,54 @@ const info = {
 			"userCode":"NCADMIN0004",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0
+			"__v":0,
+			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 		},
-    }
+}
 
 const User = (user) => {
 	
 	if(user === 4){
-		return (<div style={{width:'400px',height:'100px',background:'green'}}></div>);
+		return (<div></div>);
 	}
 	else{
-		return (<div style={{width:'400px',height:'100px',background:'green'}}>
-					<div>
-						<div>{user["user"]["firstName"]}</div>
-						<div>{user["user"]["firstName"]}</div>
-						<div>{user["user"]["firstName"]}</div>
-					</div>
-				</div>);
+		return (
+			<div className="Profile_Container">
+			  <center>
+				 <img className="Profile_Pic" src={user["user"]["profilePic"]}></img>
+				 <div className="Profile_Name">{user["user"]["firstName"] + " "}</div>
+				  <div className="Profile_Role">{user["user"]["firstName"] + " "}</div>
+				  <div className="Profile_UserCode">{user["user"]["firstName"] + " "}</div>
+			  </center>
+			</div>
+		);
 	}
 };
 
-class UserProfile extends React.Component {
+const Options = (options, handleClick) => {
+	console.log(options);
+	console.log(options["options"].length);
+	if(options["options"].length){
+		return(
+				<div style={{width:'400px',height:'100px',background:'yellow'}}>
+							{options["options"].map((item, index) => {
+							return <button onClick={handleClick} value={item}>
+									 <div>{item}</div>
+									 <div>{item}</div>
+									 <div>{item}</div>
+								   </button>;
+							})}
+				</div>
+			);
+	}
+	else{
+		return (<div></div>);
+	}
+};
+
+class UserProfile_Customer extends React.Component {
 	
-	constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {value: '',myOptions:[],user:4};
 
@@ -85,13 +119,22 @@ class UserProfile extends React.Component {
 	var thing2 = things[Math.floor(Math.random()*things.length)];
 		
 	this.setState({myOptions: [thing1,thing2]});
+	console.log(this.state.myOptions);
+	var results = document.querySelectorAll(".SearchResult");
+	results.forEach((result) => {
+		result.style.display = "flex";
+	});
   }
 	
-  
-
   handleClick(event) {
    	console.log("Clicked input = "+event.target.value);
-	this.setState({user: info[event.target.value]});		   
+	this.setState({user: info[event.target.value]});
+	this.refs.myInput.value=event.target.value;
+	var results = document.querySelectorAll(".SearchResult");
+	results.forEach((result) => {
+		result.style.display = "none";
+	});
+	
   }
 
 
@@ -135,22 +178,39 @@ class UserProfile extends React.Component {
  render() {
 	return (
 		<div className="Dashboard">
-			UserProfile
+			
 			<div>
 				
-				<input style={{width:'400px',height:'100px',background:'pink'}}type="text" placeholder="search user" ref="myInput" onChange={this.handleChange}></input>
+				<input className="SearchBarInput" type="text" placeholder="Search Customer" ref="myInput" onChange={this.handleChange}></input>
 				
-				<div style={{width:'400px',height:'100px',background:'yellow'}}>
-					{this.state.myOptions.map((item, index) => {
-					return <button onClick={this.handleClick} value={item}>{index+" "+item}</button>;
-					})}
+				<div className="SearchBarIcon">
+					<IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
+					<AiIcons.AiOutlineSearch />
+			    </IconContext.Provider> 
 				</div>
-				
-				<User user={this.state.user}/>
-				
+			 
 			</div>
+			
+			
+			<div style={{height:'auto'}} ref="SearchResults">
+				{this.state.myOptions.map((item, index) => {
+				return (
+					<div className="SearchResult">
+						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item + " " + item + " " + item}</button>
+						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item}</button>
+						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item}</button>
+					</div>
+					);
+				})}
+			</div>
+			
+			<div>
+				<User user={this.state.user}/>
+			</div>
+			
 		</div>
 	);
  }
 };
-export default UserProfile;
+
+export default UserProfile_Customer;

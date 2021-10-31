@@ -8,16 +8,19 @@ import FullTruck from "./components/Service/FullTruck/FullTruck";
 import LastMile from "./components/Service/LastMile/LastMile";
 import Partner from "./components/Partner/Partner";
 import About from "./components/About/About";
-import CotrolPanel from "./components/Dashboard/Control_Panel";
+import ControlPanel from "./components/Dashboard/ControlPanel/Control_Panel";
 import MyProfile from "./components/Dashboard/MyProfile";
 import Attendance from "./components/Dashboard/Attendance";
 import LiveLocation from "./components/Dashboard/LiveLocation";
-import UserProfile from "./components/Dashboard/UserProfile";
+import UserProfile_Customer from "./components/Dashboard/UserProfile/UserProfile_Customer";
+import UserProfile_Manager from "./components/Dashboard/UserProfile/UserProfile_Manager";
+import UserProfile_Driver from "./components/Dashboard/UserProfile/UserProfile_Driver";
+import UserProfile_DeliveryBoy from "./components/Dashboard/UserProfile/UserProfile_DeliveryBoy";
 import VehicleRegistration from "./components/Dashboard/VehicleRegistration";
-import ServiceRequests_CreateNew from "./components/Dashboard/ServiceRequests_CreateNew";
-import ServiceRequests_Pending from "./components/Dashboard/ServiceRequests_Pending";
-import ServiceRequests_Active from "./components/Dashboard/ServiceRequests_Active";
-import ServiceRequests_Completed from "./components/Dashboard/ServiceRequests_Completed";
+import ServiceRequests_CreateNew from "./components/Dashboard/ServiceRequests/ServiceRequests_CreateNew";
+import ServiceRequests_Pending from "./components/Dashboard/ServiceRequests/ServiceRequests_Pending";
+import ServiceRequests_Active from "./components/Dashboard/ServiceRequests/ServiceRequests_Active";
+import ServiceRequests_Completed from "./components/Dashboard/ServiceRequests/ServiceRequests_Completed";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
@@ -70,39 +73,51 @@ const Display = () => {
           </Route>
 			
 		  <Route exact path="/Dashboard_MyProfile">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<MyProfile />
           </Route>	
 		  <Route exact path="/Dashboard_Attendance">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<Attendance />
           </Route>	
 		  <Route exact path="/Dashboard_LiveLocation">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<LiveLocation />
           </Route>	
-		  <Route exact path="/Dashboard_UserProfile">
-            <CotrolPanel/>
-			<UserProfile />
+		  <Route exact path="/Dashboard_UserProfile_Customer">
+            <ControlPanel/>
+			<UserProfile_Customer />
           </Route>	
+		  <Route exact path="/Dashboard_UserProfile_Manager">
+            <ControlPanel/>
+			<UserProfile_Manager />
+          </Route>
+		  <Route exact path="/Dashboard_UserProfile_Driver">
+            <ControlPanel/>
+			<UserProfile_Driver />
+          </Route>
+			<Route exact path="/Dashboard_UserProfile_DeliveryBoy">
+            <ControlPanel/>
+			<UserProfile_DeliveryBoy />
+          </Route>
 		  <Route exact path="/Dashboard_VehicleRegistration">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<VehicleRegistration />
           </Route>	
 		  <Route exact path="/Dashboard_ServiceRequests_CreateNew">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<ServiceRequests_CreateNew />
           </Route>	
 		  <Route exact path="/Dashboard_ServiceRequests_Pending">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<ServiceRequests_Pending />
           </Route>	
 		  <Route exact path="/Dashboard_ServiceRequests_Active">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<ServiceRequests_Active />
           </Route>	
 		  <Route exact path="/Dashboard_ServiceRequests_Completed">
-            <CotrolPanel/>
+            <ControlPanel/>
 			<ServiceRequests_Completed />
           </Route>
 			

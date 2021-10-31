@@ -89,28 +89,31 @@ class MyProfile extends React.Component  {
 
 				  <div className="Profile_Docs">
 					  <div className="Profile_Docs_Title">Documents</div>
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
+					  
+						  <div className="Profile_Doc">
+							  <center>
+								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+								  <div className="Profile_Doc_Label">
+									  <IconContext.Provider value={{ color: "#ffffff" }}>
+											<RiIcons.RiProfileLine />
+									  </IconContext.Provider> 
+									  &nbsp; &nbsp; Aadhar Id
+								  </div>
+							  </center>
+						  </div>
+
+						  <div className="Profile_Doc">
+							  <center>
+								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+								  <div className="Profile_Doc_Label">
+									  <IconContext.Provider value={{ color: "#ffffff" }}>
+											<RiIcons.RiProfileLine />
+									  </IconContext.Provider> 
+									  &nbsp; &nbsp; Aadhar Id
+								  </div>
+							  </center>
+						  </div>
+					  
 				  </div>
 
 				  <div className="Profile_PersonalInfo">
