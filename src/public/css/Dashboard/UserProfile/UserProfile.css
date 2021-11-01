@@ -59,3 +59,53 @@
 	align-items: center;
 	color: #7E8080;
 }
+
+.BlockButton{
+	position: relative;
+	width: fit-content;
+	height: 2.67vw;
+	margin-right:2vw;
+	margin-left:2vw;
+	margin-top:1.5vw;
+	padding-bottom:0.96vw;
+	padding-top:0.96vw;
+	padding-left:0.59vw;
+	padding-right:0.59vw;	
+	background: red;
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
+	cursor:pointer;
+}
+
+.BlockButtonDisabled{
+	position: relative;
+	width: fit-content;
+	height: 2.67vw;
+	margin-right:2vw;
+	margin-left:2vw;
+	margin-top:1.5vw;
+	padding-bottom:0.96vw;
+	padding-top:0.96vw;
+	padding-left:0.59vw;
+	padding-right:0.59vw;	
+	background: #7E8080;
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	display: flex;
+	align-items: center;
+	color: #FFFFFF;
+	cursor:pointer;
+	display:none;
+	height:0;
+}
