@@ -24,7 +24,7 @@ const info = {
 			"department":"Management Department",
 			"gst":"78ghj21900",
 			"role":"ADMIN",
-			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
+			"active": false,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
 			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 		},	
@@ -90,161 +90,161 @@ const info = {
 		},
 }
 
-const User = (user) => {
-	console.log("user is",user,typeof(user));
+// const User = (user) => {
+// 	console.log("user is",user,typeof(user));
 	
-	if(user["user"] === null || typeof(user["user"]) === 'undefined' || user["user"]==null){
-		return (<div></div>);
-	}
-	else{
-		return (
-			<div>
-				<div className="Profile_Container">
-				  <center>
-					 <img className="Profile_Pic" src={user["user"]["profilePic"]}></img>
-					 <div className="Profile_Name">{user["user"]["firstName"] + " " + user["user"]["middleName"] + user["user"]["lastName"] }</div>
-					  <div className="Profile_Role">{user["user"]["role"]}</div>
-					  <div className="Profile_UserCode">{user["user"]["userCode"]}</div>
-				  </center>
-				</div>
+// 	if(user["user"] === null || typeof(user["user"]) === 'undefined' || user["user"]==null){
+// 		return (<div></div>);
+// 	}
+// 	else{
+// 		return (
+// 			<div>
+// 				<div className="Profile_Container">
+// 				  <center>
+// 					 <img className="Profile_Pic" src={user["user"]["profilePic"]}></img>
+// 					 <div className="Profile_Name">{user["user"]["firstName"] + " " + user["user"]["middleName"] + user["user"]["lastName"] }</div>
+// 					  <div className="Profile_Role">{user["user"]["role"]}</div>
+// 					  <div className="Profile_UserCode">{user["user"]["userCode"]}</div>
+// 				  </center>
+// 				</div>
 				
-				<div className="Profile_Docs">
-					  <div className="Profile_Docs_Title">Documents</div>
+// 				<div className="Profile_Docs">
+// 					  <div className="Profile_Docs_Title">Documents</div>
 					  
-						  <div className="Profile_Doc">
-							  <center>
-								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-								  <div className="Profile_Doc_Label">
-									  <IconContext.Provider value={{ color: "#ffffff" }}>
-											<RiIcons.RiProfileLine />
-									  </IconContext.Provider> 
-									  &nbsp; &nbsp; Aadhar Id
-								  </div>
-							  </center>
-						  </div>
+// 						  <div className="Profile_Doc">
+// 							  <center>
+// 								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+// 								  <div className="Profile_Doc_Label">
+// 									  <IconContext.Provider value={{ color: "#ffffff" }}>
+// 											<RiIcons.RiProfileLine />
+// 									  </IconContext.Provider> 
+// 									  &nbsp; &nbsp; Aadhar Id
+// 								  </div>
+// 							  </center>
+// 						  </div>
 
-						  <div className="Profile_Doc">
-							  <center>
-								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-								  <div className="Profile_Doc_Label">
-									  <IconContext.Provider value={{ color: "#ffffff" }}>
-											<RiIcons.RiProfileLine />
-									  </IconContext.Provider> 
-									  &nbsp; &nbsp; Aadhar Id
-								  </div>
-							  </center>
-						  </div>
+// 						  <div className="Profile_Doc">
+// 							  <center>
+// 								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+// 								  <div className="Profile_Doc_Label">
+// 									  <IconContext.Provider value={{ color: "#ffffff" }}>
+// 											<RiIcons.RiProfileLine />
+// 									  </IconContext.Provider> 
+// 									  &nbsp; &nbsp; Aadhar Id
+// 								  </div>
+// 							  </center>
+// 						  </div>
 					  
-				</div>
+// 				</div>
 				
-				<div className="Profile_PersonalInfo">
-					  <div className="Profile_PersonalInfo_Title">Personal Info</div>
+// 				<div className="Profile_PersonalInfo">
+// 					  <div className="Profile_PersonalInfo_Title">Personal Info</div>
 					 
 						  
-						<div className="Profile_Field_Container">
-						    <div className="Profile_Fields">
+// 						<div className="Profile_Field_Container">
+// 						    <div className="Profile_Fields">
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">First Name</label>
-									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["firstName"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">First Name</label>
+// 									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["firstName"]} disabled={true}/>
+// 								</div>
 							
-								<div className="Profile_field">
-									<label className="Profile_field_label">Middle Name</label>
-									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["middleName"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Middle Name</label>
+// 									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["middleName"]} disabled={true}/>
+// 								</div>
 							
-								<div className="Profile_field">
-									<label className="Profile_field_label">Last Name</label>
-									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["lastName"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Last Name</label>
+// 									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["lastName"]} disabled={true}/>
+// 								</div>
 							
-							</div>
+// 							</div>
 						  
-							<div className="Profile_Fields">
+// 							<div className="Profile_Fields">
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">Email Id</label>
-									<input className="Profile_field_input" style={{width:'27.29vw',height:'2.6vw'}}type="text" value={user["user"]["emailId"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Email Id</label>
+// 									<input className="Profile_field_input" style={{width:'27.29vw',height:'2.6vw'}}type="text" value={user["user"]["emailId"]} disabled={true}/>
+// 								</div>
 
-							</div>
+// 							</div>
 							
-							<div className="Profile_Fields">
+// 							<div className="Profile_Fields">
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">Mobile Number</label>
-									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["contact"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Mobile Number</label>
+// 									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["contact"]} disabled={true}/>
+// 								</div>
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">Secondary Contact Number</label>
-									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["secondaryContact"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Secondary Contact Number</label>
+// 									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["secondaryContact"]} disabled={true}/>
+// 								</div>
 
-							</div>
+// 							</div>
 							
-							<div className="Profile_Fields">
+// 							<div className="Profile_Fields">
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">Address</label>
-									<textarea className="Profile_field_input" style={{width:'34.8vw',height:'fit-content'}} type="textarea" value={user["user"]["address"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Address</label>
+// 									<textarea className="Profile_field_input" style={{width:'34.8vw',height:'fit-content'}} type="textarea" value={user["user"]["address"]} disabled={true}/>
+// 								</div>
 
-							</div>
+// 							</div>
 							
-							<div className="Profile_Fields">
+// 							<div className="Profile_Fields">
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">City</label>
-									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["user"]["city"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">City</label>
+// 									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["user"]["city"]} disabled={true}/>
+// 								</div>
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">State</label>
-									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["user"]["state"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">State</label>
+// 									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["user"]["state"]} disabled={true}/>
+// 								</div>
 
-							</div>
-						</div>
+// 							</div>
+// 						</div>
 						  
 					
 					
-					  <div className="Profile_PersonalInfo_Title">Work Info</div>
-					  <form>
+// 					  <div className="Profile_PersonalInfo_Title">Work Info</div>
+// 					  <form>
 						  
-						<div className="Profile_Field_Container">
-						    <div className="Profile_Fields">
+// 						<div className="Profile_Field_Container">
+// 						    <div className="Profile_Fields">
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">Company Name</label>
-									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["user"]["companyName"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Company Name</label>
+// 									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["user"]["companyName"]} disabled={true}/>
+// 								</div>
 							
-								<div className="Profile_field">
-									<label className="Profile_field_label">Department</label>
-									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["user"]["department"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">Department</label>
+// 									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["user"]["department"]} disabled={true}/>
+// 								</div>
 							
-							</div>
+// 							</div>
 						  
-							<div className="Profile_Fields">
+// 							<div className="Profile_Fields">
 								
-								<div className="Profile_field">
-									<label className="Profile_field_label">GST</label>
-									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["gst"]} disabled={true}/>
-								</div>
+// 								<div className="Profile_field">
+// 									<label className="Profile_field_label">GST</label>
+// 									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["gst"]} disabled={true}/>
+// 								</div>
 
-							</div>
+// 							</div>
 							
-						</div>
+// 						</div>
 						  
-					  </form>
-			    </div>
-			</div>
-		);
-	}
-};
+// 					  </form>
+// 			    </div>
+// 			</div>
+// 		);
+// 	}
+// };
 
 const Options = (options, handleClick) => {
 	console.log(options);
@@ -275,6 +275,7 @@ class UserProfile_Customer extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+	this.handleBlock = this.handleBlock.bind(this);
   }
 
   handleChange(event) {
@@ -302,7 +303,12 @@ class UserProfile_Customer extends React.Component {
 	});
 	
   }
-
+	
+  handleBlock(event) {
+   	console.log("Blocked user");
+	
+	
+  }
 
 	// getDataFromAPI = () => {
 	// 	console.log("Enetered input = ",this.refs.myInput.value);
@@ -342,6 +348,164 @@ class UserProfile_Customer extends React.Component {
 	// }
 	
  render() {
+	 let userComponent;
+	 let user = this.state.user;
+	 console.log("here user is ",user);
+	 
+	 if(user === null || typeof(user) === 'undefined' || user==null){
+		userComponent = (<div></div>);
+	 }
+	 else{
+		userComponent = (
+			<div>
+				<div className="Profile_Container">
+				  <center>
+					 <img className="Profile_Pic" src={user["profilePic"]}></img>
+					 <div className="Profile_Name">{user["firstName"] + " " + user["middleName"] + user["lastName"] }</div>
+					  <div className="Profile_Role">{user["role"]}</div>
+					  <div className="Profile_UserCode">{user["userCode"]}</div>
+					  <div className="Profile_UserCode">{user["active"] ? "Status: Active ": "Status: Blocked"}</div>
+					  <button className={user["active"] ? "BlockButton": "BlockButtonDisabled"} onClick={this.handleBlock.bind(this)} disabled={user["active"] ? false: true}>Block User</button>
+				  </center>
+				</div>
+				
+				<div className="Profile_Docs">
+					  <div className="Profile_Docs_Title">Documents</div>
+					  
+					  <div className="Profile_Doc">
+						  <center>
+							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+							  <div className="Profile_Doc_Label">
+								  <IconContext.Provider value={{ color: "#ffffff" }}>
+										<RiIcons.RiProfileLine />
+								  </IconContext.Provider> 
+								  &nbsp; &nbsp; Aadhar Id
+							  </div>
+						  </center>
+					  </div>
+
+					  <div className="Profile_Doc">
+						  <center>
+							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+							  <div className="Profile_Doc_Label">
+								  <IconContext.Provider value={{ color: "#ffffff" }}>
+										<RiIcons.RiProfileLine />
+								  </IconContext.Provider> 
+								  &nbsp; &nbsp; Aadhar Id
+							  </div>
+						  </center>
+					  </div>
+					  
+				</div>
+				
+				<div className="Profile_PersonalInfo">
+					  <div className="Profile_PersonalInfo_Title">Personal Info</div>
+					 
+						  
+						<div className="Profile_Field_Container">
+						    <div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">First Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["firstName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Middle Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["middleName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Last Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["lastName"]} disabled={true}/>
+								</div>
+							
+							</div>
+						  
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Email Id</label>
+									<input className="Profile_field_input" style={{width:'27.29vw',height:'2.6vw'}}type="text" value={user["emailId"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Mobile Number</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["contact"]} disabled={true}/>
+								</div>
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Secondary Contact Number</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["secondaryContact"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Address</label>
+									<textarea className="Profile_field_input" style={{width:'34.8vw',height:'fit-content'}} type="textarea" value={user["address"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">City</label>
+									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["city"]} disabled={true}/>
+								</div>
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">State</label>
+									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["state"]} disabled={true}/>
+								</div>
+
+							</div>
+						</div>
+						  
+					
+					
+					  <div className="Profile_PersonalInfo_Title">Work Info</div>
+					  <form>
+						  
+						<div className="Profile_Field_Container">
+						    <div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Company Name</label>
+									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["companyName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Department</label>
+									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["department"]} disabled={true}/>
+								</div>
+							
+							</div>
+						  
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">GST</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["gst"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+						</div>
+						  
+					  </form>
+			    </div>
+			</div>
+		);
+	 }
+	 
 	return (
 		<div className="Dashboard">
 			
@@ -370,9 +534,7 @@ class UserProfile_Customer extends React.Component {
 				})}
 			</div>
 			
-			<div>
-				<User user={this.state.user}/>
-			</div>
+			<div>{userComponent}</div>
 			
 		</div>
 	);
