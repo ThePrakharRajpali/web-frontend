@@ -1,5 +1,6 @@
 import React, { useState,useRef } from "react";
 import * as AiIcons from "react-icons/ai";
+import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
 import "../../../public/css/Dashboard/Dashboard.css";
 import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
@@ -9,12 +10,19 @@ import "../../../public/css/Dashboard/MyProfile.css";
 const info = {
 		Admin1 : {
 			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin1",
+			"firstName" : "Admin1 Admin1 Admin1 Admin1",
             "middleName": "Admin1",
 			"lastName": "Admin1",
 			"emailId":"admin1@gmail.com",
 			"contact":"67585938839",
 			"userCode":"NCADMIN0001",
+			"secondaryContact":"98789604034",
+			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
+			"city":"Mumbai",
+			"state":"Maharashtra",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -27,6 +35,13 @@ const info = {
 			"lastName": "Admin2",
 			"emailId":"admin2@gmail.com",
 			"contact":"67585938839",
+			"secondaryContact":"98789604034",
+			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
+			"city":"Mumbai",
+			"state":"Maharashtra",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"userCode":"NCADMIN0002",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
@@ -41,6 +56,13 @@ const info = {
 			"emailId":"admin3@gmail.com",
 			"contact":"67585938839",
 			"userCode":"NCADMIN0003",
+			"secondaryContact":"98789604034",
+			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
+			"city":"Mumbai",
+			"state":"Maharashtra",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -54,6 +76,13 @@ const info = {
 			"emailId":"admin4@gmail.com",
 			"contact":"67585938839",
 			"userCode":"NCADMIN0004",
+			"secondaryContact":"98789604034",
+			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
+			"city":"Mumbai",
+			"state":"Maharashtra",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -62,19 +91,156 @@ const info = {
 }
 
 const User = (user) => {
+	console.log("user is",user,typeof(user));
 	
-	if(user === 4){
+	if(user["user"] === null || typeof(user["user"]) === 'undefined' || user["user"]==null){
 		return (<div></div>);
 	}
 	else{
 		return (
-			<div className="Profile_Container">
-			  <center>
-				 <img className="Profile_Pic" src={user["user"]["profilePic"]}></img>
-				 <div className="Profile_Name">{user["user"]["firstName"] + " "}</div>
-				  <div className="Profile_Role">{user["user"]["firstName"] + " "}</div>
-				  <div className="Profile_UserCode">{user["user"]["firstName"] + " "}</div>
-			  </center>
+			<div>
+				<div className="Profile_Container">
+				  <center>
+					 <img className="Profile_Pic" src={user["user"]["profilePic"]}></img>
+					 <div className="Profile_Name">{user["user"]["firstName"] + " " + user["user"]["middleName"] + user["user"]["lastName"] }</div>
+					  <div className="Profile_Role">{user["user"]["role"]}</div>
+					  <div className="Profile_UserCode">{user["user"]["userCode"]}</div>
+				  </center>
+				</div>
+				
+				<div className="Profile_Docs">
+					  <div className="Profile_Docs_Title">Documents</div>
+					  
+						  <div className="Profile_Doc">
+							  <center>
+								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+								  <div className="Profile_Doc_Label">
+									  <IconContext.Provider value={{ color: "#ffffff" }}>
+											<RiIcons.RiProfileLine />
+									  </IconContext.Provider> 
+									  &nbsp; &nbsp; Aadhar Id
+								  </div>
+							  </center>
+						  </div>
+
+						  <div className="Profile_Doc">
+							  <center>
+								  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+								  <div className="Profile_Doc_Label">
+									  <IconContext.Provider value={{ color: "#ffffff" }}>
+											<RiIcons.RiProfileLine />
+									  </IconContext.Provider> 
+									  &nbsp; &nbsp; Aadhar Id
+								  </div>
+							  </center>
+						  </div>
+					  
+				</div>
+				
+				<div className="Profile_PersonalInfo">
+					  <div className="Profile_PersonalInfo_Title">Personal Info</div>
+					 
+						  
+						<div className="Profile_Field_Container">
+						    <div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">First Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["firstName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Middle Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["middleName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Last Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["user"]["lastName"]} disabled={true}/>
+								</div>
+							
+							</div>
+						  
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Email Id</label>
+									<input className="Profile_field_input" style={{width:'27.29vw',height:'2.6vw'}}type="text" value={user["user"]["emailId"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Mobile Number</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["contact"]} disabled={true}/>
+								</div>
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Secondary Contact Number</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["secondaryContact"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Address</label>
+									<textarea className="Profile_field_input" style={{width:'34.8vw',height:'fit-content'}} type="textarea" value={user["user"]["address"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">City</label>
+									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["user"]["city"]} disabled={true}/>
+								</div>
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">State</label>
+									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["user"]["state"]} disabled={true}/>
+								</div>
+
+							</div>
+						</div>
+						  
+					
+					
+					  <div className="Profile_PersonalInfo_Title">Work Info</div>
+					  <form>
+						  
+						<div className="Profile_Field_Container">
+						    <div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Company Name</label>
+									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["user"]["companyName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Department</label>
+									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["user"]["department"]} disabled={true}/>
+								</div>
+							
+							</div>
+						  
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">GST</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["user"]["gst"]} disabled={true}/>
+								</div>
+
+							</div>
+							
+						</div>
+						  
+					  </form>
+			    </div>
 			</div>
 		);
 	}
@@ -105,7 +271,7 @@ class UserProfile_Customer extends React.Component {
 	
   constructor(props) {
     super(props);
-    this.state = {value: '',myOptions:[],user:4};
+    this.state = {value: '',myOptions:[],user:null};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
