@@ -4,7 +4,6 @@ import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
 import "../../../public/css/Dashboard/Dashboard.css";
 import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
-import "../../../public/css/Dashboard/UserProfile/Customer.css";
 import "../../../public/css/Dashboard/MyProfile.css";
 
 const info = {
@@ -248,7 +247,7 @@ class UserProfile_DeliveryBoy extends React.Component {
 					  
 				</div>
 				
-				<div className="Profile_PersonalInfo">
+				<div className="Profile_PersonalInfo" style={{top: '0vw', height:'53vw'}}>
 				    <div className="Profile_PersonalInfo_Title">Personal Info</div>	 
 
 					<div className="Profile_Field_Container">
