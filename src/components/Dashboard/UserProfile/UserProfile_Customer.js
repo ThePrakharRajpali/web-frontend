@@ -4,7 +4,6 @@ import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
 import "../../../public/css/Dashboard/Dashboard.css";
 import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
-import "../../../public/css/Dashboard/UserProfile/Customer.css";
 import "../../../public/css/Dashboard/MyProfile.css";
 
 const info = {
@@ -240,7 +239,7 @@ class UserProfile_Customer extends React.Component {
 					  
 				</div>
 				
-				<div className="Profile_PersonalInfo">
+				<div className="Profile_PersonalInfo" style={{top: '0vw', height:'53vw'}}>
 					  <div className="Profile_PersonalInfo_Title">Personal Info</div>
 					 
 						  
@@ -362,7 +361,6 @@ class UserProfile_Customer extends React.Component {
 				</div>
 			 
 			</div>
-			
 			
 			<div style={{height:'auto'}} ref="SearchResults">
 				{this.state.myOptions.map((item, index) => {
