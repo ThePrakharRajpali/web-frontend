@@ -1,5 +1,5 @@
 import React from "react";
-import "../../public/css/Dashboard/Dashboard.css";
+import "../../../public/css/Dashboard/Dashboard.css";
 
 function ServiceRequests_Pending ()  {
   return (

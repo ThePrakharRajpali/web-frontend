@@ -124,14 +124,16 @@
 
 .Profile_PersonalInfo{
 	position: absolute;
-	top: 2vw;
+	top: 0.2vw;
 	width: 45.27vw;
-	min-height: 45vw;
+	max-height: 47vw;
 	margin-left: 26.9vw;
 	background: #F6F6F5;
 	border-radius: 3.33vw;
 	padding-left:3.26vw;
 	padding-right:3.26vw;
+	padding-bottom: 2vw;
+	overflow-y:auto;
 }
 
 .Profile_PersonalInfo_Title{
