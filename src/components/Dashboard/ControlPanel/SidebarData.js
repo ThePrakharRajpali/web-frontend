@@ -57,6 +57,13 @@ export const SidebarData = [
 	
 },
 {
+title: "User Registration",
+path: "/Dashboard_UserRegistration",
+icon: <AiIcons.AiOutlineUserAdd />,
+iconClosed: <RiIcons.RiArrowDownSFill />,
+iconOpened: <RiIcons.RiArrowUpSFill />,
+},
+{
 	title: "Vehicle Registration",
 	path: "/Dashboard_VehicleRegistration",
 	icon: <RiIcons.RiCaravanLine />,
