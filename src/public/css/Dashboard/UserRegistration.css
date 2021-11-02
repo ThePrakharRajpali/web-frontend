@@ -1,0 +1,139 @@
+.UserRegistration{
+	min-height:30vw;
+	margin-top:4vw;
+	margin-left:3vw;
+	margin-right:3vw;
+	background: #F6F6F5;
+	border-radius: 3.125vw;
+	position:relative;
+	padding-top:3vw;
+	padding-bottom:3vw;
+	padding-left:2vw;
+	padding-right:2vw;
+}
+
+.UserRegistration_Title{
+	position: relative;
+	margin-left: 4.72vw;
+	margin-bottom: 2vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.944vw;
+	line-height: 2vw;
+	display:flex;
+	align-items: center;
+	color: #646464;
+}
+
+
+.Form_Field_Container{
+	display:flex;
+	flex-direction:column;
+	
+}
+
+.Form_Fields{
+	display:flex;
+	flex-direction:row;
+	position:relative;
+	margin-top:2.375vw;
+	width:38.75vw;
+	height:fit-content;
+}
+
+.Form_field{
+	display:flex;
+	flex-direction:column;
+	width:fit-content;
+	height:fit-content;
+	margin-right:1.7vw;
+}
+
+.Form_field_label{
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #7E8080;
+	margin-bottom:0.36vw;
+	padding-left:0.76vw;
+}
+
+
+.Form_field_input{
+	position: relative;
+	background: #FFFFFF;
+	border-radius: 0.74vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #000000;
+	padding:0.76vw;
+	padding-right:1vw;
+}
+
+.Form_field_select select { appearance: none; }
+.Form_field_select::after {  content: '';
+  position: relative;
+  margin-top: 1.5vw;
+  margin-right: 1vw;
+  transform: translateY(-50%);
+  width: 0.5vw; 
+  height: 0.5vw; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black; }
+.Form_field_select { position: relative; }
+.Form_field_select::after {
+  position: absolute;
+  top: 0; right: 0;
+}
+
+.Register_Button{
+	position: relative;
+	width: 16vw;
+	height: fit-content;
+	margin-left:15vw;
+	/* padding-top:0.96vw;
+	padding-bottom:0.96vw;
+	padding-left:0.96vw;
+	padding-right:0.96vw;	 */
+	text-align:center;
+	padding:0.7vw;
+	background: #52B788;
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	/* display: flex; */
+	align-items: center;
+	color: #FFFFFF;
+	cursor:pointer;
+}
+
+.Reset_Button{
+	position: relative;
+	width: 18vw;
+	height: 2.67vw;
+	margin-left:10vw;
+	padding:0.7vw;	
+	background:  #E5584F;
+    border-radius: 0.83vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+    text-align:center;
+	align-items: center;
+	color: #FFFFFF;
+	cursor:pointer;
+}
