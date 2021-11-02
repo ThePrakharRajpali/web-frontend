@@ -64,6 +64,13 @@ iconClosed: <RiIcons.RiArrowDownSFill />,
 iconOpened: <RiIcons.RiArrowUpSFill />,
 },
 {
+title: "SuperUser Registration",
+path: "/Dashboard_SuperUserRegistration",
+icon: <AiIcons.AiOutlineUserAdd />,
+iconClosed: <RiIcons.RiArrowDownSFill />,
+iconOpened: <RiIcons.RiArrowUpSFill />,
+},
+{
 	title: "Vehicle Registration",
 	path: "/Dashboard_VehicleRegistration",
 	icon: <RiIcons.RiCaravanLine />,
