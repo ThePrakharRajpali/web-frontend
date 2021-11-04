@@ -28,10 +28,47 @@ export const SidebarData = [
 },
 {
 	title: "User Profile",
-	path: "/Dashboard_UserProfile",
+	path: "/Dashboard_UserProfile_Customer",
 	icon: <AiIcons.AiOutlineTeam />,
 	iconClosed: <RiIcons.RiArrowDownSFill />,
 	iconOpened: <RiIcons.RiArrowUpSFill />,
+	subNav: [
+	{
+		title: "Customer",
+		path: "/Dashboard_UserProfile_Customer",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	{
+		title: "Delivery Boy",
+		path: "/Dashboard_UserProfile_DeliveryBoy",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	{
+		title: "Driver",
+		path: "/Dashboard_UserProfile_Driver",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	{
+		title: "Manager",
+		path: "/Dashboard_UserProfile_Manager",
+		icon: <IoIcons.IoIosPaper />,
+	},
+	],
+	
+},
+{
+title: "User Registration",
+path: "/Dashboard_UserRegistration",
+icon: <AiIcons.AiOutlineUserAdd />,
+iconClosed: <RiIcons.RiArrowDownSFill />,
+iconOpened: <RiIcons.RiArrowUpSFill />,
+},
+{
+title: "SuperUser Registration",
+path: "/Dashboard_SuperUserRegistration",
+icon: <AiIcons.AiOutlineUserAdd />,
+iconClosed: <RiIcons.RiArrowDownSFill />,
+iconOpened: <RiIcons.RiArrowUpSFill />,
 },
 {
 	title: "Vehicle Registration",
