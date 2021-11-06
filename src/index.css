@@ -159,3 +159,19 @@ body {
   margin-left: 1vw;
   grid-column-gap: 1vw;
 }
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Small Screen View */
+  * {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Mobile View */
+  * {
+    font-size: 8px;
+    font-weight: 400;
+  }
+}

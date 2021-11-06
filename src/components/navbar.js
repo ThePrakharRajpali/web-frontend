@@ -4,6 +4,8 @@ import logo from "../public/photos/logo_english.svg";
 import "../index.css";
 import "../public/css/navbar.css";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const [colorChange, setColorChange] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
@@ -41,14 +43,14 @@ const Navbar = () => {
         <div className="nav-items">
           <ul>
             <li className={activeTab === "Home" ? "active" : ""}>
-              <a href="/#" onClick={() => changeActiveTab("Home")}>
+              <Link to="/#" onClick={() => changeActiveTab("Home")}>
                 Home
-              </a>
+              </Link>
             </li>
             <li className={activeTab === "About" ? "active" : ""}>
-              <a href="/about#" onClick={() => changeActiveTab("About")}>
+              <Link to="/about#" onClick={() => changeActiveTab("About")}>
                 About Us
-              </a>
+              </Link>
             </li>
             <li className={activeTab === "Service" ? "active" : ""}>
               <a
@@ -63,17 +65,17 @@ const Navbar = () => {
               </a>
             </li>
             <li className={activeTab === "Partner" ? "active" : ""}>
-              <a href="/partner#" onClick={() => changeActiveTab("Partner")}>
+              <Link to="/partner#" onClick={() => changeActiveTab("Partner")}>
                 Partner
-              </a>
+              </Link>
             </li>
             <li className={activeTab === "Contact" ? "active" : ""}>
-              <a
-                href="/#contact-section"
+              <Link
+                to="/#contact-section"
                 onClick={() => changeActiveTab("Contact")}
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
 
