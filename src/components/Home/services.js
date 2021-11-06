@@ -23,10 +23,10 @@ const Services = () => {
         <div className="service-left">
           <img src={preServices} alt="" />
           <p className="loading-header">
-            <span className="color-orange">Full</span> truck
-            <br />
-            load
             <Link to="/FullTruck">
+              <span className="color-orange">Full</span> truck
+              <br />
+              load
               <img src={arrowRight} alt="" className="arrowRight" />
             </Link>
           </p>
@@ -46,12 +46,12 @@ const Services = () => {
         <div className="service-right">
           <img src={preServices2} alt="" />
           <p className="loading-header">
-            <span className="color-orange">Last</span>-Mile
-            <br />
             <Link to="/LastMile">
               <img src={arrowLeft} alt="" className="arrowLeft" />
+              <span className="color-orange">Last</span>-Mile
+              <br />
+              delivery
             </Link>
-            delivery
           </p>
           <p className="service-content">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
