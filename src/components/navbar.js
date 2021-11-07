@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import logo from "../public/photos/logo_english.svg";
 import "../index.css";
@@ -6,10 +6,29 @@ import "../public/css/navbar.css";
 
 import { Link } from "react-router-dom";
 
+const useOutsideAlerter = (ref, dropdown, setDropdown) => {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        // alert("Clicked outside");
+        if (dropdown == "") {
+          setDropdown("");
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+};
 const Navbar = () => {
   const [colorChange, setColorChange] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
   const [dropdown, setDropdown] = useState("none");
+
+  const wrapperRef = useRef(null);
 
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -29,14 +48,23 @@ const Navbar = () => {
   const deactivateDropdown = () => {
     setDropdown("none");
   };
+
   useEffect(() => {
     changeNavbarColor();
     window.addEventListener("scroll", changeNavbarColor);
+    window.addEventListener("mousedown", () => {
+      if (dropdown === "") {
+        setDropdown("none");
+        console.log("Hello");
+      }
+    });
   }, []);
+
+  useOutsideAlerter(wrapperRef, dropdown, setDropdown);
 
   return (
     <React.Fragment>
-      <nav className={colorChange ? "solid-nav" : ""}>
+      <nav ref={wrapperRef} className={colorChange ? "solid-nav" : ""}>
         <div className="nav-logo">
           <img src={logo} alt="" />
         </div>
@@ -88,9 +116,9 @@ const Navbar = () => {
             colorChange ? "Service-Dropdown solid-nav" : "Service-Dropdown"
           }
         >
-          <a href="/FullTruck#">Full truck Load</a>
+          <Link to="/FullTruck#">Full truck Load</Link>
           <hr />
-          <a href="/LastMile#">Last Mile Delivery</a>
+          <Link to="/LastMile#">Last Mile Delivery</Link>
         </div>
       </div>
     </React.Fragment>
