@@ -55,7 +55,7 @@ class UserRegistration extends React.Component {
 		<div className="Dashboard">
 			
 			<div className="UserRegistration">
-				<div className="UserRegistration_Title">Register User</div>
+				<div className="UserRegistration_Title_main">Register User</div>
 				<form>
 					<div className="Form_Field_Container">
 						<div className="Form_Fields">

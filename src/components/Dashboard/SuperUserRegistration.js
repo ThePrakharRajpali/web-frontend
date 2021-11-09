@@ -55,7 +55,7 @@ class SuperUserRegistration extends React.Component {
 		<div className="Dashboard">
 			
 			<div className="UserRegistration">
-				<div className="UserRegistration_Title">Register Super User</div>
+				<div className="UserRegistration_Title_main">Register Super User</div>
 				<form>
 					<div className="Form_Field_Container">
 						<div className="Form_Fields">
