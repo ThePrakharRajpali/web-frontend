@@ -2,8 +2,8 @@ import React, { useState,useRef } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
-import "../../public/css/Dashboard/Dashboard.css";
-import "../../public/css/Dashboard/UserRegistration.css";
+import "../../../public/css/Dashboard/Dashboard.css";
+import "../../../public/css/Dashboard/UserRegistration.css";
 
 class UserRegistration extends React.Component {
 	

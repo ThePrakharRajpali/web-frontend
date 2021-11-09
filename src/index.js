@@ -12,13 +12,14 @@ import ControlPanel from "./components/Dashboard/ControlPanel/Control_Panel";
 import MyProfile from "./components/Dashboard/MyProfile";
 import Attendance from "./components/Dashboard/Attendance";
 import LiveLocation from "./components/Dashboard/LiveLocation";
-import UserProfile_Customer from "./components/Dashboard/UserProfile/UserProfile_Customer";
-import UserProfile_Manager from "./components/Dashboard/UserProfile/UserProfile_Manager";
-import UserProfile_Driver from "./components/Dashboard/UserProfile/UserProfile_Driver";
-import UserProfile_DeliveryBoy from "./components/Dashboard/UserProfile/UserProfile_DeliveryBoy";
-import UserRegistration from "./components/Dashboard/UserRegistration";
-import SuperUserRegistration from "./components/Dashboard/SuperUserRegistration";
-import VehicleRegistration from "./components/Dashboard/VehicleRegistration";
+import Profile_Customer from "./components/Dashboard/ViewProfile/Profile_Customer";
+import Profile_Manager from "./components/Dashboard/ViewProfile/Profile_Manager";
+import Profile_Driver from "./components/Dashboard/ViewProfile/Profile_Driver";
+import Profile_DeliveryBoy from "./components/Dashboard/ViewProfile/Profile_DeliveryBoy";
+import Profile_Vehicle from "./components/Dashboard/ViewProfile/Profile_Vehicle";
+import UserRegistration from "./components/Dashboard/Registration/UserRegistration";
+import SuperUserRegistration from "./components/Dashboard/Registration/SuperUserRegistration";
+import VehicleRegistration from "./components/Dashboard/Registration/VehicleRegistration";
 import ServiceRequests_CreateNew from "./components/Dashboard/ServiceRequests/ServiceRequests_CreateNew";
 import ServiceRequests_Pending from "./components/Dashboard/ServiceRequests/ServiceRequests_Pending";
 import ServiceRequests_Active from "./components/Dashboard/ServiceRequests/ServiceRequests_Active";
@@ -86,21 +87,25 @@ const Display = () => {
             <ControlPanel/>
 			<LiveLocation />
           </Route>	
-		  <Route exact path="/Dashboard_UserProfile_Customer">
+		  <Route exact path="/Dashboard_Profile_Customer">
             <ControlPanel/>
-			<UserProfile_Customer />
+			<Profile_Customer />
           </Route>	
-		  <Route exact path="/Dashboard_UserProfile_Manager">
+		  <Route exact path="/Dashboard_Profile_Manager">
             <ControlPanel/>
-			<UserProfile_Manager />
+			<Profile_Manager />
           </Route>
-		  <Route exact path="/Dashboard_UserProfile_Driver">
+		  <Route exact path="/Dashboard_Profile_Driver">
             <ControlPanel/>
-			<UserProfile_Driver />
+			<Profile_Driver />
           </Route>
-			<Route exact path="/Dashboard_UserProfile_DeliveryBoy">
+		  <Route exact path="/Dashboard_Profile_DeliveryBoy">
             <ControlPanel/>
-			<UserProfile_DeliveryBoy />
+			<Profile_DeliveryBoy />
+          </Route>
+		  <Route exact path="/Dashboard_Profile_Vehicle">
+            <ControlPanel/>
+			<Profile_Vehicle />
           </Route>
 		  <Route exact path="/Dashboard_UserRegistration">
             <ControlPanel/>
