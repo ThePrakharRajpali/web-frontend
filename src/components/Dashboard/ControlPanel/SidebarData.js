@@ -27,55 +27,64 @@ export const SidebarData = [
 	iconOpened: <RiIcons.RiArrowUpSFill />,
 },
 {
-	title: "User Profile",
-	path: "/Dashboard_UserProfile_Customer",
+	title: "View Profile",
+	path: "/Dashboard_Profile_Customer",
 	icon: <AiIcons.AiOutlineTeam />,
 	iconClosed: <RiIcons.RiArrowDownSFill />,
 	iconOpened: <RiIcons.RiArrowUpSFill />,
 	subNav: [
 	{
 		title: "Customer",
-		path: "/Dashboard_UserProfile_Customer",
+		path: "/Dashboard_Profile_Customer",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
 		title: "Delivery Boy",
-		path: "/Dashboard_UserProfile_DeliveryBoy",
+		path: "/Dashboard_Profile_DeliveryBoy",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
 		title: "Driver",
-		path: "/Dashboard_UserProfile_Driver",
+		path: "/Dashboard_Profile_Driver",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
 		title: "Manager",
-		path: "/Dashboard_UserProfile_Manager",
+		path: "/Dashboard_Profile_Manager",
 		icon: <IoIcons.IoIosPaper />,
+	},
+	{
+		title: "Vehicle",
+		path: "/Dashboard_Profile_Vehicle",
+		icon: <RiIcons.RiCaravanLine />,
 	},
 	],
 	
 },
 {
-title: "User Registration",
-path: "/Dashboard_UserRegistration",
-icon: <AiIcons.AiOutlineUserAdd />,
-iconClosed: <RiIcons.RiArrowDownSFill />,
-iconOpened: <RiIcons.RiArrowUpSFill />,
-},
-{
-title: "SuperUser Registration",
-path: "/Dashboard_SuperUserRegistration",
-icon: <AiIcons.AiOutlineUserAdd />,
-iconClosed: <RiIcons.RiArrowDownSFill />,
-iconOpened: <RiIcons.RiArrowUpSFill />,
-},
-{
-	title: "Vehicle Registration",
-	path: "/Dashboard_VehicleRegistration",
-	icon: <RiIcons.RiCaravanLine />,
+	title: "Registration",
+	path: "/Dashboard_UserRegistration",
+	icon: <AiIcons.AiOutlineUserAdd />,
 	iconClosed: <RiIcons.RiArrowDownSFill />,
 	iconOpened: <RiIcons.RiArrowUpSFill />,
+	subNav: [
+	{
+		title: "User",
+		path: "/Dashboard_UserRegistration",
+		icon: <AiIcons.AiOutlineUserAdd />,
+	},
+	{
+		title: "Super User",
+		path: "/Dashboard_SuperUserRegistration",
+		icon: <AiIcons.AiOutlineUserAdd />,
+	},
+	{
+		title: "Vehicle",
+		path: "/Dashboard_VehicleRegistration",
+		icon: <RiIcons.RiCaravanLine />,
+	},
+	],
+	
 },
 {
 	title: "Service Requests",
