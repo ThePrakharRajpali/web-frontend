@@ -17,14 +17,16 @@ const Landing = () => {
       <section className="landing">
         <img src={preHeader} alt="" />
         <h1>
-          <span className="header-orange">Lorem</span> <br />
-          Ipsum
+          <span className="header-orange">Ultimate</span> <br />
+          Logistic Partner
         </h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga sit,
-          porro quam culpa facilis architecto recusandae voluptatem qui ut
-          natus, aperiam ullam soluta, aspernatur nulla adipisci ea. Deserunt,
-          quasi eligendi.
+          Naata Connection is a full-time logistic service provider ensuring
+          on-time delivery to the partners. We excel in Last-mile delivery
+          transporting of goods from a distribution hub to the final delivery
+          destination for both B2B and B2C clients. Also, we provide Full
+          truckload shipping, carrying on your shipment and delivering it time
+          with care.
         </p>
       </section>
     </React.Fragment>

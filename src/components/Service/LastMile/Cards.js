@@ -22,12 +22,12 @@ export const Cards = () => {
     <React.Fragment>
       <div className="grid">
         <div className="flex">
-          <Circle imgSrc={efficient} caption="Efficient Delivery" />
-          <Circle imgSrc={efficient} caption="Efficient Delivery" />
-          <Circle imgSrc={efficient} caption="Efficient Delivery" />
-          <Circle imgSrc={efficient} caption="Efficient Delivery" />
-          <Circle imgSrc={efficient} caption="Efficient Delivery" />
-          <Circle imgSrc={efficient} caption="Efficient Delivery" />
+          <Circle imgSrc={efficient} caption="Fast Delivery" />
+          <Circle imgSrc={efficient} caption="Convenience" />
+          <Circle imgSrc={efficient} caption="Safety of Goods" />
+          <Circle imgSrc={efficient} caption="Cost-Effective" />
+          <Circle imgSrc={efficient} caption="Efficient Solutions" />
+          <Circle imgSrc={efficient} caption="Technology" />
         </div>
       </div>
     </React.Fragment>
