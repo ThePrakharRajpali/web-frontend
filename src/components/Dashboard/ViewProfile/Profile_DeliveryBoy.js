@@ -24,8 +24,6 @@ const info = {
 			"age":25,
 			"dateOfJoining":"25th October 2021",
 			"dateOfTermination":"28th December 2021",
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021",
 			"role":"ADMIN",
 			"active": false,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -49,9 +47,7 @@ const info = {
 			"dateOfTermination":"28th December 2021",
 			"userCode":"NCADMIN0002",
 			"role":"ADMIN",
-			"active": true,	
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021","profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
+			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
 			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 		},
@@ -73,9 +69,7 @@ const info = {
 			"dateOfJoining":"25th October 2021",
 			"dateOfTermination":"28th December 2021",
 			"role":"ADMIN",
-			"active": true,		
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021","profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
+			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
 			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 		},	
@@ -96,8 +90,6 @@ const info = {
 			"age":25,
 			"dateOfJoining":"25th October 2021",
 			"dateOfTermination":"28th December 2021",
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -126,7 +118,7 @@ const Options = (options, handleClick) => {
 	}
 };
 
-class UserProfile_Driver extends React.Component {
+class Profile_DeliveryBoy extends React.Component {
 	
   constructor(props) {
     super(props);
@@ -360,19 +352,6 @@ class UserProfile_Driver extends React.Component {
 							</div>
 
 						</div>
-						
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Driving License Type</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["drivingLicenseType"]} disabled={true}/>
-							</div>
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Driving License Expiry Date</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["drivingLicenseExpiryDate"]} disabled={true}/>
-							</div>
-						</div>
 					</div>
 						  	
 			    </div>
@@ -385,7 +364,7 @@ class UserProfile_Driver extends React.Component {
 			
 			<div>
 				
-				<input className="SearchBarInput" type="text" placeholder="Search Driver" ref="myInput" onChange={this.handleChange}></input>
+				<input className="SearchBarInput" type="text" placeholder="Search Delivery Boy" ref="myInput" onChange={this.handleChange}></input>
 				
 				<div className="SearchBarIcon">
 					<IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
@@ -394,7 +373,8 @@ class UserProfile_Driver extends React.Component {
 				</div>
 			 
 			</div>
-					
+			
+			
 			<div style={{height:'auto'}} ref="SearchResults">
 				{this.state.myOptions.map((item, index) => {
 				return (
@@ -414,4 +394,4 @@ class UserProfile_Driver extends React.Component {
  }
 };
 
-export default UserProfile_Driver;
+export default Profile_DeliveryBoy;

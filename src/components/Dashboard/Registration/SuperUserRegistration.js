@@ -2,10 +2,10 @@ import React, { useState,useRef } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
-import "../../public/css/Dashboard/Dashboard.css";
-import "../../public/css/Dashboard/UserRegistration.css";
+import "../../../public/css/Dashboard/Dashboard.css";
+import "../../../public/css/Dashboard/UserRegistration.css";
 
-class UserRegistration extends React.Component {
+class SuperUserRegistration extends React.Component {
 	
   constructor(props) {
     super(props);
@@ -31,13 +31,13 @@ class UserRegistration extends React.Component {
 	const re_email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	const re_phoneNum = /^\d{10}$/; 
 	if(!(firstName!="" && lastName!="" && emailId!="" && mobileNumber!="" && role!="")){
-		alert("Please fill all required fields to register the user");
+		alert("Please fill all required fields to register the super user");
 	}else if(!re_email.test(emailId)){
 		alert("Please enter a valid email Id");
 	}else if(!re_phoneNum.test(mobileNumber)){
 		alert("Please enter a valid Mobile Number");
 	}else{
-		alert("User Registered Successfully");
+		alert("Super user Registered Successfully");
 	}
 	
   }
@@ -55,7 +55,7 @@ class UserRegistration extends React.Component {
 		<div className="Dashboard">
 			
 			<div className="UserRegistration">
-				<div className="UserRegistration_Title">Register User</div>
+				<div className="UserRegistration_Title_main">Register Super User</div>
 				<form>
 					<div className="Form_Field_Container">
 						<div className="Form_Fields">
@@ -97,10 +97,8 @@ class UserRegistration extends React.Component {
 								<label className="Form_field_label">Role</label>
 								<div className="Form_field_select">
 									<select required className="Form_field_input" ref="role" style={{width:'20vw',height:'fit-content'}}>
-									  <option value="customer">Customer</option>
-									  <option value="delivery Boy">Delivery Boy</option>
-									  <option value="driver">Driver</option>
-									  <option value="manager">Manager</option>
+									  <option value="admin">Admin</option>
+									  <option value="owner">Owner</option>
 									</select>
 								</div>
 							</div>
@@ -122,4 +120,4 @@ class UserRegistration extends React.Component {
  }
 };
 
-export default UserRegistration;
+export default SuperUserRegistration;
