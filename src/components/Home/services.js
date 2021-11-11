@@ -31,8 +31,7 @@ const Services = () => {
             </Link>
           </p>
           <p className="service-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-            molestiae quo.
+            Move your bulk shipping in minimum time with care
           </p>
         </div>
         <div className="service-right">
@@ -54,8 +53,7 @@ const Services = () => {
             </Link>
           </p>
           <p className="service-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-            molestiae quo.
+            We are watchful, from instant distribution hub to final delivery
           </p>
         </div>
       </div>

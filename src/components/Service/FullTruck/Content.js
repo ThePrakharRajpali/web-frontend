@@ -18,11 +18,11 @@ const serviceContent = () => {
           Load
         </p>
         <p>
-          Full truckload, commonly referred to as FTL, is a type of shipping
-          mode whereby a truck carries one dedicated shipment. In other words,
-          the journey is reserved for one shipment only. FTL trucking has
-          several advantages over the alternative trucking shipment mode, LTL,
-          or less than a full truckload shipment.
+          Being in the industry for over a Half a decade now, we offer premium,
+          easiest and inexpensive full truck load delivery for our patrons. As a
+          business provider you are well aware of this efficient method of
+          product delivery. Having said that we have various types of truck
+          sizes, mapping it to your shipment quantity is our expertise.
         </p>
       </div>
     </div>

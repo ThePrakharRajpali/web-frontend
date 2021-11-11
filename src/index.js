@@ -35,102 +35,99 @@ const Display = () => {
     <Fragment>
       <Router>
         <Switch>
-			
           <Route exact path="/">
-			<Navbar />
+            <Navbar />
             <App />
-			<Footer />
+            <Footer />
           </Route>
-			
-		  <Route exact path="/FullTruck">
-			<Navbar />
+
+          <Route exact path="/FullTruck">
+            <Navbar />
             <FullTruck />
-			<Footer />
+            <Footer />
           </Route>
-			
-		  <Route exact path="/LastMile">
-			<Navbar />
+
+          <Route exact path="/LastMile">
+            <Navbar />
             <LastMile />
-			<Footer />
+            <Footer />
           </Route>
-		  
-			
+
           <Route exact path="/partner">
-			<Navbar />
+            <Navbar />
             <Partner />
-			<Footer />
+            <Footer />
           </Route>
-			
+
           <Route exact path="/about">
-			<Navbar />
+            <Navbar />
             <About />
-			<Footer />
+            <Footer />
           </Route>
-			
+
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/login_otp">	  
+          <Route exact path="/login_otp">
             <Login_OTP />
           </Route>
-			
-		  <Route exact path="/Dashboard_MyProfile">
-            <ControlPanel/>
-			<MyProfile />
-          </Route>	
-		  <Route exact path="/Dashboard_Attendance">
-            <ControlPanel/>
-			<Attendance />
-          </Route>	
-		  <Route exact path="/Dashboard_LiveLocation">
-            <ControlPanel/>
-			<LiveLocation />
-          </Route>	
-		  <Route exact path="/Dashboard_UserProfile_Customer">
-            <ControlPanel/>
-			<UserProfile_Customer />
-          </Route>	
-		  <Route exact path="/Dashboard_UserProfile_Manager">
-            <ControlPanel/>
-			<UserProfile_Manager />
+
+          <Route exact path="/Dashboard_MyProfile">
+            <ControlPanel />
+            <MyProfile />
           </Route>
-		  <Route exact path="/Dashboard_UserProfile_Driver">
-            <ControlPanel/>
-			<UserProfile_Driver />
+          <Route exact path="/Dashboard_Attendance">
+            <ControlPanel />
+            <Attendance />
           </Route>
-			<Route exact path="/Dashboard_UserProfile_DeliveryBoy">
-            <ControlPanel/>
-			<UserProfile_DeliveryBoy />
+          <Route exact path="/Dashboard_LiveLocation">
+            <ControlPanel />
+            <LiveLocation />
           </Route>
-		  <Route exact path="/Dashboard_UserRegistration">
-            <ControlPanel/>
-			<UserRegistration />
+          <Route exact path="/Dashboard_UserProfile_Customer">
+            <ControlPanel />
+            <UserProfile_Customer />
           </Route>
-		  <Route exact path="/Dashboard_SuperUserRegistration">
-            <ControlPanel/>
-			<SuperUserRegistration />
+          <Route exact path="/Dashboard_UserProfile_Manager">
+            <ControlPanel />
+            <UserProfile_Manager />
           </Route>
-		  <Route exact path="/Dashboard_VehicleRegistration">
-            <ControlPanel/>
-			<VehicleRegistration />
-          </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_CreateNew">
-            <ControlPanel/>
-			<ServiceRequests_CreateNew />
-          </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_Pending">
-            <ControlPanel/>
-			<ServiceRequests_Pending />
-          </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_Active">
-            <ControlPanel/>
-			<ServiceRequests_Active />
-          </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_Completed">
-            <ControlPanel/>
-			<ServiceRequests_Completed />
+          <Route exact path="/Dashboard_UserProfile_Driver">
+            <ControlPanel />
+            <UserProfile_Driver />
           </Route>
-			
+          <Route exact path="/Dashboard_UserProfile_DeliveryBoy">
+            <ControlPanel />
+            <UserProfile_DeliveryBoy />
+          </Route>
+          <Route exact path="/Dashboard_UserRegistration">
+            <ControlPanel />
+            <UserRegistration />
+          </Route>
+          <Route exact path="/Dashboard_SuperUserRegistration">
+            <ControlPanel />
+            <SuperUserRegistration />
+          </Route>
+          <Route exact path="/Dashboard_VehicleRegistration">
+            <ControlPanel />
+            <VehicleRegistration />
+          </Route>
+          <Route exact path="/Dashboard_ServiceRequests_CreateNew">
+            <ControlPanel />
+            <ServiceRequests_CreateNew />
+          </Route>
+          <Route exact path="/Dashboard_ServiceRequests_Pending">
+            <ControlPanel />
+            <ServiceRequests_Pending />
+          </Route>
+          <Route exact path="/Dashboard_ServiceRequests_Active">
+            <ControlPanel />
+            <ServiceRequests_Active />
+          </Route>
+          <Route exact path="/Dashboard_ServiceRequests_Completed">
+            <ControlPanel />
+            <ServiceRequests_Completed />
+          </Route>
         </Switch>
       </Router>
     </Fragment>

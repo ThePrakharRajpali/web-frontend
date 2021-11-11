@@ -16,14 +16,15 @@ export const Content = () => {
           Delivery
         </p>
         <p>
-          Last mile delivery, also known as last mile logistics, is the
-          transportation of goods from a distribution hub to the final delivery
-          destination. We provide last-mile delivery services for both B2B and
-          B2C. <br /> Our last mile service is comprehensive and takes into
-          account every cost factor. Not only do we provide our customers with
-          cost saving options at every step, we also reach out for feedback of
-          our personnel on the ground and continuously strive to improve the
-          quality of our services.
+          Transportation of goods from the warehouse to their final destination.
+          Also known as last mile logistics, we cater to both B2B and B2C
+          clients. In this, transfer of goods happens to customers who are
+          mostly located in dense areas. <br /> Delivery of some products
+          demands major highway trips, which are expensive and a little more
+          time consuming, the main purpose of last-mile delivery is to make the
+          products available timely no matter what. <br /> Our primary aim is to
+          provide high end quality services at reasonable prices and achieve
+          customer satisfaction.
         </p>
       </div>
       <div className="lastmile-illustration">
