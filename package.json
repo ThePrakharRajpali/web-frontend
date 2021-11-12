@@ -18,7 +18,7 @@
     "react-metismenu": "^1.4.0",
     "react-pdf": "^5.5.0",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^3.4.4",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
   },
