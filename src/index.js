@@ -69,70 +69,74 @@ const Display = () => {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/login_otp">
+          <Route exact path="/loginOtpVerification">
             <Login_OTP />
           </Route>
 
-		  <Route exact path="/Dashboard_MyProfile">
+		  <Route exact path="/Dashboard/MyProfile">
             <ControlPanel/>
 			<MyProfile />
           </Route>	
-		  <Route exact path="/Dashboard_Attendance">
+		  <Route exact path="/Dashboard/Attendance">
             <ControlPanel/>
 			<Attendance />
           </Route>	
-		  <Route exact path="/Dashboard_LiveLocation">
+		  <Route exact path="/Dashboard/LiveLocation">
             <ControlPanel/>
 			<LiveLocation />
           </Route>	
-		  <Route exact path="/Dashboard_Profile_Customer">
+		  <Route exact path="/Dashboard/Profile/Customer">
             <ControlPanel/>
 			<Profile_Customer />
           </Route>	
-		  <Route exact path="/Dashboard_Profile_Manager">
+		  <Route exact path="/Dashboard/Profile/Manager">
             <ControlPanel/>
 			<Profile_Manager />
           </Route>
-		  <Route exact path="/Dashboard_Profile_Driver">
+		  <Route exact path="/Dashboard/Profile/Driver">
             <ControlPanel/>
 			<Profile_Driver />
           </Route>
-		  <Route exact path="/Dashboard_Profile_DeliveryBoy">
+		  <Route exact path="/Dashboard/Profile/DeliveryBoy">
             <ControlPanel/>
 			<Profile_DeliveryBoy />
           </Route>
-		  <Route exact path="/Dashboard_Profile_Vehicle">
+		  <Route exact path="/Dashboard/Profile/Vehicle">
             <ControlPanel/>
 			<Profile_Vehicle />
           </Route>
-		  <Route exact path="/Dashboard_UserRegistration">
+		  <Route exact path="/Dashboard/UserRegistration">
             <ControlPanel/>
 			<UserRegistration />
           </Route>
-		  <Route exact path="/Dashboard_SuperUserRegistration">
+		  <Route exact path="/Dashboard/SuperUserRegistration">
             <ControlPanel/>
 			<SuperUserRegistration />
           </Route>
-		  <Route exact path="/Dashboard_VehicleRegistration">
+		  <Route exact path="/Dashboard/VehicleRegistration">
             <ControlPanel/>
 			<VehicleRegistration />
           </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_CreateNew">
+		  <Route exact path="/Dashboard/ServiceRequests/CreateNew">
             <ControlPanel/>
 			<ServiceRequests_CreateNew />
           </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_Pending">
+		  <Route exact path="/Dashboard/ServiceRequests/Pending">
             <ControlPanel/>
 			<ServiceRequests_Pending />
           </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_Active">
+		  <Route exact path="/Dashboard/ServiceRequests/Active">
             <ControlPanel/>
 			<ServiceRequests_Active />
           </Route>	
-		  <Route exact path="/Dashboard_ServiceRequests_Completed">
+		  <Route exact path="/Dashboard/ServiceRequests/Completed">
             <ControlPanel/>
 			<ServiceRequests_Completed />
           </Route>
+		  <Route exact path="/Dashboard">
+            <ControlPanel/>
+			<MyProfile />
+          </Route>	
 
         </Switch>
       </Router>
