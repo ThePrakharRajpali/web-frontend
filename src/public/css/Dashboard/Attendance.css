@@ -1,0 +1,112 @@
+
+.DateRangeRow{
+    position: relative;
+	margin-left:2.7vw;
+	margin-top:3.75vw;
+	width: 69.5vw;
+	height: 5.73vw;
+	display:flex;
+	flex-direction:row;
+	background: #F3752B;
+	border-radius: 1.9vw 1.9vw 0px 0px;	
+	align-items: center;
+}
+
+.DateRangeTitle{
+	padding-right:2vw;
+	padding-left:13vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+	color: #FFFFFF;
+}
+
+.dateInput{
+	
+	display:flex;
+	flex-direction:column;
+	padding-right:2vw;
+	align-items: center;
+	/* width: 8.2vw;
+	height: 4.7vw;
+	background: #F6F6F5;
+	border-radius: 0.7vw;
+	padding:1vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+
+	color: #7E8080; */
+
+}
+
+.dateInputLabel{
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 0.7vw;
+	line-height: 1vw;
+	align-items: center;
+	color: #000000;
+	margin-bottom:0.2vw;
+}
+
+.dateInputInput{
+	width: 8.2vw;
+	height: 2.7vw;
+	background: #F6F6F5;
+	border-radius: 0.7vw;
+	padding:1vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+	color: #7E8080;
+}
+
+.dateButton{
+	width: 2vw;
+  height: 2vw;
+  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Group%2034065.png?token=APXZ46PFRECN2SWDO6BRJTTBTFDFK")
+    no-repeat;
+  background-size: contain;
+}
+
+.clearAttendanceRow{
+	position: relative;
+	margin-left:2.7vw;
+	/* margin-top:3.75vw; */
+	width: 69.5vw;
+	height: fit-content;
+	/* display:flex;
+	flex-direction:row; */
+	background: #F6F6F5;
+	/* border-radius: 1.9vw 1.9vw 0px 0px;	 */
+	align-items: center;
+}
+
+.clearAttendanceButton{
+	width: fit-content;
+	height: fit-content;
+	background: #E5584F;
+	border-radius: 0.7vw;
+	padding:0.7vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+	color: #FFFFFF;
+	margin-top:0.5vw;
+	margin-bottom:0.5vw;
+	margin-left:12vw;
+}
