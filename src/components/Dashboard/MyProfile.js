@@ -18,7 +18,8 @@ const info = {
 			"contact":"67585938839",
 			"userCode":"NCADMIN0001",
 			"role":"ADMIN",
-			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
+			"active": true,		     
+			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46JTAG2ULMHST76YWFDBTIICY",
 			"__v":0
 		},
 		"profile" :  {
