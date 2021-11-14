@@ -19,11 +19,9 @@ const info = {
 			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
 			"city":"Mumbai",
 			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"role":"ADMIN",
 			"active": false,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -40,11 +38,9 @@ const info = {
 			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
 			"city":"Mumbai",
 			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"userCode":"NCADMIN0002",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
@@ -63,11 +59,9 @@ const info = {
 			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
 			"city":"Mumbai",
 			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -85,11 +79,9 @@ const info = {
 			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
 			"city":"Mumbai",
 			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
+			"companyName":"Naata Connections",
+			"department":"Management Department",
+			"gst":"78ghj21900",
 			"role":"ADMIN",
 			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
 			"__v":0,
@@ -118,7 +110,7 @@ const Options = (options, handleClick) => {
 	}
 };
 
-class UserProfile_Manager extends React.Component {
+class Profile_Customer extends React.Component {
 	
   constructor(props) {
     super(props);
@@ -248,107 +240,108 @@ class UserProfile_Manager extends React.Component {
 				</div>
 				
 				<div className="Profile_PersonalInfo" style={{top: '0vw', height:'53vw'}}>
-				    <div className="Profile_PersonalInfo_Title">Personal Info</div>	 
-
-					<div className="Profile_Field_Container">
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">First Name</label>
-								<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["firstName"]} disabled={true}/>
+					  <div className="Profile_PersonalInfo_Title">Personal Info</div>
+					 
+						  
+						<div className="Profile_Field_Container">
+						    <div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">First Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["firstName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Middle Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["middleName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Last Name</label>
+									<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["lastName"]} disabled={true}/>
+								</div>
+							
 							</div>
+						  
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Email Id</label>
+									<input className="Profile_field_input" style={{width:'27.29vw',height:'2.6vw'}}type="text" value={user["emailId"]} disabled={true}/>
+								</div>
 
-							<div className="Profile_field">
-								<label className="Profile_field_label">Middle Name</label>
-								<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["middleName"]} disabled={true}/>
 							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Mobile Number</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["contact"]} disabled={true}/>
+								</div>
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Secondary Contact Number</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["secondaryContact"]} disabled={true}/>
+								</div>
 
-							<div className="Profile_field">
-								<label className="Profile_field_label">Last Name</label>
-								<input className="Profile_field_input" style={{width:'11.9vw',height:'2.6vw'}}type="text" value={user["lastName"]} disabled={true}/>
 							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Address</label>
+									<textarea className="Profile_field_input" style={{width:'34.8vw',height:'fit-content'}} type="textarea" value={user["address"]} disabled={true}/>
+								</div>
 
+							</div>
+							
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">City</label>
+									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["city"]} disabled={true}/>
+								</div>
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">State</label>
+									<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["state"]} disabled={true}/>
+								</div>
+
+							</div>
 						</div>
-
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Email Id</label>
-								<input className="Profile_field_input" style={{width:'27.29vw',height:'2.6vw'}}type="text" value={user["emailId"]} disabled={true}/>
+						  
+					
+					
+					  <div className="Profile_PersonalInfo_Title">Work Info</div>
+					  <form>
+						  
+						<div className="Profile_Field_Container">
+						    <div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">Company Name</label>
+									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["companyName"]} disabled={true}/>
+								</div>
+							
+								<div className="Profile_field">
+									<label className="Profile_field_label">Department</label>
+									<input className="Profile_field_input" style={{width:'18vw',height:'2.6vw'}}type="text" value={user["department"]} disabled={true}/>
+								</div>
+							
 							</div>
+						  
+							<div className="Profile_Fields">
+								
+								<div className="Profile_field">
+									<label className="Profile_field_label">GST</label>
+									<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["gst"]} disabled={true}/>
+								</div>
 
+							</div>
+							
 						</div>
-
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Mobile Number</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["contact"]} disabled={true}/>
-							</div>
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Secondary Contact Number</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["secondaryContact"]} disabled={true}/>
-							</div>
-
-						</div>
-
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Emergency Contact Number</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["emergencyContact"]} disabled={true}/>
-							</div>
-
-						</div>
-
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Address</label>
-								<textarea className="Profile_field_input" style={{width:'34.8vw',height:'fit-content'}} type="textarea" value={user["address"]} disabled={true}/>
-							</div>
-
-						</div>
-
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">City</label>
-								<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["city"]} disabled={true}/>
-							</div>
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">State</label>
-								<textarea className="Profile_field_input" style={{width:'15.8vw',height:'2.8vw'}} type="textarea" value={user["state"]} disabled={true}/>
-							</div>
-
-						</div>
-
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Blood Group</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["bloodGroup"]} disabled={true}/>
-							</div>
-
-						</div>
-
-						<div className="Profile_Fields">
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Date of Joining</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["dateOfJoining"]} disabled={true}/>
-							</div>
-
-							<div className="Profile_field">
-								<label className="Profile_field_label">Date of Termination</label>
-								<input className="Profile_field_input" style={{width:'15vw',height:'2.6vw'}}type="text" value={user["dateOfTermination"]} disabled={true}/>
-							</div>
-
-						</div>
-					</div>
-						  	
+						  
+					  </form>
 			    </div>
 			</div>
 		);
@@ -359,7 +352,7 @@ class UserProfile_Manager extends React.Component {
 			
 			<div>
 				
-				<input className="SearchBarInput" type="text" placeholder="Search Manager" ref="myInput" onChange={this.handleChange}></input>
+				<input className="SearchBarInput" type="text" placeholder="Search Customer" ref="myInput" onChange={this.handleChange}></input>
 				
 				<div className="SearchBarIcon">
 					<IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
@@ -368,7 +361,6 @@ class UserProfile_Manager extends React.Component {
 				</div>
 			 
 			</div>
-			
 			
 			<div style={{height:'auto'}} ref="SearchResults">
 				{this.state.myOptions.map((item, index) => {
@@ -389,4 +381,4 @@ class UserProfile_Manager extends React.Component {
  }
 };
 
-export default UserProfile_Manager;
+export default Profile_Customer;

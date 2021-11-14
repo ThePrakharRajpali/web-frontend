@@ -1,0 +1,237 @@
+
+.DateRangeRow{
+    position: relative;
+	margin-left:2.7vw;
+	margin-top:3.75vw;
+	width: 69.5vw;
+	height: 5.73vw;
+	display:flex;
+	flex-direction:row;
+	background: #F3752B;
+	border-radius: 1.9vw 1.9vw 0px 0px;	
+	align-items: center;
+}
+
+.DateRangeTitle{
+	padding-right:2vw;
+	padding-left:13vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+	color: #FFFFFF;
+}
+
+.dateInput{
+	
+	display:flex;
+	flex-direction:column;
+	padding-right:2vw;
+	align-items: center;
+	/* width: 8.2vw;
+	height: 4.7vw;
+	background: #F6F6F5;
+	border-radius: 0.7vw;
+	padding:1vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+
+	color: #7E8080; */
+
+}
+
+.dateInputLabel{
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 0.7vw;
+	line-height: 1vw;
+	align-items: center;
+	color: #000000;
+	margin-bottom:0.2vw;
+}
+
+.dateInputInput{
+	width: 8.2vw;
+	height: 2.7vw;
+	background: #F6F6F5;
+	border-radius: 0.7vw;
+	padding:1vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+	color: #7E8080;
+}
+
+.dateButton{
+	width: 2vw;
+  height: 2vw;
+  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Group%2034065.png?token=APXZ46PFRECN2SWDO6BRJTTBTFDFK")
+    no-repeat;
+  background-size: contain;
+}
+
+.clearAttendanceRow{
+	position: relative;
+	margin-left:2.7vw;
+	/* margin-top:3.75vw; */
+	width: 69.5vw;
+	height: fit-content;
+	/* display:flex;
+	flex-direction:row; */
+	background: #F6F6F5;
+	/* border-radius: 1.9vw 1.9vw 0px 0px;	 */
+	align-items: center;
+}
+
+.clearAttendanceButton{
+	width: fit-content;
+	height: fit-content;
+	background: #E5584F;
+	border-radius: 0.7vw;
+	padding:0.7vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	align-items: center;
+	color: #FFFFFF;
+	margin-top:0.5vw;
+	margin-bottom:0.5vw;
+	margin-left:12vw;
+	cursor:pointer;
+}
+
+.AttendanceTableDiv{
+	width: 69.5vw;
+	height: fit-content;
+	margin-left:2.7vw;
+	overflow-x:auto;
+	margin-bottom:2vw;
+}
+
+/* .AttendanceTableDiv ::-webkit-scrollbar {
+   background: #F3752B;
+   border-radius: 0.5vw;
+}
+
+.AttendanceTableDiv ::-webkit-scrollbar-track {
+    background: #F3752B;
+   border-radius: 0.5vw;
+}
+
+.AttendanceTableDiv ::-webkit-scrollbar-thumb {
+    background: #F3752B;
+   border-radius: 0.5vw;
+} */
+
+.AttendanceTable{
+	width: 69.5vw;
+height: fit-content;
+/* margin-left:2.7vw; */
+	background:#ffffff;
+	overflow-x:auto;
+}
+
+.AttendanceRow1{
+	background:#E9E9E9;
+}
+.AttendanceRow2{
+	background:#F6F6F5;
+}
+.AttendanceCell{
+	height:fit-content;
+	width:fit-content;
+	padding-bottom:1.5vw;
+	padding-top:1.5vw;
+	align-content:center;
+	text-align:center;
+	padding-left:0.7vw;
+	padding-right:1.4vw;
+}
+
+.AttendanceUserDelete{
+	position:absolute;
+	width:1vw;
+	height:1vw;
+	cursor:pointer;
+	top:0vw;
+    right:0vw;
+}
+
+.AttendanceUserDonwload{
+	position:absolute;
+	width:1vw;
+	height:1vw;
+	cursor:pointer;
+	bottom:0vw;
+	right:0vw;
+}
+
+/* .AttendanceUserDelete {
+	position:absolute;
+	top:0;
+	left:90%;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  padding: 0;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: transparent;
+  color: #1da1f2;
+  font: inherit;
+  text-indent: 100%;
+  cursor: pointer;
+}
+.AttendanceUserDelete:focus {
+  outline: solid 0 transparent;
+  box-shadow: 0 0 0 2px #8ed0f9;
+}
+.AttendanceUserDelete:hover {
+  background: rgba(29, 161, 142, 0.1);
+}
+.AttendanceUserDelete:before, #close:after {
+  position: absolute;
+  top: 15%;
+  left: calc(50% - 0.0625em);
+  width: 0.125em;
+  height: 70%;
+  border-radius: 0.125em;
+  transform: rotate(45deg);
+  background: currentcolor;
+  content: "";
+}
+.AttendanceUserDelete:after {
+  transform: rotate(-45deg);
+} */
+
+.AttendanceDownload{
+	width:fit-content;
+	height:fit-content;
+	background: #F3752B;
+	border-radius: 0.7vw;
+	padding:0.7vw;
+	/* padding-top:0.2vw; */
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	line-height: 1.2vw;
+	/* align-items: center; */
+	color: #FFFFFF;
+	margin-left:60vw;
+	cursor:pointer;
+	
+}

@@ -13,8 +13,20 @@
 }
 
 .UserRegistration_Title{
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.25vw;
+	line-height: 1.5vw;
+	width:60vw;
+	text-align:center;
+	align-items: center;
+	color: #646464;
+}
+
+.UserRegistration_Title_main{
 	position: relative;
-	margin-left: 4.72vw;
+	margin-left: 24.72vw;
 	margin-bottom: 2vw;
 	font-family: SophiaPro;
 	font-style: normal;
