@@ -4,10 +4,43 @@ import {DateInput,DatePicker,TimePicker,Calendar,} from "@progress/kendo-react-d
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
+import moment from 'moment';
 import "../../public/css/Dashboard/Dashboard.css";
 import "../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../public/css/Dashboard/MyProfile.css";
 import "../../public/css/Dashboard/Attendance.css";
+
+const pad2 = (n) => {
+  return (n < 10 ? '0' : '') + n;
+}
+
+const toDate = (dateStr) => {
+  const [day, month, year] = dateStr.split("/")
+  return new Date(year, month - 1, day);
+}
+
+const dateToStr = (dateObj) => {
+	var month = pad2(dateObj.getMonth()+1);//months (0-11)
+	var day = pad2(dateObj.getDate());//day (1-31)
+	var year= dateObj.getFullYear();
+
+	return day+"/"+month+"/"+year;
+}
+
+const getDates = (startDate, endDate) => {
+  const dates = []
+  let currentDate = startDate;
+  const addDays = function (days) {
+    const date = new Date(this.valueOf())
+    date.setDate(date.getDate() + days)
+    return date;
+  }
+  while (currentDate <= endDate) {
+    dates.push(dateToStr(currentDate))
+    currentDate = addDays.call(currentDate, 1);
+  }
+  return dates;
+}
 
 const info = {
 		Admin1 : {
@@ -118,14 +151,28 @@ class Attendance extends React.Component {
 	
   constructor(props) {
     super(props);
-    this.state = {value: '',myOptions:[],users:[],startDate:null};
+    this.state = {value: '',myOptions:[],users:[],dates:[]};
 	  
 
     this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
+	this.handleClickDateChange = this.handleClickDateChange.bind(this);
 	this.changeStartDate = this.changeStartDate.bind(this);
+	this.removeUser = this.removeUser.bind(this);
+	  this.handleClear = this.handleClear.bind(this);
 	
   }
+	
+ removeUser(event,user){
+	 console.log(user);
+	var newUserList = this.state.users;
+	var index = newUserList.indexOf(user);
+	
+	if (index !== -1) {
+	  newUserList.splice(index, 1);
+	}
+	this.setState({users: newUserList});
+ }
 	
   changeStartDate(event){
     this.setState({startDate: event.target.value});
@@ -155,7 +202,29 @@ class Attendance extends React.Component {
 		result.style.display = "none";
 	});
 	
+   }
+	
+  handleClickDateChange(event){
+	  var start = this.refs.startDate.value;
+	  var end = this.refs.endDate.value;
+	  console.log(start,end);
+	  if( moment(start, "DD/MM/YYYY", true).isValid() && moment(end, "DD/MM/YYYY", true).isValid() ){
+		  alert("enetered date is true..yayy");
+		  
+		  // var startDate = toDate(start);
+		  // var endDate = toDate(end);
+		  this.setState({dates: getDates(toDate(start), toDate(end))});
+		  
+		  // console.log("dates array- ",getDates(startDate,endDate));
+		  
+	  }else{
+		  alert("Pls Enter a Valid date!!");
+	  }
   }
+	
+	handleClear(event){
+		this.setState({users: []});
+	}
 
 
 	// getDataFromAPI = () => {
@@ -229,29 +298,79 @@ class Attendance extends React.Component {
 				<div className="DateRangeTitle">Date Range</div>
 				<div className="dateInput">
 					<label className="dateInputLabel">Start Date</label>
-					<input className="dateInputInput" defaultValue="dd/mm/yyyy" disabled={false}></input>
+					<input className="dateInputInput" ref="startDate" defaultValue="dd/mm/yyyy" disabled={false} ></input>
 				</div>
 				<div className="dateInput">
 					<label className="dateInputLabel">End Date</label>
-					<input className="dateInputInput" defaultValue="dd/mm/yyyy" disabled={false}></input>
+					<input className="dateInputInput" ref="endDate" defaultValue="dd/mm/yyyy" disabled={false} ></input>
 				</div>
-				<button className="dateButton"></button>
+				<button className="dateButton" onClick={this.handleClickDateChange}></button>
 
 			</div>
 			
 			<div className="clearAttendanceRow">
-			      <button className="clearAttendanceButton">Clear Dashboard</button>
+			      <button className="clearAttendanceButton" onClick={this.handleClear}>Clear Dashboard</button>
 			</div>
 			
-			<div>
-				<ul>
-					{this.state.users.map((item, index) => {
+			<div className="AttendanceTableDiv">
+				<table className="AttendanceTable">
+				<tr className="AttendanceRow1">
+					<td className="AttendanceCell"></td>
+					{this.state.dates.map((item) => {
 				return (
-					<li>{item.firstName}</li>
+					<td className="AttendanceCell">{item}</td>
 					);
 				})}
-				</ul>
+				</tr>
+				
+				{this.state.users.map((item,index) => {
+				return (
+					<tr className={index%2 ? "AttendanceRow1": "AttendanceRow2"}>
+						<td className="AttendanceCell">
+							{item.firstName}
+							<button className="AttendanceUserDelete" onClick={()=>{
+																					console.log(item);
+																					var newUserList = this.state.users;
+																					var index = newUserList.indexOf(item);
+
+																					if (index !== -1) {
+																					  newUserList.splice(index, 1);
+																					}
+																					this.setState({users: newUserList});}}                                              type='button'>
+								<IconContext.Provider value={{ color: "#E5584F", size:'1vw' }}>
+									<RiIcons.RiCloseCircleLine />
+								</IconContext.Provider> 
+							</button>
+							<button className="AttendanceUserDonwload" >
+								<IconContext.Provider value={{ color: "#52B788", size:'1vw' }}>
+									<RiIcons.RiDownload2Line />
+								</IconContext.Provider> 
+							</button>
+						</td>
+						{this.state.dates.map((item) => {return (<td className="AttendanceCell">
+																	 P
+																	 &nbsp;
+																	 &nbsp;
+																	<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'1.33vw' }}>
+																	 <AiIcons.AiOutlineClockCircle />
+																	&nbsp;
+																	
+																    <RiIcons.RiMapPin2Line />
+																		
+																	 </IconContext.Provider> 
+																 </td>);})}
+					</tr>
+	             );
+				  })}
+				</table>
 			</div>
+			
+			<button className="AttendanceDownload">
+				<IconContext.Provider value={{ color: "#ffffff", size:'1vw' }}>
+					<RiIcons.RiFileDownloadLine />
+			    </IconContext.Provider> 
+				&nbsp; Download
+			</button>
 			
 		</div>
 	);
