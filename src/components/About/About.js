@@ -14,7 +14,7 @@ const About = () => {
       <Fleet />
       <Client />
       <Team />
-      <Map />
+      {/* <Map /> */}
     </div>
   );
 };
