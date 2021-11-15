@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../../index.css";
 import "../../public/css/Partner/Reviews.css";
@@ -22,6 +22,30 @@ const ReviewCard = ({ imgSrc, name, company, review, color }) => {
 };
 
 export const Reviews = () => {
+  const [cardIndex, setCardIndex] = useState(1);
+  const [translateX, setTranslateX] = useState(0);
+  const numOfCards = 4;
+
+  const goPrevCard = (event) => {
+    if (cardIndex !== 1) {
+      setCardIndex(cardIndex - 1);
+      setTranslateX(translateX + 100);
+    } else {
+      setCardIndex(numOfCards);
+      setTranslateX((1 - numOfCards) * 100);
+    }
+  };
+
+  const goNextCard = (event) => {
+    if (cardIndex !== numOfCards) {
+      setCardIndex(cardIndex + 1);
+      setTranslateX(translateX - 100);
+    } else {
+      setCardIndex(1);
+      setTranslateX(0);
+    }
+  };
+
   return (
     <div className="review-section grid-main">
       <div className="header">
@@ -30,6 +54,7 @@ export const Reviews = () => {
       </div>
 
       <div className="cards">
+        {/* <button className="carousel__button previous">&lt;</button> */}
         <ReviewCard
           imgSrc={customer}
           name={"Lorem ipsum"}
