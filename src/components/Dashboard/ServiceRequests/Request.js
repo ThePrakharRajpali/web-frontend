@@ -126,8 +126,55 @@ const OrderDetail = () => {
   );
 };
 
+const InvoiceTableRow = () => {
+  return (
+    <ul className="invoice-table-row">
+      <li>ID12345678</li>
+      <li>ABC123</li>
+      <li>ABC123</li>
+      <li>100</li>
+      <li>100</li>
+      <li className="invoice-address">123, This Area, This City</li>
+    </ul>
+  );
+};
+
+const InvoiceTableHeader = () => {
+  return (
+    <ul className="invoice-table-header">
+      <li>Invoice ID</li>
+      <li>Code</li>
+      <li>Type</li>
+      <li>No. of Parcels</li>
+      <li>Weight</li>
+      <li>Address</li>
+    </ul>
+  );
+};
+
+const InvoiceTable = () => {
+  return (
+    <div className="invoice-table">
+      <InvoiceTableHeader />
+      <div className="invoice-table-rows">
+        <InvoiceTableRow />
+        <InvoiceTableRow />
+        <InvoiceTableRow />
+        <InvoiceTableRow />
+        <InvoiceTableRow />
+        <InvoiceTableRow />
+      </div>
+    </div>
+  );
+};
+
 const InvoiceList = () => {
-  return <div className="invoice-list">Invoice List</div>;
+  return (
+    <div className="invoice-list">
+      <p>Invoice Lists</p>
+      <InvoiceTable />
+    </div>
+  );
 };
 
 export const Request = () => {

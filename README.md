@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +67,52 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+
+# Naata Connection Web App
+
+### Table of Content
+
+- [Naata Connection Web App](#naata-connection-web-app)
+    - [Table of Content](#table-of-content)
+  - [About](#about)
+  - [Technology Used](#technology-used)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage)
+
+## About
+
+## Technology Used
+[ReactJS](https://reactjs.org/) - v17.0.2
+
+## Prerequisites
+1. npm
+   ```bash
+    npm install npm@latest -g
+   ```
+
+## Usage
+1. Clone the Repository
+    ```bash
+    git clone https://github.com/naataconnection/web-frontend.git
+    ```
+
+2. Change the directory
+    ```bash
+    cd ./web-frontend
+    ```
+
+3. Install Required Packages
+    ```bash
+    npm install
+    ```
+
+4. Running app in development environment
+   ```bash
+    npm start
+   ```
+
+5. Deploying app in production environment
+    ```bash
+    npm run build
+    ```
