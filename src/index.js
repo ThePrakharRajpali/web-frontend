@@ -82,19 +82,19 @@ const Display = () => {
             <ServiceRequests_All />
           </Route>
 
-          <Route exact path="/Dashboard_ServiceRequests_CreateNew">
+          <Route exact path="/Dashboard/Requests/New">
             <ControlPanel />
             <ServiceRequests_CreateNew />
           </Route>
-          <Route exact path="/Dashboard_ServiceRequests_Pending">
+          <Route exact path="/Dashboard/Requests/Pending">
             <ControlPanel />
             <ServiceRequests_Pending />
           </Route>
-          <Route exact path="/Dashboard_ServiceRequests_Active">
+          <Route exact path="/Dashboard/Requests/Active">
             <ControlPanel />
             <ServiceRequests_Active />
           </Route>
-          <Route exact path="/Dashboard_ServiceRequests_Completed">
+          <Route exact path="/Dashboard/Requests/Completed">
             <ControlPanel />
             <ServiceRequests_Completed />
           </Route>
