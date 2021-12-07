@@ -1,0 +1,12 @@
+.SearchBarDropDown{
+	position: absolute;
+	top:2.05vw;
+	left:53.9vw;
+	width: 3vw;
+	height: 3.60vw;
+	background: #F6F6F5;
+	border-radius: 1.38vw;
+	z-index:2;
+	padding:1.2vw;
+	/* color: #7E8080; */
+}

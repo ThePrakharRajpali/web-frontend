@@ -9,6 +9,7 @@ import "../../public/css/Dashboard/Dashboard.css";
 import "../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../public/css/Dashboard/MyProfile.css";
 import "../../public/css/Dashboard/Attendance.css";
+import "../../public/css/Dashboard/Diesel.css";
 
 const pad2 = (n) => {
   return (n < 10 ? '0' : '') + n;
@@ -146,20 +147,21 @@ const Options = (options, handleClick) => {
 	}
 };
 
-class Attendance extends React.Component {
+class Diesel extends React.Component {
 	
 	
   constructor(props) {
     super(props);
-    this.state = {value: '',myOptions:[],users:[],dates:[]};
+    this.state = {value: '',myOptions:[],users:[],dates:[],searchOption:'searchByDate'};
 	  
-
-    this.handleChange = this.handleChange.bind(this);
+    // this.searchOption = React.createRef();
+    this.handleChangeSearchOption = this.handleChangeSearchOption.bind(this);
+	this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
 	this.handleClickDateChange = this.handleClickDateChange.bind(this);
 	this.changeStartDate = this.changeStartDate.bind(this);
 	this.removeUser = this.removeUser.bind(this);
-	  this.handleClear = this.handleClear.bind(this);
+	this.handleClear = this.handleClear.bind(this);
 	
   }
 	
@@ -191,6 +193,11 @@ class Attendance extends React.Component {
 	results.forEach((result) => {
 		result.style.display = "flex";
 	});
+  }
+	
+  handleChangeSearchOption(event) {
+    this.setState({searchOption: event.target.value});
+	console.log(this.state.searchOption);
   }
 	
   handleClick(event) {
@@ -260,15 +267,68 @@ class Attendance extends React.Component {
 			
 			<div>
 				
-				<input className="SearchBarInput" type="text" placeholder="Add a Employee" ref="myInput" onChange={this.handleChange}></input>
+				<select className="SearchBarInput" ref="searchOption" onChange={this.handleChangeSearchOption} >
+					<option value="searchByDate">Search By Date</option>
+					<option value="searchByDateAndUserCode">Search By Date And User Code</option>
+					<option value="searchByVehicleNumber">Search By Vehicle Number</option>
+					<option value="searchByModeOfPayment">Search By Mode of Payment</option>
+					<option value="searchByPump">Search By Pump</option>
+					<option value="searchByDateRange">Search By Date Range</option>
+				</select>
 				
-				<div className="SearchBarIcon">
-					<IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
-					<AiIcons.AiOutlineSearch />
+				
+				<div className="SearchBarDropDown">
+					<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
+					<RiIcons.RiArrowDownSFill />
 			    </IconContext.Provider> 
 				</div>
 			 
 			</div>
+			
+			{ 
+				this.state.searchOption == "searchByDate" ? 
+				 (
+					<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
+				 ) : 
+				this.state.searchOption == "searchByDateAndUserCode" ?
+				(
+					<div>
+						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
+						<input className="SearchBarInput" type="text" placeholder="Enter User Code" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
+					</div>
+				)  :
+				this.state.searchOption == "searchByVehicleNumber" ?
+				(
+					<input className="SearchBarInput" type="text" placeholder="Enter Vehicle Number" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
+				) :
+				this.state.searchOption == "searchByModeOfPayment" ?
+				(
+					<div>
+						<select className="SearchBarInput">
+							<option value="phonePe">PhonePe</option>
+							<option value="cash">Cash</option>
+						</select>
+						<div className="SearchBarDropDown">
+							<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
+								<RiIcons.RiArrowDownSFill />
+							</IconContext.Provider> 
+						</div>
+					</div>
+				) :
+				this.state.searchOption == "searchByPump" ?
+				(
+					<input className="SearchBarInput" type="text" placeholder="Enter Pump" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
+				) :
+				(
+					<div>
+						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="Start Date"></input>
+						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="End Date"></input>
+					</div>
+				)
+			}
+			
+			
+			
 			
 			<div style={{height:'auto'}} ref="SearchResults">
 				{this.state.myOptions.map((item, index) => {
@@ -335,9 +395,18 @@ class Attendance extends React.Component {
 								</IconContext.Provider> 
 							</button>
 						</td>
-						{this.state.dates.map((item) => {return (<td className="AttendanceCell">P &nbsp; &nbsp;
-																	<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'0.75vw' }}><AiIcons.AiOutlineClockCircle />&nbsp;
-<RiIcons.RiMapPin2Line /></IconContext.Provider> </td>);})}
+						{this.state.dates.map((item) => {return (<td className="AttendanceCell">
+																	 P
+																	 &nbsp;
+																	 &nbsp;
+																	<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'1.33vw' }}>
+																	 <AiIcons.AiOutlineClockCircle />
+																	&nbsp;
+																	
+																    <RiIcons.RiMapPin2Line />
+																		
+																	 </IconContext.Provider> 
+																 </td>);})}
 					</tr>
 	             );
 				  })}
@@ -356,4 +425,4 @@ class Attendance extends React.Component {
  }
 };
 
-export default Attendance;
+export default Diesel;
