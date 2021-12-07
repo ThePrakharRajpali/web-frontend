@@ -116,10 +116,10 @@ class Diesel extends React.Component {
 		var thing1 = things[Math.floor(Math.random()*things.length)];
 		var thing2 = things[Math.floor(Math.random()*things.length)];
 		var thing3 = things[Math.floor(Math.random()*things.length)];
-		var thing4 = things[Math.floor(Math.random()*things.length)];
-		var thing5 = things[Math.floor(Math.random()*things.length)];
+		// var thing4 = things[Math.floor(Math.random()*things.length)];
+		// var thing5 = things[Math.floor(Math.random()*things.length)];
 
-		this.setState({diesels: [info[thing1],info[thing2],info[thing3],info[thing4],info[thing5]]});
+		this.setState({diesels: [info[thing1],info[thing2],info[thing3]]});
   	}
 	
   	handleChangeSearchOption(event) {
