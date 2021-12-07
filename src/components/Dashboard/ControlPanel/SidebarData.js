@@ -20,6 +20,13 @@ export const SidebarData = [
 	iconOpened: <RiIcons.RiArrowUpSFill />,
 },
 {
+	title: "Diesel",
+	path: "/Dashboard/Diesel",
+	icon: <FaIcons.FaHandHoldingUsd />,
+	iconClosed: <RiIcons.RiArrowDownSFill />,
+	iconOpened: <RiIcons.RiArrowUpSFill />,
+},
+{
 	title: "Live Location",
 	path: "/Dashboard/LiveLocation",
 	icon: <FaIcons.FaMapMarkerAlt />,
@@ -36,7 +43,7 @@ export const SidebarData = [
 	{
 		title: "Customer",
 		path: "/Dashboard/Profile/Customer",
-		icon: <IoIcons.IoIosPaper />,
+		icon: <RiIcons.RiCustomerService2Fill />,
 	},
 	{
 		title: "Delivery Boy",
@@ -76,7 +83,7 @@ export const SidebarData = [
 	{
 		title: "Super User",
 		path: "/Dashboard/SuperUserRegistration",
-		icon: <AiIcons.AiOutlineUserAdd />,
+		icon: <RiIcons.RiAdminLine />,
 	},
 	{
 		title: "Vehicle",

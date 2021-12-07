@@ -335,18 +335,9 @@ class Attendance extends React.Component {
 								</IconContext.Provider> 
 							</button>
 						</td>
-						{this.state.dates.map((item) => {return (<td className="AttendanceCell">
-																	 P
-																	 &nbsp;
-																	 &nbsp;
-																	<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'1.33vw' }}>
-																	 <AiIcons.AiOutlineClockCircle />
-																	&nbsp;
-																	
-																    <RiIcons.RiMapPin2Line />
-																		
-																	 </IconContext.Provider> 
-																 </td>);})}
+						{this.state.dates.map((item) => {return (<td className="AttendanceCell">P &nbsp; &nbsp;
+																	<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'0.75vw' }}><AiIcons.AiOutlineClockCircle />&nbsp;
+<RiIcons.RiMapPin2Line /></IconContext.Provider> </td>);})}
 					</tr>
 	             );
 				  })}

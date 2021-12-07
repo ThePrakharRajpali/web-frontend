@@ -1,0 +1,107 @@
+.SearchBarDropDown{
+	position: absolute;
+	top:2.05vw;
+	left:53.9vw;
+	width: 3vw;
+	height: 3.60vw;
+	background: #F6F6F5;
+	border-radius: 1.38vw;
+	z-index:2;
+	padding:1.2vw;
+	/* color: #7E8080; */
+}
+
+.DieselCardDropDown{
+	position: absolute;
+	top:0.05vw;
+	left:60.9vw;
+	width: 1vw;
+	height: 3.60vw;
+	background: #F6F6F5;
+	border-radius: 1.38vw;
+	z-index:2;
+	padding:1.2vw;
+}
+
+
+.Diesel_Cards{
+	height:fit-content;
+	margin-top:2.5vw;
+	margin-left:3vw;
+	margin-right:3vw;
+	background: #F6F6F5;
+	border-radius: 3.125vw;
+	position:relative;
+	padding-bottom:3vw;
+	padding-left:2vw;
+	padding-right:2vw;
+	margin-bottom:-1vw;
+}
+
+
+.Form_Field_Container{
+	display:flex;
+	flex-direction:column;
+	
+}
+
+.Form_Fields{
+	display:flex;
+	flex-direction:row;
+	position:relative;
+	margin-top:2.375vw;
+	width:38.75vw;
+	height:fit-content;
+}
+
+.Form_field{
+	display:flex;
+	flex-direction:column;
+	width:fit-content;
+	height:fit-content;
+	margin-right:1.7vw;
+}
+
+.Form_field_label{
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #7E8080;
+	margin-bottom:0.36vw;
+	padding-left:0.76vw;
+}
+
+
+.Form_field_input{
+	position: relative;
+	background: #FFFFFF;
+	border-radius: 0.74vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #000000;
+	padding:0.76vw;
+	padding-right:1vw;
+}
+
+.Form_field_input_text_area{
+	position: relative;
+	background: #FFFFFF;
+	border-radius: 0.74vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #000000;
+	padding:0.76vw;
+	padding-right:1vw;
+	height:fit-content;
+}
