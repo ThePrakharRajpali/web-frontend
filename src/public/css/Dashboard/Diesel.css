@@ -89,3 +89,19 @@
 	padding:0.76vw;
 	padding-right:1vw;
 }
+
+.Form_field_input_text_area{
+	position: relative;
+	background: #FFFFFF;
+	border-radius: 0.74vw;
+	font-family: SophiaPro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.11vw;
+	line-height: 1.3vw;
+	align-items: center;
+	color: #000000;
+	padding:0.76vw;
+	padding-right:1vw;
+	height:fit-content;
+}

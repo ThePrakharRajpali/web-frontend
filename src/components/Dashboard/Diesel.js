@@ -112,17 +112,14 @@ class Diesel extends React.Component {
     }
 
   	handleChange(event) {
-	// this.setState({value: event.target.value});
-	// console.log("Enetered input = "+event.target.value);
-	var things = ['Diesel1','Diesel2','Diesel3','Diesel4'];
-	var thing1 = things[Math.floor(Math.random()*things.length)];
-	var thing2 = things[Math.floor(Math.random()*things.length)];
-	var thing3 = things[Math.floor(Math.random()*things.length)];
-	var thing4 = things[Math.floor(Math.random()*things.length)];
-	var thing5 = things[Math.floor(Math.random()*things.length)];
-		
-	this.setState({diesels: [info[thing1],info[thing2],info[thing3],info[thing4],info[thing5]]});
-	console.log(this.state.diesels);
+		var things = ['Diesel1','Diesel2','Diesel3','Diesel4'];
+		var thing1 = things[Math.floor(Math.random()*things.length)];
+		var thing2 = things[Math.floor(Math.random()*things.length)];
+		var thing3 = things[Math.floor(Math.random()*things.length)];
+		var thing4 = things[Math.floor(Math.random()*things.length)];
+		var thing5 = things[Math.floor(Math.random()*things.length)];
+
+		this.setState({diesels: [info[thing1],info[thing2],info[thing3],info[thing4],info[thing5]]});
   	}
 	
   	handleChangeSearchOption(event) {
@@ -132,152 +129,190 @@ class Diesel extends React.Component {
 	
 	handleClick(event) {
 		var arrow = event.target;
-		console.log(arrow);
-		var firstPart = arrow.nextElementSibling;
-		console.log(firstPart);
-		var nextPart = firstPart.nextElementSibling;
-		console.log(nextPart);
+		console.log("arrow : ",arrow);
+		// var siblings = arrow.siblings();
+		// console.log("siblings : ",siblings);
+		// for(var i=1;i<siblings.length;i++){
+		// 	siblings[i].slideToggle("fast","linear");
+		// }
+		console.log("sibling : ", arrow.nextElementSibling);
+		arrow.nextElementSibling.slideToggle();
+		// var firstPart = arrow.nextElementSibling;
+		// console.log(firstPart);
+		// var nextPart = firstPart.nextElementSibling;
+		// console.log(nextPart);
 		
-		while(nextPart){
-			nextPart.slideToggle("fast","linear");
-			nextPart = nextPart.nextElementSibling;	
-			console.log(nextPart);
-		}
+		// while(nextPart){
+		// 	nextPart.slideToggle("fast","linear");
+		// 	nextPart = nextPart.nextElementSibling;	
+		// 	console.log(nextPart);
+		// }
 		
 		// if(event.target.style.transform=="rotate(-180deg)")  											event.target.style.transform="rotate(0deg)";
 		// else 
 		// 	event.target.style.transform="rotate(-180deg)";
 	}
 	
- render() {
-	 
-	return (
-		<div className="Dashboard">
-			
-			<div>
-				
-				<select className="SearchBarInput" ref="searchOption" onChange={this.handleChangeSearchOption} >
-					<option value="searchByDate">Search By Date</option>
-					<option value="searchByDateAndUserCode">Search By Date And User Code</option>
-					<option value="searchByVehicleNumber">Search By Vehicle Number</option>
-					<option value="searchByModeOfPayment">Search By Mode of Payment</option>
-					<option value="searchByPump">Search By Pump</option>
-					<option value="searchByDateRange">Search By Date Range</option>
-				</select>
-				
-				
-				<div className="SearchBarDropDown">
-					<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
-					<RiIcons.RiArrowDownSFill />
-			    </IconContext.Provider> 
-				</div>
-			 
-			</div>
-			
-			<div>
-			
-			{ 
-				this.state.searchOption == "searchByDate" ? 
-				 (
-					<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
-				 ) : 
-				this.state.searchOption == "searchByDateAndUserCode" ?
-				(
-					<div>
-						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
-						<input className="SearchBarInput" type="text" placeholder="Enter User Code" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
-					</div>
-				)  :
-				this.state.searchOption == "searchByVehicleNumber" ?
-				(
-					<input className="SearchBarInput" type="text" placeholder="Enter Vehicle Number" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
-				) :
-				this.state.searchOption == "searchByModeOfPayment" ?
-				(
-					<div>
-						<select className="SearchBarInput" onChange={this.handleChange} >
-							<option value="phonePe">PhonePe</option>
-							<option value="cash">Cash</option>
-						</select>
-						<div className="SearchBarDropDown">
-							<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
-								<RiIcons.RiArrowDownSFill />
-							</IconContext.Provider> 
-						</div>
-					</div>
-				) :
-				this.state.searchOption == "searchByPump" ?
-				(
-					<input className="SearchBarInput" type="text" placeholder="Enter Pump" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
-				) :
-				(
-					<div>
-						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="Start Date"></input>
-						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="End Date"></input>
-					</div>
-				)
-			}
-			
-		
-			</div>
-				
-			{this.state.diesels.map((diesel, index) => {
-				return (
-					<div className="Diesel_Cards">
-						<div className="Form_Field_Container">
+	render() {
 
-							<div className="DieselCardDropDown" onClick={this.handleClick}>
-								<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.73vw' }}>
+		return (
+			<div className="Dashboard">
+
+				<div>
+
+					<select className="SearchBarInput" ref="searchOption" onChange={this.handleChangeSearchOption} >
+						<option value="searchByDate">Search By Date</option>
+						<option value="searchByDateAndUserCode">Search By Date And User Code</option>
+						<option value="searchByVehicleNumber">Search By Vehicle Number</option>
+						<option value="searchByModeOfPayment">Search By Mode of Payment</option>
+						<option value="searchByPump">Search By Pump</option>
+						<option value="searchByDateRange">Search By Date Range</option>
+					</select>
+
+
+					<div className="SearchBarDropDown">
+						<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
+						<RiIcons.RiArrowDownSFill />
+					</IconContext.Provider> 
+					</div>
+
+				</div>
+
+				<div>
+
+				{ 
+					this.state.searchOption == "searchByDate" ? 
+					 (
+						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
+					 ) : 
+					this.state.searchOption == "searchByDateAndUserCode" ?
+					(
+						<div>
+							<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
+							<input className="SearchBarInput" type="text" placeholder="Enter User Code" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
+						</div>
+					)  :
+					this.state.searchOption == "searchByVehicleNumber" ?
+					(
+						<input className="SearchBarInput" type="text" placeholder="Enter Vehicle Number" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
+					) :
+					this.state.searchOption == "searchByModeOfPayment" ?
+					(
+						<div>
+							<select className="SearchBarInput" onChange={this.handleChange} >
+								<option value="phonePe">PhonePe</option>
+								<option value="cash">Cash</option>
+							</select>
+							<div className="SearchBarDropDown">
+								<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
 									<RiIcons.RiArrowDownSFill />
 								</IconContext.Provider> 
 							</div>
-							
-							<div className="Form_Fields">
-
-								<div className="Form_field">
-									<label className="Form_field_label">Vehicle Number</label>
-									<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["vehicleNumber"]}/>
-								</div>
-
-								<div className="Form_field">
-									<label className="Form_field_label">User Code</label>
-									<input className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["userCode"]} />
-								</div>
-
-								<div className="Form_field">
-									<label className="Form_field_label">Total Amount</label>
-									<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["totalAmount"]}/>
-								</div>
-
-							</div>
-							
-							<div className="Form_Fields" style={{display:"none"}}>
-
-								<div className="Form_field">
-									<label className="Form_field_label">Vehicle Number</label>
-									<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["vehicleNumber"]}/>
-								</div>
-
-								<div className="Form_field">
-									<label className="Form_field_label">User Code</label>
-									<input className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["userCode"]} />
-								</div>
-
-								<div className="Form_field">
-									<label className="Form_field_label">Total Amount</label>
-									<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["totalAmount"]}/>
-								</div>
-
-							</div>
-
 						</div>
-					</div>
-					);
-				})}
-	
-		</div>
-	);
- }
+					) :
+					this.state.searchOption == "searchByPump" ?
+					(
+						<input className="SearchBarInput" type="text" placeholder="Enter Pump" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
+					) :
+					(
+						<div>
+							<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="Start Date"></input>
+							<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="End Date"></input>
+						</div>
+					)
+				}
+
+
+				</div>
+				
+				<div>
+					{this.state.diesels.map((diesel, index) => {
+					return (
+						<div className="Diesel_Cards">
+							<div className="Form_Field_Container">
+
+								<div className="Form_Fields">
+
+									<div className="Form_field">
+										<label className="Form_field_label">Vehicle Number</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["vehicleNumber"]}/>
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">User Code</label>
+										<input className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["userCode"]} />
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">Total Amount</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["totalAmount"]}/>
+									</div>
+
+								</div>
+								
+								{/* <div className="DieselCardDropDown" >
+									<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.73vw' }} onClick={this.handleClick}>
+										<RiIcons.RiArrowDownSFill />
+									</IconContext.Provider> 
+								</div> */}
+
+								<div className="Form_Fields">
+
+									<div className="Form_field">
+										<label className="Form_field_label">Km of Vehicle</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["kmOfVehicle"]}/>
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">Pump</label>
+										<input className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["pump"]} />
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">Date</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["date"]}/>
+									</div>
+
+								</div>
+								
+								<div className="Form_Fields">
+
+									<div className="Form_field">
+										<label className="Form_field_label">Number of Liters</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["liter"]}/>
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">Diesel Rate</label>
+										<input className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["dieselRate"]} />
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">Payment Mode</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["paymentMode"]}/>
+									</div>
+
+								</div>
+								
+								<div className="Form_Fields">
+
+									<div className="Form_field">
+										<label className="Form_field_label">Remarks</label>
+										<textarea required className="Form_field_input_text_area" style={{width:'60vw',minHeight:'fit-content'}} type="textarea" disabled={true} value={diesel["remarks"]}/>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+						);
+					})}
+
+				</div>
+
+			</div>
+		);
+	}
 };
 
 export default Diesel;
