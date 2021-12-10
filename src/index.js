@@ -11,6 +11,7 @@ import About from "./components/About/About";
 import ControlPanel from "./components/Dashboard/ControlPanel/Control_Panel";
 import MyProfile from "./components/Dashboard/MyProfile";
 import Attendance from "./components/Dashboard/Attendance";
+import Diesel from "./components/Dashboard/Diesel";
 import LiveLocation from "./components/Dashboard/LiveLocation";
 
 import ServiceRequests_CreateNew from "./components/Dashboard/ServiceRequests/New";
@@ -114,6 +115,10 @@ const Display = () => {
           <Route exact path="/Dashboard/Attendance">
             <ControlPanel />
             <Attendance />
+          </Route>
+		  <Route exact path="/Dashboard/Diesel">
+			<ControlPanel />
+            <Diesel />
           </Route>
           <Route exact path="/Dashboard/LiveLocation">
             <ControlPanel />

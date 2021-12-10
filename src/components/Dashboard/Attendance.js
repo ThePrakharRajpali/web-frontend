@@ -163,7 +163,7 @@ class Attendance extends React.Component {
 	
   }
 	
- removeUser(event,user){
+  removeUser(event,user){
 	 console.log(user);
 	var newUserList = this.state.users;
 	var index = newUserList.indexOf(user);
@@ -172,7 +172,7 @@ class Attendance extends React.Component {
 	  newUserList.splice(index, 1);
 	}
 	this.setState({users: newUserList});
- }
+  }
 	
   changeStartDate(event){
     this.setState({startDate: event.target.value});
@@ -193,7 +193,7 @@ class Attendance extends React.Component {
 	});
   }
 	
-   handleClick(event) {
+  handleClick(event) {
    	console.log("Clicked input = "+event.target.value);
 	this.setState({ users: this.state.users.concat(info[event.target.value]) });
 	this.refs.myInput.value="";
@@ -202,29 +202,17 @@ class Attendance extends React.Component {
 		result.style.display = "none";
 	});
 	
-   }
+  }
 	
   handleClickDateChange(event){
 	  var start = this.refs.startDate.value;
 	  var end = this.refs.endDate.value;
-	  console.log(start,end);
-	  if( moment(start, "DD/MM/YYYY", true).isValid() && moment(end, "DD/MM/YYYY", true).isValid() ){
-		  alert("enetered date is true..yayy");
-		  
-		  // var startDate = toDate(start);
-		  // var endDate = toDate(end);
-		  this.setState({dates: getDates(toDate(start), toDate(end))});
-		  
-		  // console.log("dates array- ",getDates(startDate,endDate));
-		  
-	  }else{
-		  alert("Pls Enter a Valid date!!");
-	  }
+	  this.setState({dates: getDates(new Date(start), new Date(end))});   
   }
 	
-	handleClear(event){
+  handleClear(event){
 		this.setState({users: []});
-	}
+  }
 
 
 	// getDataFromAPI = () => {
@@ -298,11 +286,11 @@ class Attendance extends React.Component {
 				<div className="DateRangeTitle">Date Range</div>
 				<div className="dateInput">
 					<label className="dateInputLabel">Start Date</label>
-					<input className="dateInputInput" ref="startDate" defaultValue="dd/mm/yyyy" disabled={false} ></input>
+					<input type="date" className="dateInputInput" ref="startDate" disabled={false} onChange={this.handleClickDateChange}></input>
 				</div>
 				<div className="dateInput">
 					<label className="dateInputLabel">End Date</label>
-					<input className="dateInputInput" ref="endDate" defaultValue="dd/mm/yyyy" disabled={false} ></input>
+					<input type="date" className="dateInputInput" ref="endDate" disabled={false} onChange={this.handleClickDateChange} ></input>
 				</div>
 				<button className="dateButton" onClick={this.handleClickDateChange}></button>
 
@@ -347,18 +335,9 @@ class Attendance extends React.Component {
 								</IconContext.Provider> 
 							</button>
 						</td>
-						{this.state.dates.map((item) => {return (<td className="AttendanceCell">
-																	 P
-																	 &nbsp;
-																	 &nbsp;
-																	<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'1.33vw' }}>
-																	 <AiIcons.AiOutlineClockCircle />
-																	&nbsp;
-																	
-																    <RiIcons.RiMapPin2Line />
-																		
-																	 </IconContext.Provider> 
-																 </td>);})}
+						{this.state.dates.map((item) => {return (<td className="AttendanceCell">P &nbsp; &nbsp;
+																	<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'0.75vw' }}><AiIcons.AiOutlineClockCircle />&nbsp;
+<RiIcons.RiMapPin2Line /></IconContext.Provider> </td>);})}
 					</tr>
 	             );
 				  })}
