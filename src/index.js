@@ -28,6 +28,10 @@ import UserRegistration from "./components/Dashboard/Registration/UserRegistrati
 import SuperUserRegistration from "./components/Dashboard/Registration/SuperUserRegistration";
 import VehicleRegistration from "./components/Dashboard/Registration/VehicleRegistration";
 
+import { General as GeneralFormResponse } from "./components/Dashboard/FormResponse/General";
+import { Vendor as VendorFormResponse } from "./components/Dashboard/FormResponse/Vendor";
+import { GeneralSingle as SingleGeneralFormResponse } from "./components/Dashboard/FormResponse/GeneralSingle";
+
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { Request as ServiceRequest } from "./components/Dashboard/ServiceRequests/Request";
@@ -146,6 +150,21 @@ const Display = () => {
           <Route exact path="/Dashboard/VehicleRegistration">
             <ControlPanel />
             <VehicleRegistration />
+          </Route>
+
+          <Route exact path="/Dashboard/Form/General">
+            <ControlPanel />
+            <GeneralFormResponse />
+          </Route>
+
+          <Route path="/Dashboard/Form/General/:id">
+            <ControlPanel />
+            <SingleGeneralFormResponse />
+          </Route>
+
+          <Route exact path="/Dashboard/Form/Vendor">
+            <ControlPanel />
+            <VendorFormResponse />
           </Route>
 
           <Route exact path="/Dashboard">
