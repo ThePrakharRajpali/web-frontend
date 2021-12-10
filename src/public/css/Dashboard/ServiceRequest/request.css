@@ -45,19 +45,20 @@
 }
 
 .assign-manager a {
-  color: var(--orange);
-  border: 1px solid var(--orange);
+  color: #646464;
+  border: 1px solid #646464;
   border-radius: 5px;
-  padding: 5px;
+  padding: 3px 5px;
 }
 
 .assign-manager a:visited {
-  color: var(--orange);
+  color: #646464;
 }
 
 .assign-manager a:hover {
-  background-color: var(--orange);
-  color: var(--white);
+  /* background-color: var(--orange); */
+  color: var(--orange);
+  border: 1px solid var(--orange);
 }
 
 .order-list {
@@ -84,19 +85,20 @@
 }
 
 .order-list-heading a {
-  color: var(--orange);
-  border: 1px solid var(--orange);
+  color: #646464;
+  border: 1px solid #646464;
   border-radius: 5px;
-  padding: 5px;
+  padding: 3px 5px;
 }
 
 .order-list-heading a:visited {
-  color: var(--orange);
+  color: #646464;
 }
 
 .order-list-heading a:hover {
-  background-color: var(--orange);
-  color: var(--white);
+  /* background-color: var(--orange); */
+  color: var(--orange);
+  border: 1px solid var(--orange);
 }
 
 .order-table {
@@ -107,6 +109,7 @@
   /* overflow-y: scroll; */
   border-radius: 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .order-table-header {
@@ -135,7 +138,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   /* background-color: #f6f6f5; */
-  height: 5vh;
+  height: 6vh;
 }
 
 .order-table-row:nth-child(even) {

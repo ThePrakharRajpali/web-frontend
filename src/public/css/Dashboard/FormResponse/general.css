@@ -1,0 +1,57 @@
+.contact-table-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #e9e9e9;
+  border-radius: 22px 22px 0 0;
+}
+
+.contact-table-header li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-table-header li:nth-child(3) {
+  grid-column: span 2;
+}
+
+.contact-table-header li:last-child {
+  grid-column: span 3;
+}
+
+.general-table-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.general-table-row li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.general-table-row li:nth-child(3) {
+  grid-column: span 2;
+}
+
+.general-table-row li:last-child {
+  grid-column: span 3;
+  overflow: hidden;
+  height: 3rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 10px;
+}
+
+.general-table-row:nth-child(even) {
+  background: #f6f6f6;
+}
+
+.contact-rows {
+  max-height: 49vh;
+  overflow-y: scroll;
+  border-radius: 0 0 22px 22px;
+}
