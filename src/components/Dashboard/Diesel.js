@@ -55,7 +55,7 @@ const info = {
 			"vehicleNumber":"AP00001",
 			"userCode":"NC00001",
 			"paymentMode":"Mode 1",
-			"remarks":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
+			"remarks":"1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
 			
 		},	
 		Diesel2 : {
@@ -68,7 +68,7 @@ const info = {
 			"vehicleNumber":"AP00002",
 			"userCode":"NC00002",
 			"paymentMode":"Mode 2",
-			"remarks":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
+			"remarks":"2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
 			
 		},
 		Diesel3 : {
@@ -81,7 +81,7 @@ const info = {
 			"vehicleNumber":"AP00003",
 			"userCode":"NC00003",
 			"paymentMode":"Mode 3",
-			"remarks":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
+			"remarks":"3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
 			
 		},
 		Diesel4 : {
@@ -94,7 +94,7 @@ const info = {
 			"vehicleNumber":"AP00004",
 			"userCode":"NC00004",
 			"paymentMode":"Mode 4",
-			"remarks":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
+			"remarks":"4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
 			
 		},
 }
@@ -229,6 +229,7 @@ class Diesel extends React.Component {
 					{this.state.diesels.map((diesel, index) => {
 					return (
 						<div className="Diesel_Cards">
+							<div className="Diesel_Card_Nums">{index+1}</div>
 							<div className="Form_Field_Container">
 
 								<div className="Form_Fields">
@@ -298,7 +299,7 @@ class Diesel extends React.Component {
 
 									<div className="Form_field">
 										<label className="Form_field_label">Remarks</label>
-										<textarea required className="Form_field_input_text_area" style={{width:'60vw',minHeight:'fit-content'}} type="textarea" disabled={true} value={diesel["remarks"]}/>
+										<textarea required className="Form_field_input_text_area" style={{width:'60vw',height:'8vw'}} type="textarea" disabled={true} defaultValue={diesel["remarks"]}></textarea>
 									</div>
 
 								</div>
