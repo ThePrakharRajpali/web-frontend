@@ -75,12 +75,16 @@ const Display = () => {
             <Footer />
           </Route>
 
+		  <Route exact path="/login/OtpVerification">
+            <Login_OTP />
+          </Route>
+		  <Route exact path="/loginOtpVerification">
+            <Login_OTP />
+          </Route>
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/loginOtpVerification">
-            <Login_OTP />
-          </Route>
+          
 
           <Route exact path="/Dashboard/Requests/All">
             <ControlPanel />

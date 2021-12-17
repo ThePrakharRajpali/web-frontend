@@ -74,8 +74,9 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0.5vw;
-  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/final%20logo.png?token=APXZ46I23T6ZFKGTKJ4G2BDBPGEO6")
-    no-repeat;
+  /* background: url("login_logo.jpg")
+    no-repeat; */
+	background-image: url("login_logo.jpg");
   background-size: contain;
 }
 .login-container .title {
@@ -137,8 +138,8 @@ font-weight: normal;
 }
 
 .icon::placeholder {
-  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/User.png?token=APXZ46LFDU5FFC3PLTWL2UTBPGKRY")
-    no-repeat;
+  /* background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/User.png?token=APXZ46LFDU5FFC3PLTWL2UTBPGKRY")
+    no-repeat; */
   background-size: contain;
   align: center;
 }
@@ -167,7 +168,7 @@ font-weight: normal;
   margin-left: 0.6vw;
   width: 2vw;
   height: 2vw;
-  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Next%20button.png?token=APXZ46KMMJ5PAB22ERAUXILBPGL62")
-    no-repeat;
+  /* background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Next%20button.png?token=APXZ46KMMJ5PAB22ERAUXILBPGL62")
+    no-repeat; */
   background-size: contain;
 }
