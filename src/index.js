@@ -116,8 +116,8 @@ const Display = () => {
             <ControlPanel />
             <Attendance />
           </Route>
-		  <Route exact path="/Dashboard/Diesel">
-			<ControlPanel />
+          <Route exact path="/Dashboard/Diesel">
+            <ControlPanel />
             <Diesel />
           </Route>
           <Route exact path="/Dashboard/LiveLocation">
