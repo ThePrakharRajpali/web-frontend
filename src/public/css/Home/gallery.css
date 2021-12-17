@@ -69,3 +69,76 @@
 .carousel__button:hover {
   opacity: 0.5;
 }
+
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+  .gallery-header {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    margin-top: 75px;
+    text-align: center;
+  }
+
+  .gallery-main-header {
+    font-weight: 500;
+    font-size: 2.5em;
+    margin: 0;
+  }
+
+  .gallery-header-img {
+    margin-left: -120px;
+    margin-bottom: -5px;
+  }
+
+  .gallery-carousel {
+    align-items: center;
+    display: flex;
+    margin: 2rem auto;
+    overflow: hidden;
+    position: relative;
+    max-width: 60vw;
+  }
+  .image-main {
+    max-width: 60vw;
+    max-height: 45vw;
+    border-radius: 14px;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .gallery-header {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    margin-top: 75px;
+    text-align: center;
+  }
+
+  .gallery-main-header {
+    font-weight: 500;
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .gallery-header-img {
+    display: none;
+  }
+
+  .gallery-carousel {
+    align-items: center;
+    display: flex;
+    margin: 2rem auto;
+    overflow: hidden;
+    position: relative;
+    max-width: 80vw;
+  }
+  .image-main {
+    max-width: 80vw;
+    max-height: 60vw;
+    border-radius: 14px;
+  }
+}

@@ -282,4 +282,8 @@
   .service-right img {
     display: none;
   }
+
+  .service-right .service-content {
+    text-align: center;
+  }
 }
