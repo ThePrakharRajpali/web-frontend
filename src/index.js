@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 
 import App from "./components/Home/App";
 import Login from "./components/Login/Login";
-import Login_OTP from "./components/Login/Login_OTP";
 import FullTruck from "./components/Service/FullTruck/FullTruck";
 import LastMile from "./components/Service/LastMile/LastMile";
 import Partner from "./components/Partner/Partner";
@@ -74,13 +73,11 @@ const Display = () => {
             <About />
             <Footer />
           </Route>
-
+			
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/loginOtpVerification">
-            <Login_OTP />
-          </Route>
+          
 
           <Route exact path="/Dashboard/Requests/All">
             <ControlPanel />
