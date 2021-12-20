@@ -47,7 +47,7 @@ export const Reviews = () => {
   };
 
   return (
-    <div className="review-section grid-main">
+    <div className="review-section grid-main" id="partner-us">
       <div className="header">
         <img src={grid} alt="" />
         <p>Customer Reviews</p>
