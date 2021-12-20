@@ -201,3 +201,31 @@ font-weight: normal;
     no-repeat; */
   background-size: contain;
 }
+
+.text {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 2vw;
+  /* margin-bottom: 0.75vw; */
+  align-items: center;
+  margin-top: 1vw;
+  /* margin-left: */
+}
+
+.OTP_timer {
+  font-size: 1vw;
+  margin-right: 2vw;
+  color: #7b7b7b;
+  font-family: SophiaPro;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.otp_resend {
+  font-size: 1vw;
+  color: #7b7b7b;
+  font-family: SophiaPro;
+  font-style: normal;
+  font-weight: 400;
+}
