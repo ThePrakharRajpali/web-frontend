@@ -22,8 +22,9 @@
 .Logo{
 	height:4.16vw;
 	width:4.86vw;
-	background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Group%2033980.png?token=APXZ46IOUCM75DLH5BEPYPDBQEHJK")
-    no-repeat;
+	/* background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Group%2033980.png?token=APXZ46IOUCM75DLH5BEPYPDBQEHJK")
+    no-repeat; */
+	background-repeat:no-repeat;
   background-size: contain;
 }
 

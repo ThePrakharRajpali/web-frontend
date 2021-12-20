@@ -6,6 +6,8 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
+import logo from "../../../public/photos/controlPanel_logo.svg";
+
 
 
 const SidebarNav = styled.nav`
@@ -29,7 +31,7 @@ const [sidebar, setSidebar] = useState(true);
 return (
     <div className="ControlPanel">
 			<div className="LogoAndTitle">
-				<div className="Logo"></div>
+				<img className="Logo" src={logo}></img>
 				<div className="Title">NAATA</div>
 			</div>
 			<SidebarNav>
