@@ -10,7 +10,8 @@ class Home extends Component {
     return (
       <div className="App">
         <Landing />
-        <Stats />
+        <div className="whitespace" style={{ height: "150px" }}></div>
+        {/* <Stats /> */}
         <Services />
         <Gallery />
         <Contact />

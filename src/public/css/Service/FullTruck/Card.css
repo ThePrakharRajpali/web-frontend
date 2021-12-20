@@ -24,3 +24,41 @@
   margin-left: 5vw;
   margin-bottom: 100px;
 }
+
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+  .service-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 50vw;
+    width: 50vw;
+    margin: 10px;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .service-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 80vw;
+    width: 80vw;
+    margin: 10px;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+}

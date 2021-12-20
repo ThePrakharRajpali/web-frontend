@@ -93,7 +93,10 @@ const Navbar = () => {
               </a>
             </li>
             <li className={activeTab === "Partner" ? "active" : ""}>
-              <Link to="/partner#" onClick={() => changeActiveTab("Partner")}>
+              <Link
+                to="/partner/#partner"
+                onClick={() => changeActiveTab("Partner")}
+              >
                 Partner
               </Link>
             </li>

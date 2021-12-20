@@ -13,14 +13,14 @@ const Footer = () => {
         <p className="track">Track</p>
         <p className="connect-with-us">Connect with us</p>
         <img src={logoGray} alt="" className="footer-logo" />
-        <p className="footer-content-1">
+        {/* <p className="footer-content-1">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
           beatae ad maxime architecto commodi!
         </p>
         <p className="footer-content-2">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
           beatae ad maxime architecto commodi!
-        </p>
+        </p> */}
       </div>
       <hr />
       <div className="footer-down">
