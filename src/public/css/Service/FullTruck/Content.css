@@ -18,7 +18,7 @@
 }
 
 .fulltruck-heading {
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 500;
   margin: -55px 65px 0 0;
 }
@@ -29,4 +29,68 @@
 
 .fulltruck-content p {
   margin-right: 65px;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+  .fulltruck-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fulltruck-content {
+    text-align: center;
+  }
+
+  .fulltruck-content img {
+    display: none;
+  }
+
+  .fulltruck-heading {
+    margin: 0;
+  }
+
+  .fulltruck-heading span {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .fulltruck-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fulltruck-content {
+    text-align: center;
+  }
+
+  .fulltruck-content img {
+    display: none;
+  }
+
+  .fulltruck-heading {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .fulltruck-content .fulltruck-heading {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  .fulltruck-heading span {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  .fulltruck-content p {
+    font-size: 0.75rem;
+    margin-right: 0;
+  }
 }

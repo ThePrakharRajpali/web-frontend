@@ -77,3 +77,10 @@
 .text-blue {
   color: var(--blue);
 }
+
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+  .review-section .grid-main {
+    display: flex;
+    flex-direction: column;
+  }
+}

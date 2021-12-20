@@ -28,3 +28,20 @@
 .caption {
   font-weight: 500;
 }
+
+@media screen and (max-width: 1024px) {
+  .flex {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .flex div {
+    margin-bottom: 20px;
+  }
+  .caption {
+    text-align: center;
+  }
+  .caption p {
+    font-size: 0.75rem;
+  }
+}
