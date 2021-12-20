@@ -76,8 +76,9 @@ body {
   margin-bottom: 0.5vw;
   /* background: url("login_logo.jpg")
     no-repeat; */
-	background-image: url("login_logo.jpg");
+	/* background-image: url("login_logo.jpg"); */
   background-size: contain;
+	background-repeat: no-repeat;
 }
 .login-container .title {
   text-transform: capitalize;
