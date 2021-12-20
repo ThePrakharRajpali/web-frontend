@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import "../../public/css/Login/login.css";
 import login_logo from "../../public/photos/login_logo.svg";
 import login_next_button from "../../public/photos/login_next_button.png";
-const maxTime = 60;
+const maxTime = 600;
 
 class LoginContainer extends React.Component {
 	
@@ -63,7 +63,6 @@ class LoginContainer extends React.Component {
 		console.log("Start timer exited!!")
 	}
 	
-
 	countDown() {
 		// Remove one second, set state so a re-render happens.
 		let seconds = this.state.seconds - 1;
@@ -138,7 +137,7 @@ class LoginContainer extends React.Component {
 			console.log(res);
 			if(res.status==200){
 				this.setState({loginSuccess:true});
-				alert("Logged In Successfully :)");
+				// alert("Logged In Successfully :)");
 				this.setState({redirect:true});
 			}
 		})
