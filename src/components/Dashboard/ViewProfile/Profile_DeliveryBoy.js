@@ -1,156 +1,154 @@
 import React, { useState,useRef } from "react";
+import axios from "axios";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
 import "../../../public/css/Dashboard/Dashboard.css";
 import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../../public/css/Dashboard/MyProfile.css";
-
-const info = {
-		Admin1 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin1 Admin1 Admin1 Admin1",
-            "middleName": "Admin1",
-			"lastName": "Admin1",
-			"emailId":"admin1@gmail.com",
-			"contact":"67585938839",
-			"userCode":"NCADMIN0001",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"role":"ADMIN",
-			"active": false,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},	
-		Admin2 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin2",
-            "middleName": "Admin2",
-			"lastName": "Admin2",
-			"emailId":"admin2@gmail.com",
-			"contact":"67585938839",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"userCode":"NCADMIN0002",
-			"role":"ADMIN",
-			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},
-		Admin3 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin3",
-            "middleName": "Admin3",
-			"lastName": "Admin3",
-			"emailId":"admin3@gmail.com",
-			"contact":"67585938839",
-			"userCode":"NCADMIN0003",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"role":"ADMIN",
-			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},	
-		Admin4 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin4",
-            "middleName": "Admin4",
-			"lastName": "Admin4",
-			"emailId":"admin4@gmail.com",
-			"contact":"67585938839",
-			"userCode":"NCADMIN0004",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"role":"ADMIN",
-			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},
-}
-
-const Options = (options, handleClick) => {
-	console.log(options);
-	console.log(options["options"].length);
-	if(options["options"].length){
-		return(
-				<div style={{width:'400px',height:'100px',background:'yellow'}}>
-							{options["options"].map((item, index) => {
-							return <button onClick={handleClick} value={item}>
-									 <div>{item}</div>
-									 <div>{item}</div>
-									 <div>{item}</div>
-								   </button>;
-							})}
-				</div>
-			);
-	}
-	else{
-		return (<div></div>);
-	}
-};
+import profileDum from "../../../public/photos/profileDum.jpg";
 
 class Profile_DeliveryBoy extends React.Component {
 	
   constructor(props) {
     super(props);
-    this.state = {value: '',myOptions:[],user:null};
+    this.state = {searchQuery: '',searchResults:[],user:null, profile:null, userCode:null, allItems:null, itemsLoaded:false};
+	  
+	this.getallItems();
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
 	this.handleBlock = this.handleBlock.bind(this);
   }
+	
+  async getallItems(){
+	  
+	  console.log("feteching posts now")
+	  var allPosts = [
+		  {
+			  "firstName" : "Phoebe",
+			  "middleName" : "",
+			  "lastName" : "Buffay",
+			  "userCode" : "NCTP020002"
+		  },
+		  {
+			  "firstName" : "Monika",
+			  "middleName" : "",
+			  "lastName" : "Geller",
+			  "userCode" : "NCTP020003"
+		  },
+		  {
+			  "firstName" : "Rachel",
+			  "middleName" : "Karen",
+			  "lastName" : "Green",
+			  "userCode" : "NCTP020004"
+		  },
+		  {
+			  "firstName" : "Ross",
+			  "middleName" : "Eustace",
+			  "lastName" : "Geller",
+			  "userCode" : "NCTP020005"
+		  },
+		  {
+			  "firstName" : "Chandler",
+			  "middleName" : "Muriel",
+			  "lastName" : "Bing",
+			  "userCode" : "NCTP020006"
+		  },
+		  {
+			  "firstName" : "Joesph",
+			  "middleName" : "Francis",
+			  "lastName" : "Tribbiani",
+			  "userCode" : "NCTP020007"
+		  }
+	  ]
+	  
+	  const data = JSON.stringify({"userCode":"NCTP030001"});
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-	console.log("Enetered input = "+event.target.value);
-	var things = ['Admin1','Admin2','Admin3','Admin4'];
-	var thing1 = things[Math.floor(Math.random()*things.length)];
-	var thing2 = things[Math.floor(Math.random()*things.length)];
-		
-	this.setState({myOptions: [thing1,thing2]});
-	console.log(this.state.myOptions);
-	var results = document.querySelectorAll(".SearchResult");
-	results.forEach((result) => {
-		result.style.display = "flex";
-	});
+	  const config = 
+	  {
+			method: "get",
+			url: "https://www.naataconnection.com/api",
+			headers: {
+			  "Content-Type": "application/json",
+			},
+			data: data,
+	  };
+
+		axios(config)
+		.then((res) => {
+			if(res.status==200){
+				this.setState({allItems:allPosts, itemsLoaded:true})
+				console.log("curr items: ",this.state.allItems);
+			}else{
+				alert("Pls try after some time");
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+			alert("Pls try after some time")
+		});
+	 
+  }
+	
+  updateSearchResults(){
+	  var query = this.state.searchQuery;
+	  var items = this.state.allItems;
+	  
+	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+	  this.setState({searchResults: items});
+	  
+	  console.log("Updated Search Results: ",this.state.searchResults);
+	  
+	  var results = document.querySelectorAll(".SearchResult");
+	  results.forEach((result) => {
+		 result.style.display = "flex";
+	  });
+  }
+
+  handleChange(event) { 
+    this.setState({searchQuery: event.target.value});
+	console.log("Entered search query = "+event.target.value); 
+	this.updateSearchResults();
   }
 	
   handleClick(event) {
-   	console.log("Clicked input = "+event.target.value);
-	this.setState({user: info[event.target.value]});
-	this.refs.myInput.value=event.target.value;
+   	
 	var results = document.querySelectorAll(".SearchResult");
 	results.forEach((result) => {
 		result.style.display = "none";
+	});
+	  
+	var userCode = event.target.value;
+	console.log("clicked on : ",userCode);
+	  
+	this.setState({userCode:userCode});
+	this.refs.myInput.value=userCode;
+	  
+	const data = JSON.stringify({userCode:userCode});
+	const config = 
+	 {
+		method: "post",
+		url: "https://www.naataconnection.com/api/users/profile",
+		headers: {
+		  "Content-Type": "application/json",
+		},
+		data: data,
+	 };
+
+	axios(config)
+	.then((res) => {
+		if(res.status==200){
+			var user = Object.assign(res.data.data.user, res.data.data.profile);
+			this.setState({user:user});
+			console.log("user: ",user);
+		}else{
+			alert("Pls Try Again!!!");
+		}
+	})
+	.catch((err) => {
+		console.log(err);
+		alert("Pls Try Again!!!")
 	});
 	
   }
@@ -159,52 +157,13 @@ class Profile_DeliveryBoy extends React.Component {
    	console.log("Blocked user");
   }
 
-	// getDataFromAPI = () => {
-	// 	console.log("Enetered input = ",this.refs.myInput.value);
-
-	// 	// fetch('http://dummy.restapiexample.com/api/v1/employees').then((response) => {
-	// 	// return response.json()
-	// 	// }).then((res) => {
-	// 	// console.log(res.data)
-	// 	// for (var i = 0; i < res.data.length; i++) {
-	// 	// 	myOptions.push(res.data[i].employee_name)
-	// 	// }
-	// 	// setMyOptions(myOptions)
-	// 	// })
-		
-	// 	var things = ['Admin1','Admin2','Admin3','Admin4'];
-	// 	var thing1 = things[Math.floor(Math.random()*things.length)];
-	// 	var thing2 = things[Math.floor(Math.random()*things.length)];
-		
-	// 	setMyOptions(['Admin1','Admin2']);
-	// }
-	
-	// getDataFromLi = (index) => {
-	// 	console.log("Options Fetched from User");
-
-	// 	// fetch('http://dummy.restapiexample.com/api/v1/employees').then((response) => {
-	// 	// return response.json()
-	// 	// }).then((res) => {
-	// 	// console.log(res.data)
-	// 	// for (var i = 0; i < res.data.length; i++) {
-	// 	// 	myOptions.push(res.data[i].employee_name)
-	// 	// }
-	// 	// setMyOptions(myOptions)
-	// 	// })
-		
-	// 	setUser(info.Admin1);
-	// 	console.log(user.firstName);
-	// }
-	
  render() {
 	 let userComponent;
 	 let user = this.state.user;
-	 console.log("here user is ",user);
 	 
 	 if(user === null || typeof(user) === 'undefined' || user==null){
 		userComponent = (<div></div>);
-	 }
-	 else{
+	 }else{
 		userComponent = (
 			<div>
 				<div className="Profile_Container">
@@ -359,39 +318,57 @@ class Profile_DeliveryBoy extends React.Component {
 		);
 	 }
 	 
-	return (
-		<div className="Dashboard">
-			
-			<div>
-				
-				<input className="SearchBarInput" type="text" placeholder="Search Delivery Boy" ref="myInput" onChange={this.handleChange}></input>
-				
-				<div className="SearchBarIcon">
-					<IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
-					<AiIcons.AiOutlineSearch />
-			    </IconContext.Provider> 
-				</div>
-			 
-			</div>
-			
-			
-			<div style={{height:'auto'}} ref="SearchResults">
-				{this.state.myOptions.map((item, index) => {
-				return (
-					<div className="SearchResult">
-						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item + " " + item + " " + item}</button>
-						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item}</button>
-						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item}</button>
-					</div>
-					);
-				})}
-			</div>
-			
-			<div>{userComponent}</div>
-			
-		</div>
-	);
+	 let component;
+	 let loaded = this.state.itemsLoaded;
+	 
+	 if(!loaded){
+		 component = (
+			 <div style={{padding:"auto", verticalAlign:"center",horizontalAlign:"center", textAlign:"center", marginTop:"7vw"}}>
+				 <center>
+					 <h1 style={{color:"#0f1185", fontSize:"7vw", margin:"auto" }} >Loading Page !!!</h1>
+				 </center>
+			 </div>
+		 );
+	 }else{
+		 component = (
+			 <div>
+
+				 <div>
+
+				 <input className="SearchBarInput" type="text" placeholder="Search DeliveryBoy" ref="myInput" onChange={this.handleChange}></input>
+
+				 <div className="SearchBarIcon">
+				 <IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
+				 <AiIcons.AiOutlineSearch />
+				 </IconContext.Provider> 
+				 </div>
+
+				 </div>
+
+				 <div style={{height:'auto'}} ref="SearchResults">
+					 {this.state.searchResults.map((item, index) => {
+						 return (
+							 <div className="SearchResult">
+								 <button className="SearchResultItem" style={{width:'67%'}} onClick={this.handleClick} value={item["userCode"]}>{item["firstName"]+" "+item["middleName"]+" "+item["lastName"]}</button>
+								 <button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item["userCode"]}>{item["userCode"]}</button>
+							 </div>
+							 );
+						 })}
+				 </div>
+
+				 <div>{userComponent}</div>
+
+			 </div>
+		 );
+	 }
+	 
+	 return( 
+		  <div className="Dashboard">
+			 {component} 
+		  </div>	 
+	 );
  }
+	
 };
 
 export default Profile_DeliveryBoy;
