@@ -25,62 +25,22 @@ class Profile_DeliveryBoy extends React.Component {
 	
   async getallItems(){
 	  
-	  console.log("feteching posts now")
-	  var allPosts = [
-		  {
-			  "firstName" : "Phoebe",
-			  "middleName" : "",
-			  "lastName" : "Buffay",
-			  "userCode" : "NCTP020002"
-		  },
-		  {
-			  "firstName" : "Monika",
-			  "middleName" : "",
-			  "lastName" : "Geller",
-			  "userCode" : "NCTP020003"
-		  },
-		  {
-			  "firstName" : "Rachel",
-			  "middleName" : "Karen",
-			  "lastName" : "Green",
-			  "userCode" : "NCTP020004"
-		  },
-		  {
-			  "firstName" : "Ross",
-			  "middleName" : "Eustace",
-			  "lastName" : "Geller",
-			  "userCode" : "NCTP020005"
-		  },
-		  {
-			  "firstName" : "Chandler",
-			  "middleName" : "Muriel",
-			  "lastName" : "Bing",
-			  "userCode" : "NCTP020006"
-		  },
-		  {
-			  "firstName" : "Joesph",
-			  "middleName" : "Francis",
-			  "lastName" : "Tribbiani",
-			  "userCode" : "NCTP020007"
-		  }
-	  ]
-	  
-	  const data = JSON.stringify({"userCode":"NCTP030001"});
+	  console.log("feteching posts now");
 
 	  const config = 
 	  {
 			method: "get",
-			url: "https://www.naataconnection.com/api",
+			url: "https://www.naataconnection.com/api/users/allDeliveryBoywithName",
 			headers: {
 			  "Content-Type": "application/json",
 			},
-			data: data,
 	  };
 
 		axios(config)
 		.then((res) => {
 			if(res.status==200){
-				this.setState({allItems:allPosts, itemsLoaded:true})
+				console.log(res.data.driver);
+				this.setState({allItems:res.data.driver, itemsLoaded:true})
 				console.log("curr items: ",this.state.allItems);
 			}else{
 				alert("Pls try after some time");
