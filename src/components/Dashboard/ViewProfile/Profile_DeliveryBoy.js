@@ -1,4 +1,6 @@
 import React, { useState,useRef } from "react";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import axios from "axios";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
@@ -154,7 +156,46 @@ class Profile_DeliveryBoy extends React.Component {
   }
 	
   handleBlock(event) {
-   	console.log("Blocked user");
+    	confirmAlert({
+		  title: "Confirm to Block",
+		  message: "Are you sure to block this user ?? This action can't be undone !!",
+		  buttons: [
+			{
+			  label: "Yes",
+			  onClick: () => {
+				  const data = JSON.stringify({"userCode":this.state.userCode});
+				  const config = 
+				  {
+						method: "post",
+						url: "https://www.naataconnection.com/api/block/user",
+						headers: {
+						  "Content-Type": "application/json",
+						},
+						data: data,
+				  };
+				  axios(config)
+					.then((res) => {
+						if(res.status==200){
+							console.log("User Blocked");
+							alert("User Blocked. Please reload the page to see updated profile.");
+						}else{
+							alert("Pls try after some time.");
+						}
+					})
+					.catch((err) => {
+						console.log(err);
+						alert("Pls try after some time.")
+					});
+			  }
+			},
+			{
+			  label: "No",
+			  onClick: () => {
+				  console.log("User Not Blocked");
+			  }
+			}
+		  ]
+		});
   }
 
  render() {
@@ -173,7 +214,7 @@ class Profile_DeliveryBoy extends React.Component {
 					  <div className="Profile_Role">{user["role"]}</div>
 					  <div className="Profile_UserCode">{user["userCode"]}</div>
 					  <div className="Profile_UserCode">{user["active"] ? "Status: Active ": "Status: Blocked"}</div>
-					  <button className={user["active"] ? "BlockButton": "BlockButtonDisabled"} onClick={this.handleBlock.bind(this)} disabled={user["active"] ? false: true}>Block User</button>
+					  <button className={user["active"] ? "BlockButton": "BlockButtonDisabled"} onClick={this.handleBlock} disabled={user["active"] ? false: true}>Block User</button>
 				  </center>
 				</div>
 				
