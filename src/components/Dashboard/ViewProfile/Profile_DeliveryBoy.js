@@ -350,7 +350,7 @@ class Profile_DeliveryBoy extends React.Component {
 					 {this.state.searchResults.map((item, index) => {
 						 return (
 							 <div className="SearchResult">
-								 <button className="SearchResultItem" style={{width:'67%'}} onClick={this.handleClick} value={item["userCode"]}>{item["firstName"]+" "+item["middleName"]+" "+item["lastName"]}</button>
+								 <button className="SearchResultItem" style={{width:'67%'}} onClick={this.handleClick} value={item["userCode"]}>{(item["firstName"]==undefined ? "" : item["firstName"]) +" "+ (item["middleName"]==undefined ? "" : item["middleName"]) +" "+(item["lastName"]==undefined ? "" : item["lastName"])}</button>
 								 <button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item["userCode"]}>{item["userCode"]}</button>
 							 </div>
 							 );
