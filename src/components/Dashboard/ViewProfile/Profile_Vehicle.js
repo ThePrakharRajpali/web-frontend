@@ -1,9 +1,8 @@
-import React, { useState,useRef } from "react";
+import React, {  } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import axios from "axios";
 import * as AiIcons from "react-icons/ai";
-import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
 import "../../../public/css/Dashboard/Dashboard.css";
 import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
@@ -11,7 +10,7 @@ import "../../../public/css/Dashboard/MyProfile.css";
 import "../../../public/css/Dashboard/UserRegistration.css";
 import dummyTruck from "../../../public/photos/dummyTruck.png";
 
-class Profile_Vehicle extends React.Component {
+class ProfileVehicle extends React.Component {
 	
   constructor(props) {
     super(props);
@@ -416,4 +415,4 @@ class Profile_Vehicle extends React.Component {
 	
 };
 
-export default Profile_Vehicle;
+export default ProfileVehicle;

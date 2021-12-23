@@ -13,17 +13,17 @@ import Attendance from "./components/Dashboard/Attendance";
 import Diesel from "./components/Dashboard/Diesel";
 import LiveLocation from "./components/Dashboard/LiveLocation";
 
-import ServiceRequests_CreateNew from "./components/Dashboard/ServiceRequests/New";
-import ServiceRequests_All from "./components/Dashboard/ServiceRequests/All";
-import ServiceRequests_Pending from "./components/Dashboard/ServiceRequests/Pending";
-import ServiceRequests_Active from "./components/Dashboard/ServiceRequests/Active";
-import ServiceRequests_Completed from "./components/Dashboard/ServiceRequests/Completed";
+import ServiceRequestsCreateNew from "./components/Dashboard/ServiceRequests/New";
+import ServiceRequestsAll from "./components/Dashboard/ServiceRequests/All";
+import ServiceRequestsPending from "./components/Dashboard/ServiceRequests/Pending";
+import ServiceRequestsActive from "./components/Dashboard/ServiceRequests/Active";
+import ServiceRequestsCompleted from "./components/Dashboard/ServiceRequests/Completed";
 
-import Profile_Customer from "./components/Dashboard/ViewProfile/Profile_Customer";
-import Profile_Manager from "./components/Dashboard/ViewProfile/Profile_Manager";
-import Profile_Driver from "./components/Dashboard/ViewProfile/Profile_Driver";
-import Profile_DeliveryBoy from "./components/Dashboard/ViewProfile/Profile_DeliveryBoy";
-import Profile_Vehicle from "./components/Dashboard/ViewProfile/Profile_Vehicle";
+import ProfileCustomer from "./components/Dashboard/ViewProfile/Profile_Customer";
+import ProfileManager from "./components/Dashboard/ViewProfile/Profile_Manager";
+import ProfileDriver from "./components/Dashboard/ViewProfile/Profile_Driver";
+import ProfileDeliveryBoy from "./components/Dashboard/ViewProfile/Profile_DeliveryBoy";
+import ProfileVehicle from "./components/Dashboard/ViewProfile/Profile_Vehicle";
 import UserRegistration from "./components/Dashboard/Registration/UserRegistration";
 import SuperUserRegistration from "./components/Dashboard/Registration/SuperUserRegistration";
 import VehicleRegistration from "./components/Dashboard/Registration/VehicleRegistration";
@@ -81,24 +81,24 @@ const Display = () => {
 
           <Route exact path="/Dashboard/Requests/All">
             <ControlPanel />
-            <ServiceRequests_All />
+            <ServiceRequestsAll />
           </Route>
 
           <Route exact path="/Dashboard/Requests/New">
             <ControlPanel />
-            <ServiceRequests_CreateNew />
+            <ServiceRequestsCreateNew />
           </Route>
           <Route exact path="/Dashboard/Requests/Pending">
             <ControlPanel />
-            <ServiceRequests_Pending />
+            <ServiceRequestsPending />
           </Route>
           <Route exact path="/Dashboard/Requests/Active">
             <ControlPanel />
-            <ServiceRequests_Active />
+            <ServiceRequestsActive />
           </Route>
           <Route exact path="/Dashboard/Requests/Completed">
             <ControlPanel />
-            <ServiceRequests_Completed />
+            <ServiceRequestsCompleted />
           </Route>
           <Route path="/Dashboard/Requests/id/:id">
             <ControlPanel />
@@ -123,23 +123,23 @@ const Display = () => {
           </Route>
           <Route exact path="/Dashboard/Profile/Customer">
             <ControlPanel />
-            <Profile_Customer />
+            <ProfileCustomer />
           </Route>
           <Route exact path="/Dashboard/Profile/Manager">
             <ControlPanel />
-            <Profile_Manager />
+            <ProfileManager />
           </Route>
           <Route exact path="/Dashboard/Profile/Driver">
             <ControlPanel />
-            <Profile_Driver />
+            <ProfileDriver />
           </Route>
           <Route exact path="/Dashboard/Profile/DeliveryBoy">
             <ControlPanel />
-            <Profile_DeliveryBoy />
+            <ProfileDeliveryBoy />
           </Route>
           <Route exact path="/Dashboard/Profile/Vehicle">
             <ControlPanel />
-            <Profile_Vehicle />
+            <ProfileVehicle />
           </Route>
           <Route exact path="/Dashboard/UserRegistration">
             <ControlPanel />

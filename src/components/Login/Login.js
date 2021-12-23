@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
-import ReactDOM from "react-dom";
 import { Redirect } from "react-router-dom";
 import "../../public/css/Login/login.css";
 import login_logo from "../../public/photos/login_logo.svg";

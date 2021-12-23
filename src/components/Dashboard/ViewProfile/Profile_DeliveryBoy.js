@@ -10,7 +10,7 @@ import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../../public/css/Dashboard/MyProfile.css";
 import profileDum from "../../../public/photos/profileDum.jpg";
 
-class Profile_DeliveryBoy extends React.Component {
+class ProfileDeliveryBoy extends React.Component {
 	
   constructor(props) {
     super(props);
@@ -169,7 +169,7 @@ class Profile_DeliveryBoy extends React.Component {
 			<div>
 				<div className="Profile_Container">
 				  <center>
-					 <img className="Profile_Pic" src={user["profilePic"]}></img>
+					 <img className="Profile_Pic" src={user["profileImage"] || profileDum}></img>
 					 <div className="Profile_Name">{(user["firstName"]==undefined ? "" : user["firstName"]) +" "+ (user["middleName"]==undefined ? "" : user["middleName"]) +" "+(user["lastName"]==undefined ? "" : user["lastName"])}</div>
 					  <div className="Profile_Role">{user["role"]}</div>
 					  <div className="Profile_UserCode">{user["userCode"]}</div>
@@ -372,4 +372,4 @@ class Profile_DeliveryBoy extends React.Component {
 	
 };
 
-export default Profile_DeliveryBoy;
+export default ProfileDeliveryBoy;

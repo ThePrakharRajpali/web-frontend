@@ -1,8 +1,5 @@
-import React, { useState,useRef } from "react";
+import React, {  } from "react";
 import axios from "axios";
-import * as AiIcons from "react-icons/ai";
-import * as RiIcons from "react-icons/ri";
-import { IconContext } from "react-icons/lib";
 import "../../../public/css/Dashboard/Dashboard.css";
 import "../../../public/css/Dashboard/UserRegistration.css";
 

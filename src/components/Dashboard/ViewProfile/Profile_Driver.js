@@ -10,7 +10,7 @@ import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../../public/css/Dashboard/MyProfile.css";
 import profileDum from "../../../public/photos/profileDum.jpg";
 
-class Profile_Driver extends React.Component {
+class ProfileDriver extends React.Component {
 	
   constructor(props) {
     super(props);
@@ -385,4 +385,4 @@ class Profile_Driver extends React.Component {
 	
 };
 
-export default Profile_Driver;
+export default ProfileDriver;

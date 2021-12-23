@@ -95,7 +95,7 @@ const SearchBar = () => {
   );
 };
 
-const ServiceRequests_All = () => {
+const ServiceRequestsAll = () => {
   return (
     <div className="Dashboard">
       <Header />
@@ -104,4 +104,4 @@ const ServiceRequests_All = () => {
   );
 };
 
-export default ServiceRequests_All;
+export default ServiceRequestsAll;

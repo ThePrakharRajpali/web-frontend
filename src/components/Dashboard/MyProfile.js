@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf/dist/esm/entry.webpack";
+import React from "react";
 import * as RiIcons from "react-icons/ri";
 import * as AiIcons from "react-icons/ai";
 import { IconContext } from "react-icons/lib";

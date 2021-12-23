@@ -1,11 +1,8 @@
-import React, { useState,useRef } from "react";
+import React, {  } from "react";
 import axios from "axios";
-import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
-import {DateInput,DatePicker,TimePicker,Calendar,} from "@progress/kendo-react-dateinputs";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
-import moment from 'moment';
 import "../../public/css/Dashboard/Dashboard.css";
 import "../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../public/css/Dashboard/MyProfile.css";
@@ -13,11 +10,6 @@ import "../../public/css/Dashboard/Attendance.css";
 
 const pad2 = (n) => {
   return (n < 10 ? '0' : '') + n;
-}
-
-const toDate = (dateStr) => {
-  const [day, month, year] = dateStr.split("/")
-  return new Date(year, month - 1, day);
 }
 
 const dateToStr = (dateObj) => {

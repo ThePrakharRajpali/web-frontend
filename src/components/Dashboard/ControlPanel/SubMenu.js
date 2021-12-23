@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IconContext } from "react-icons/lib";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 import "../../../public/css/Dashboard/ControlPanel.css";
 
 const SidebarLink = styled(Link)`

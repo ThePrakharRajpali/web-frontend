@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
-import { IconContext } from "react-icons/lib";
 import logo from "../../../public/photos/controlPanel_logo.svg";
-
-
 
 const SidebarNav = styled.nav`
 background: #00B4D8;
@@ -26,12 +20,11 @@ width: 100%;
 `;
 
 const ControlPanel = () => {
-const [sidebar, setSidebar] = useState(true);
 
 return (
     <div className="ControlPanel">
 			<div className="LogoAndTitle">
-				<img className="Logo" src={logo}></img>
+				<img className="Logo" alt="logo" src={logo}></img>
 				<div className="Title">NAATA</div>
 			</div>
 			<SidebarNav>

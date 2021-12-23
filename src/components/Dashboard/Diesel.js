@@ -1,12 +1,7 @@
-import React, { useState,useRef } from "react";
+import React, {  } from "react";
 import axios from "axios";
-import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
-import {DateInput,DatePicker,TimePicker,Calendar,} from "@progress/kendo-react-dateinputs";
-import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
-import $ from 'jquery';
-import moment from 'moment';
 import "../../public/css/Dashboard/Dashboard.css";
 import "../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../public/css/Dashboard/MyProfile.css";

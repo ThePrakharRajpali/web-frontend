@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 
 import grid from "../../public/photos/preServicesHeader.svg";
-import profile from "../../public/photos/customer.jpg";
 import arun from "../../public/photos/ArunAgarwal.jpeg";
 import tanuja from "../../public/photos/TanujaAgarwal.jpeg";
 
