@@ -62,8 +62,9 @@ class Diesel extends React.Component {
 			if(this.refs.Date1.value == '' || this.refs.Date1.value == null){
 				alert('Please Enter the values to search');
 			}else{
-				console.log(this.refs.Date1.value);
-				const data = JSON.stringify({date:this.refs.Date1.value});
+				const Date1 = this.refs.Date1.value;
+				console.log(Date1);
+				const data = JSON.stringify({date:Date1});
 				const config = 
 				 {
 					method: "get",
