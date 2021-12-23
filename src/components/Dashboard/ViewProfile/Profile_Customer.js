@@ -170,7 +170,7 @@ class Profile_Customer extends React.Component {
 				<div className="Profile_Container">
 				  <center>
 					 <img className="Profile_Pic" src={user["profilePic"]}></img>
-					 <div className="Profile_Name">{user["firstName"] + " " + user["middleName"] + user["lastName"] }</div>
+					 <div className="Profile_Name">{(user["firstName"]==undefined ? "" : user["firstName"]) +" "+ (user["middleName"]==undefined ? "" : user["middleName"]) +" "+(user["lastName"]==undefined ? "" : user["lastName"])}</div>
 					  <div className="Profile_Role">{user["role"]}</div>
 					  <div className="Profile_UserCode">{user["userCode"]}</div>
 					  <div className="Profile_UserCode">{user["active"] ? "Status: Active ": "Status: Blocked"}</div>

@@ -1,4 +1,5 @@
 import React, { useState,useRef } from "react";
+import axios from "axios";
 import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 import {DateInput,DatePicker,TimePicker,Calendar,} from "@progress/kendo-react-dateinputs";
 import * as AiIcons from "react-icons/ai";
@@ -11,120 +12,22 @@ import "../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../public/css/Dashboard/MyProfile.css";
 import "../../public/css/Dashboard/Attendance.css";
 import "../../public/css/Dashboard/Diesel.css";
-
-const pad2 = (n) => {
-  return (n < 10 ? '0' : '') + n;
-}
-
-const toDate = (dateStr) => {
-  const [day, month, year] = dateStr.split("/")
-  return new Date(year, month - 1, day);
-}
-
-const dateToStr = (dateObj) => {
-	var month = pad2(dateObj.getMonth()+1);//months (0-11)
-	var day = pad2(dateObj.getDate());//day (1-31)
-	var year= dateObj.getFullYear();
-
-	return day+"/"+month+"/"+year;
-}
-
-const getDates = (startDate, endDate) => {
-  const dates = []
-  let currentDate = startDate;
-  const addDays = function (days) {
-    const date = new Date(this.valueOf())
-    date.setDate(date.getDate() + days)
-    return date;
-  }
-  while (currentDate <= endDate) {
-    dates.push(dateToStr(currentDate))
-    currentDate = addDays.call(currentDate, 1);
-  }
-  return dates;
-}
-
-const info = {
-		Diesel1 : {
-			"kmOfVehicle":"1 Km",	"kmOfVehicleImg":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			"pump":"pump 1",
-			"date":"date 1",
-			"liter":1,
-			"dieselRate":100,
-			"totalAmount":1000,
-			"vehicleNumber":"AP00001",
-			"userCode":"NC00001",
-			"paymentMode":"Mode 1",
-			"remarks":"1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			
-		},	
-		Diesel2 : {
-			"kmOfVehicle":"2 Km",	"kmOfVehicleImg":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			"pump":"pump 2",
-			"date":"date 2",
-			"liter":2,
-			"dieselRate":200,
-			"totalAmount":2000,
-			"vehicleNumber":"AP00002",
-			"userCode":"NC00002",
-			"paymentMode":"Mode 2",
-			"remarks":"2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			
-		},
-		Diesel3 : {
-			"kmOfVehicle":"3 Km",	"kmOfVehicleImg":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			"pump":"pump 3",
-			"date":"date 3",
-			"liter":3,
-			"dieselRate":300,
-			"totalAmount":3000,
-			"vehicleNumber":"AP00003",
-			"userCode":"NC00003",
-			"paymentMode":"Mode 3",
-			"remarks":"3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			
-		},
-		Diesel4 : {
-			"kmOfVehicle":"4 Km",	"kmOfVehicleImg":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			"pump":"pump 4",
-			"date":"date 4",
-			"liter":4,
-			"dieselRate":400,
-			"totalAmount":4000,
-			"vehicleNumber":"AP00004",
-			"userCode":"NC00004",
-			"paymentMode":"Mode 4",
-			"remarks":"4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula pellentesque dui in lobortis. Integer efficitur lorem elit, eu rhoncus nisi tristique ut. Aliquam sed ante tortor. Aenean tempor ex a ipsum tempus ullamcorper. Curabitur quis elementum sem. Vivamus ut ultrices ipsum, eget ullamcorper elit. Vivamus aliquet, turpis id vestibulum molestie, orci leo aliquet ligula, vel molestie nunc arcu ac dui. Pellentesque lobortis nunc non erat lobortis semper.",		"billImage":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46N7TLYSHWBJRDAWV2DBXDFB4",
-			
-		},
-}
+import login_next_button from "../../public/photos/login_next_button.png";
 
 class Diesel extends React.Component {
 	
-	
     constructor(props) {
 		super(props);
-		this.state = {value: '',myOptions:[],diesels:[],dates:[],searchOption:'searchByDate'};
+		this.state = {value: '',myOptions:[],diesels:null,dates:[],searchOption:'searchByDate', firstQueryDone:false};
 
 		this.handleChangeSearchOption = this.handleChangeSearchOption.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 		this.handleClick = this.handleClick.bind(this);
+		this.handleClickEnter = this.handleClickEnter.bind(this);
     }
-
-  	handleChange(event) {
-		var things = ['Diesel1','Diesel2','Diesel3','Diesel4'];
-		var thing1 = things[Math.floor(Math.random()*things.length)];
-		var thing2 = things[Math.floor(Math.random()*things.length)];
-		var thing3 = things[Math.floor(Math.random()*things.length)];
-		// var thing4 = things[Math.floor(Math.random()*things.length)];
-		// var thing5 = things[Math.floor(Math.random()*things.length)];
-
-		this.setState({diesels: [info[thing1],info[thing2],info[thing3]]});
-  	}
 	
   	handleChangeSearchOption(event) {
-	this.setState({searchOption: event.target.value});
-	console.log(this.state.searchOption);
+		this.setState({searchOption: event.target.value});
+		console.log(event.target.value);
   	}
 	
 	handleClick(event) {
@@ -153,81 +56,223 @@ class Diesel extends React.Component {
 		// 	event.target.style.transform="rotate(-180deg)";
 	}
 	
+	handleClickEnter(event){
+		
+		if(this.state.searchOption == "searchByDate"){
+			if(this.refs.Date1.value == '' || this.refs.Date1.value == null){
+				alert('Please Enter the values to search');
+			}else{
+				const Date1 = this.refs.Date1.value;
+				console.log(Date1);
+				const data = JSON.stringify({date:Date1});
+				const config = 
+				 {
+					method: "get",
+					url: "https://www.naataconnection.com/api/diesel/sortByDate",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					data: data,
+				 };
+				
+				console.log(data);
+
+				axios(config)
+				.then((res) => {
+					if(res.status==200){
+						console.log("res: ",res," length: ",res.data.data.length);
+						this.setState({ diesels: res.data.data });
+						
+					}else{
+						alert("Pls Try Again!!!");
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+					alert("Pls Try Again!!!")
+				});
+			}
+		}else if(this.state.searchOption == "searchByDateAndUserCode"){
+			if(this.refs.Date2.value == '' || this.refs.Date2.value == null || this.refs.UserCode.value == '' || this.refs.UserCode.value == null){
+				alert('Please Enter the values to search');
+			}else{
+				console.log(this.refs.Date2.value);
+				console.log(this.refs.UserCode.value);
+				const data = JSON.stringify({date:this.refs.Date2.value, userCode: this.refs.UserCode.value});
+				const config = 
+				 {
+					method: "get",
+					url: "https://www.naataconnection.com/api/diesel/sortByDateAndUserCode",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					data: data,
+				 };
+				
+				console.log(data);
+
+				axios(config)
+				.then((res) => {
+					if(res.status==200){
+						console.log("res: ",res," length: ",res.data.data.length);
+						this.setState({ diesels: res.data.data });
+						
+					}else{
+						alert("Pls Try Again!!!");
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+					alert("Pls Try Again!!!")
+				});
+			}
+		}else if(this.state.searchOption == "searchByVehicleNumber"){
+			if(this.refs.VehicleNumber.value == '' || this.refs.VehicleNumber.value == null){
+				alert('Please Enter the values to search');
+			}else{
+				console.log(this.refs.VehicleNumber.value);
+				const data = JSON.stringify({vehicleNumber:this.refs.VehicleNumber.value});
+				const config = 
+				 {
+					method: "get",
+					url: "https://www.naataconnection.com/api/diesel/sortByVehicleNumber",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					data: data,
+				 };
+				
+				console.log(data);
+
+				axios(config)
+				.then((res) => {
+					if(res.status==200){
+						console.log("res: ",res," length: ",res.data.data.length);
+						this.setState({ diesels: res.data.data });
+						
+					}else{
+						alert("Pls Try Again!!!");
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+					alert("Pls Try Again!!!")
+				});
+			}
+		}else if(this.state.searchOption == "searchByModeOfPayment"){
+			console.log(this.refs.PaymentMode.value);
+			const data = JSON.stringify({paymentMode:this.refs.PaymentMode.value});
+			const config = 
+			 {
+				method: "get",
+				url: "https://www.naataconnection.com/api/diesel/sortByPaymentMode",
+				headers: {
+				  "Content-Type": "application/json",
+				},
+				data: data,
+			 };
+
+			console.log(data);
+
+			axios(config)
+			.then((res) => {
+				if(res.status==200){
+					console.log("res: ",res," length: ",res.data.data.length);
+					this.setState({ diesels: res.data.data });
+
+				}else{
+					alert("Pls Try Again!!!");
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+				alert("Pls Try Again!!!")
+			});
+		}else if(this.state.searchOption == "searchByPump"){
+			if(this.refs.Pump.value == '' || this.refs.Pump.value == null){
+				alert('Please Enter the values to search');
+			}else{
+				console.log(this.refs.Pump.value);
+				const data = JSON.stringify({pump:this.refs.Pump.value});
+				const config = 
+				 {
+					method: "get",
+					url: "https://www.naataconnection.com/api/diesel/sortByPump",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					data: data,
+				 };
+				
+				console.log(data);
+
+				axios(config)
+				.then((res) => {
+					if(res.status==200){
+						console.log("res: ",res," length: ",res.data.data.length);
+						this.setState({ diesels: res.data.data });
+						
+					}else{
+						alert("Pls Try Again!!!");
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+					alert("Pls Try Again!!!")
+				});
+			}
+		}else if(this.state.searchOption == "searchByDateRange"){
+			if(this.refs.StartDate.value== '' || this.refs.StartDate.value == null || this.refs.EndDate.value == '' || this.refs.EndDate.value == null){
+				alert('Please Enter the values to search');
+			}else{
+				console.log(this.refs.StartDate.value);
+				console.log(this.refs.EndDate.value);
+				const data = JSON.stringify({startDate:this.refs.StartDate.value, endDate:this.refs.EndDate.value});
+				const config = 
+				 {
+					method: "get",
+					url: "https://www.naataconnection.com/api/diesel/sortByDateRange",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					data: data,
+				 };
+				
+				console.log(data);
+
+				axios(config)
+				.then((res) => {
+					if(res.status==200){
+						console.log("res: ",res," length: ",res.data.data.length);
+						this.setState({ diesels: res.data.data });
+						
+					}else{
+						alert("Pls Try Again!!!");
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+					alert("Pls Try Again!!!")
+				});
+			}
+		}
+		
+		this.setState({firstQueryDone:true});
+		
+	}
+	
 	render() {
 
-		return (
-			<div className="Dashboard">
-
-				<div>
-
-					<select className="SearchBarInput" ref="searchOption" onChange={this.handleChangeSearchOption} >
-						<option value="searchByDate">Search By Date</option>
-						<option value="searchByDateAndUserCode">Search By Date And User Code</option>
-						<option value="searchByVehicleNumber">Search By Vehicle Number</option>
-						<option value="searchByModeOfPayment">Search By Mode of Payment</option>
-						<option value="searchByPump">Search By Pump</option>
-						<option value="searchByDateRange">Search By Date Range</option>
-					</select>
-
-
-					<div className="SearchBarDropDown">
-						<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
-						<RiIcons.RiArrowDownSFill />
-					</IconContext.Provider> 
-					</div>
-
-				</div>
-
-				<div>
-
-				{ 
-					this.state.searchOption == "searchByDate" ? 
-					 (
-						<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
-					 ) : 
-					this.state.searchOption == "searchByDateAndUserCode" ?
-					(
-						<div>
-							<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}}></input>
-							<input className="SearchBarInput" type="text" placeholder="Enter User Code" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
+		let resultComponent;
+		if(!this.state.firstQueryDone || this.state.diesels == null){
+			resultComponent =  (
+						<div> 
 						</div>
-					)  :
-					this.state.searchOption == "searchByVehicleNumber" ?
-					(
-						<input className="SearchBarInput" type="text" placeholder="Enter Vehicle Number" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
-					) :
-					this.state.searchOption == "searchByModeOfPayment" ?
-					(
-						<div>
-							<select className="SearchBarInput" onChange={this.handleChange} >
-								<option value="phonePe">PhonePe</option>
-								<option value="cash">Cash</option>
-							</select>
-							<div className="SearchBarDropDown">
-								<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
-									<RiIcons.RiArrowDownSFill />
-								</IconContext.Provider> 
-							</div>
-						</div>
-					) :
-					this.state.searchOption == "searchByPump" ?
-					(
-						<input className="SearchBarInput" type="text" placeholder="Enter Pump" ref="myInput" onChange={this.handleChange} style={{width:'25vw'}}></input>
-					) :
-					(
-						<div>
-							<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="Start Date"></input>
-							<input className="SearchBarInput" type="date" onChange={this.handleChange} style={{width:'25vw'}} placeholder="End Date"></input>
-						</div>
-					)
-				}
-
-
-				</div>
-				
-				<div>
-					{this.state.diesels.map((diesel, index) => {
-					return (
+						);
+		}else if(this.state.diesels.length > 0){
+			resultComponent = 
+				(this.state.diesels.map((diesel, index) => {
+					 return  (
 						<div className="Diesel_Cards">
 							<div className="Diesel_Card_Nums">{index+1}</div>
 							<div className="Form_Field_Container">
@@ -307,8 +352,100 @@ class Diesel extends React.Component {
 							</div>
 						</div>
 						);
-					})}
+					}));
+		}else{
+			resultComponent =  (
+						<div style={{padding:"auto", verticalAlign:"center",horizontalAlign:"center", textAlign:"center", marginTop:"10vw", color:"#0f1185", fontSize:"5vw"}}>
+							No Results Found !! 
+						</div>
+						);
+		}
+		
+		return (
+			<div className="Dashboard">
 
+				<div>
+
+					<select className="SearchBarInput" ref="searchOption" onChange={this.handleChangeSearchOption} >
+						<option value="searchByDate">Search By Date</option>
+						<option value="searchByDateAndUserCode">Search By Date And User Code</option>
+						<option value="searchByVehicleNumber">Search By Vehicle Number</option>
+						<option value="searchByModeOfPayment">Search By Mode of Payment</option>
+						<option value="searchByPump">Search By Pump</option>
+						<option value="searchByDateRange">Search By Date Range</option>
+					</select>
+
+
+					<div className="SearchBarDropDown">
+						<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
+						<RiIcons.RiArrowDownSFill />
+					</IconContext.Provider> 
+					</div>
+
+				</div>
+
+				<div>
+
+				{ 
+					this.state.searchOption == "searchByDate" ? 
+					 (
+						<div>
+							<input className="SearchBarInput" type="date" style={{width:'25vw'}} ref="Date1" defaultValue=""></input>
+							<button className="button-arrow" onClick={this.handleClickEnter}><img src={login_next_button} style={{marginTop:'1vw', top:'0.7vw'}}></img></button>
+						</div>
+					 ) : 
+					this.state.searchOption == "searchByDateAndUserCode" ?
+					(
+						<div>
+							<input className="SearchBarInput" type="date" style={{width:'25vw'}} ref="Date2" defaultValue=""></input>
+							<input className="SearchBarInput" type="text" placeholder="Enter User Code" ref="UserCode" defaultValue="" style={{width:'25vw'}}></input>
+							<button className="button-arrow" onClick={this.handleClickEnter}><img src={login_next_button} style={{marginTop:'1vw', top:'0.7vw'}}></img></button>
+						</div>
+					)  :
+					this.state.searchOption == "searchByVehicleNumber" ?
+					(
+						<div>
+							<input className="SearchBarInput" type="text" placeholder="Enter Vehicle Number" ref="VehicleNumber" defaultValue="" style={{width:'25vw'}}></input>
+							<button className="button-arrow" onClick={this.handleClickEnter}><img src={login_next_button} style={{marginTop:'1vw', top:'0.7vw'}}></img></button>
+						</div>
+					) :
+					this.state.searchOption == "searchByModeOfPayment" ?
+					(
+						<div>
+							<select className="SearchBarInput" ref="PaymentMode">
+								<option value="Card">Card</option>
+								<option value="Cash">Cash</option>
+								<option value="UPI">UPI</option>
+							</select>
+							<div className="SearchBarDropDown">
+								<IconContext.Provider className="SearchBarDropDown" value={{ color: "#7E8080", size:'1.33vw' }}>
+									<RiIcons.RiArrowDownSFill />
+								</IconContext.Provider> 
+							</div>
+							<button className="button-arrow" onClick={this.handleClickEnter}><img src={login_next_button} style={{marginTop:'1vw', top:'0.7vw'}}></img></button>
+						</div>
+					) :
+					this.state.searchOption == "searchByPump" ?
+					(
+						<div>
+							<input className="SearchBarInput" defaultValue="" type="text" placeholder="Enter Pump" ref="Pump" style={{width:'25vw'}}></input>
+							<button className="button-arrow" onClick={this.handleClickEnter}><img src={login_next_button} style={{marginTop:'1vw', top:'0.7vw'}}></img></button>
+						</div>
+					) :
+					(
+						<div>
+							<input className="SearchBarInput" defaultValue=""  type="date" style={{width:'25vw'}} placeholder="Start Date" ref="StartDate"></input>
+							<input className="SearchBarInput" defaultValue="" type="date" style={{width:'25vw'}} placeholder="End Date" ref="EndDate"></input>
+							<button className="button-arrow" onClick={this.handleClickEnter}><img src={login_next_button} style={{marginTop:'1vw', top:'0.7vw'}}></img></button>
+						</div>
+					)
+				}
+
+
+				</div>
+				
+				<div>
+					{resultComponent}
 				</div>
 
 			</div>
