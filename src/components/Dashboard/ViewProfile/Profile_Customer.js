@@ -39,9 +39,9 @@ class ProfileCustomer extends React.Component {
 		axios(config)
 		.then((res) => {
 			if(res.status==200){
-				console.log(res.data.driver);
+				console.log(res);
 				this.setState({allItems:res.data.driver, itemsLoaded:true})
-				console.log("curr items: ",this.state.allItems);
+				console.log("curr items: ",res.data.driver);
 			}else{
 				alert("Pls try after some time");
 			}

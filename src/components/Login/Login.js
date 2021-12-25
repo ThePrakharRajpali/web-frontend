@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies, useCookies } from 'react-cookie';
 import { Redirect } from "react-router-dom";
 import "../../public/css/Login/login.css";
 import login_logo from "../../public/photos/login_logo.svg";
@@ -8,8 +10,13 @@ const maxTime = 600;
 
 class LoginContainer extends React.Component {
 	
+	static propTypes = {
+    cookies: instanceOf(Cookies).isRequired
+    };
+	
 	constructor(props) {
 		super(props);
+		const { cookies } = props;
 		this.state = {redirect:false, input:null, otpSent: false, otpInput:null, time: {}, seconds: maxTime, loginSuccess:false};
 
         this.timer = 0;
@@ -93,7 +100,7 @@ class LoginContainer extends React.Component {
 		const config = 
 		  {
 			method: "post",
-			url: "https://www.naataconnection.com/api/user/login_checkUserAndSendOtp",
+			url: "https://www.naataconnection.com/api/superUser/login_checkSuperUserAndSendOtp",
 			headers: {
 			  "Content-Type": "application/json",
 			},
@@ -118,6 +125,7 @@ class LoginContainer extends React.Component {
 	}
 	
 	verifyOTP = () => {
+		const { cookies } = this.props;
 		console.log("Input OTP entered!!")
 		const data = JSON.stringify({emailIdOrContact : this.state.input, password:this.state.otpInput});
 		const config = 
@@ -135,8 +143,11 @@ class LoginContainer extends React.Component {
 			alert(res.data.message);
 			console.log(res);
 			if(res.status==200){
+				console.log("res is ",res.data.user.userCode);
 				this.setState({loginSuccess:true});
 				// alert("Logged In Successfully :)");
+				cookies.set('user', res.data.user, { path: '/' , maxAge:3600*24});
+				cookies.set('userCode', res.data.user.userCode, { path: '/' , maxAge:3600*24});
 				this.setState({redirect:true});
 			}
 		})
@@ -193,9 +204,6 @@ class LoginContainer extends React.Component {
 						<div className="OTP_timer">
 							OTP expires in <span style={{color:"black", fontSize:"2vw", fontWeight:"800"}}>{this.state.time.m}:{this.state.time.s}</span>
 						</div>
-						{/* <div className="otp_resend" onClick={this.sendOTP}>
-							Resend OTP
-						</div> -->*/}
 					</div>
 					<div className="button-custom">
 						<div className="button-title">Submit</div>
@@ -227,4 +235,4 @@ class LoginContainer extends React.Component {
 	
 }
 
-export default LoginContainer; 
+export default withCookies(LoginContainer); 

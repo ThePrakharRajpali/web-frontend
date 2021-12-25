@@ -1,9 +1,11 @@
 import React from "react";
+import Cookies from 'js-cookie';
 import * as RiIcons from "react-icons/ri";
 import * as AiIcons from "react-icons/ai";
 import { IconContext } from "react-icons/lib";
 import "../../public/css/Dashboard/Dashboard.css";
 import "../../public/css/Dashboard/MyProfile.css";
+import profileDum from "../../public/photos/profileDum.jpg";
 
 const info = {
   success: "true",
@@ -43,9 +45,12 @@ class MyProfile extends React.Component {
     this.state = {
       editModeEnabled: false,
     };
+	console.log(this.props.userCode);
+	console.log("so cookie is ",Cookies.get('userCode'));
   }
 
   handleEditClick() {
+	  console.log("so cookie is ",Cookies.get('userCode'));
     this.setState({ editModeEnabled: !this.state.editModeEnabled });
     var edit_button = document.querySelector("#Edit_Button");
     edit_button.classList.add("Profile_Edit_Button_Disabled");
@@ -82,7 +87,7 @@ class MyProfile extends React.Component {
           <center>
             <img
               className="Profile_Pic"
-              src={info.data.superUser.profilePic}
+              src={profileDum}
             ></img>
             <div className="Profile_Name">
               {info.data.superUser.firstName +
