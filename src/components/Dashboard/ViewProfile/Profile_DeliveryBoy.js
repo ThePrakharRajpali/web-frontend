@@ -29,7 +29,7 @@ class ProfileDeliveryBoy extends React.Component {
 
 	  const config = 
 	  {
-			method: "get",
+			method: "post",
 			url: "https://www.naataconnection.com/api/users/allDeliveryBoywithName",
 			headers: {
 			  "Content-Type": "application/json",
@@ -39,8 +39,8 @@ class ProfileDeliveryBoy extends React.Component {
 		axios(config)
 		.then((res) => {
 			if(res.status==200){
-				console.log(res.data.driver);
-				this.setState({allItems:res.data.driver, itemsLoaded:true})
+				console.log(res.data.deliveryBoy);
+				this.setState({allItems:res.data.deliveryBoy, itemsLoaded:true})
 				console.log("curr items: ",this.state.allItems);
 			}else{
 				alert("Pls try after some time");
@@ -57,15 +57,19 @@ class ProfileDeliveryBoy extends React.Component {
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+	  if(items == undefined){
+		  alert("No Delivery Boy exists!!");
+	  }else{
+		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
 	  this.setState({searchResults: items});
 	  
-	  console.log("Updated Search Results: ",this.state.searchResults);
+	  	  console.log("Updated Search Results: ",this.state.searchResults);
 	  
-	  var results = document.querySelectorAll(".SearchResult");
-	  results.forEach((result) => {
-		 result.style.display = "flex";
-	  });
+	  	  var results = document.querySelectorAll(".SearchResult");
+		  results.forEach((result) => {
+			 result.style.display = "flex";
+		  });
+	  }
   }
 
   handleChange(event) { 
@@ -165,6 +169,52 @@ class ProfileDeliveryBoy extends React.Component {
 	 if(user === null || typeof(user) === 'undefined' || user==null){
 		userComponent = (<div></div>);
 	 }else{
+		 let idCard1 = this.state.user.idCard1;
+		 let idCard2 = this.state.user.idCard2; 
+		 let profileDocsComponent;
+		 if(idCard1 || idCard2){
+			 profileDocsComponent = (
+				 <div className="Profile_Docs">
+
+					  <div className="Profile_Docs_Title">Documents</div>
+
+						 {idCard1 ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + idCard1 + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; ID Card 1
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+						 {idCard2 ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + idCard2 + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; ID Card 2
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+				</div>
+			 );
+		 }else{
+			// console.log(drivingLicense,idCard1,idCard2);
+			profileDocsComponent = (
+				 <div></div>
+			 );
+		 }
+		 
 		userComponent = (
 			<div>
 				<div className="Profile_Container">
@@ -178,34 +228,7 @@ class ProfileDeliveryBoy extends React.Component {
 				  </center>
 				</div>
 				
-				<div className="Profile_Docs">
-					  <div className="Profile_Docs_Title">Documents</div>
-					  
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
-
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
-					  
-				</div>
+				{profileDocsComponent}
 				
 				<div className="Profile_PersonalInfo" style={{top: '0vw', height:'53vw'}}>
 				    <div className="Profile_PersonalInfo_Title">Personal Info</div>	 

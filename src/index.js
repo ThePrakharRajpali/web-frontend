@@ -139,7 +139,7 @@ const Display = () => {
 					  {cookies.userCode ? 
 						  <div>
 							<ControlPanel />
-							<MyProfile />
+							<MyProfile userCode = {cookies.userCode}/>
 						  </div>
 						  : <Redirect to="/login" /> }
 				  </Route>

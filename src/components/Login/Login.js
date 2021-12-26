@@ -100,7 +100,7 @@ class LoginContainer extends React.Component {
 		const config = 
 		  {
 			method: "post",
-			url: "https://www.naataconnection.com/api/superUser/login_checkSuperUserAndSendOtp",
+			url: "https://www.naataconnection.com/api/user/login_checkUserAndSendOtp",
 			headers: {
 			  "Content-Type": "application/json",
 			},

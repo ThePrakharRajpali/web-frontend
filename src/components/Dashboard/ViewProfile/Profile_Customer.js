@@ -29,7 +29,7 @@ class ProfileCustomer extends React.Component {
 
 	  const config = 
 	  {
-			method: "get",
+			method: "post",
 			url: "https://www.naataconnection.com/api/users/allCustomerwithName",
 			headers: {
 			  "Content-Type": "application/json",
@@ -40,8 +40,8 @@ class ProfileCustomer extends React.Component {
 		.then((res) => {
 			if(res.status==200){
 				console.log(res);
-				this.setState({allItems:res.data.driver, itemsLoaded:true})
-				console.log("curr items: ",res.data.driver);
+				this.setState({allItems:res.data.customer, itemsLoaded:true})
+				console.log("curr items: ",res.data.customer);
 			}else{
 				alert("Pls try after some time");
 			}
@@ -57,15 +57,19 @@ class ProfileCustomer extends React.Component {
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
-	  this.setState({searchResults: items});
-	  
-	  console.log("Updated Search Results: ",this.state.searchResults);
-	  
-	  var results = document.querySelectorAll(".SearchResult");
-	  results.forEach((result) => {
-		 result.style.display = "flex";
-	  });
+	  if(items == undefined){
+		  alert("No Customer exists!!");
+	  }else{
+		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+		  this.setState({searchResults: items});
+
+		  console.log("Updated Search Results: ",this.state.searchResults);
+
+		  var results = document.querySelectorAll(".SearchResult");
+		  results.forEach((result) => {
+			 result.style.display = "flex";
+		  });
+	  }
   }
 
   handleChange(event) { 
@@ -178,7 +182,7 @@ class ProfileCustomer extends React.Component {
 				  </center>
 				</div>
 				
-				<div className="Profile_Docs">
+				{/*<div className="Profile_Docs">
 					  <div className="Profile_Docs_Title">Documents</div>
 					  
 					  <div className="Profile_Doc">
@@ -205,7 +209,7 @@ class ProfileCustomer extends React.Component {
 						  </center>
 					  </div>
 					  
-				</div>
+				</div>*/}
 				
 				<div className="Profile_PersonalInfo" style={{top: '0vw', height:'53vw'}}>
 					  <div className="Profile_PersonalInfo_Title">Personal Info</div>

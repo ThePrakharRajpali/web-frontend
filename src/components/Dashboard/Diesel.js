@@ -62,7 +62,7 @@ class Diesel extends React.Component {
 				const data = JSON.stringify({date:Date1});
 				const config = 
 				 {
-					method: "get",
+					method: "post",
 					url: "https://www.naataconnection.com/api/diesel/sortByDate",
 					headers: {
 					  "Content-Type": "application/json",
@@ -96,7 +96,7 @@ class Diesel extends React.Component {
 				const data = JSON.stringify({date:this.refs.Date2.value, userCode: this.refs.UserCode.value});
 				const config = 
 				 {
-					method: "get",
+					method: "post",
 					url: "https://www.naataconnection.com/api/diesel/sortByDateAndUserCode",
 					headers: {
 					  "Content-Type": "application/json",
@@ -129,7 +129,7 @@ class Diesel extends React.Component {
 				const data = JSON.stringify({vehicleNumber:this.refs.VehicleNumber.value});
 				const config = 
 				 {
-					method: "get",
+					method: "post",
 					url: "https://www.naataconnection.com/api/diesel/sortByVehicleNumber",
 					headers: {
 					  "Content-Type": "application/json",
@@ -159,7 +159,7 @@ class Diesel extends React.Component {
 			const data = JSON.stringify({paymentMode:this.refs.PaymentMode.value});
 			const config = 
 			 {
-				method: "get",
+				method: "post",
 				url: "https://www.naataconnection.com/api/diesel/sortByPaymentMode",
 				headers: {
 				  "Content-Type": "application/json",
@@ -191,7 +191,7 @@ class Diesel extends React.Component {
 				const data = JSON.stringify({pump:this.refs.Pump.value});
 				const config = 
 				 {
-					method: "get",
+					method: "post",
 					url: "https://www.naataconnection.com/api/diesel/sortByPump",
 					headers: {
 					  "Content-Type": "application/json",
@@ -225,7 +225,7 @@ class Diesel extends React.Component {
 				const data = JSON.stringify({startDate:this.refs.StartDate.value, endDate:this.refs.EndDate.value});
 				const config = 
 				 {
-					method: "get",
+					method: "post",
 					url: "https://www.naataconnection.com/api/diesel/sortByDateRange",
 					headers: {
 					  "Content-Type": "application/json",
@@ -334,6 +334,59 @@ class Diesel extends React.Component {
 									</div>
 
 								</div>
+								
+								<div className="Form_Fields">
+
+									<div className="Form_field">
+										<label className="Form_field_label">Number of Liters</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["liter"]}/>
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">Diesel Rate</label>
+										<input className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["dieselRate"]} />
+									</div>
+
+									<div className="Form_field">
+										<label className="Form_field_label">Payment Mode</label>
+										<input required className="Form_field_input" style={{width:'20vw',height:'2.6vw'}} disabled={true} value={diesel["paymentMode"]}/>
+									</div>
+
+								</div>
+								
+								{diesel["billImage"] || diesel["kmOfVehicleImg"] ? (
+									<div className="Form_Fields">
+                                    
+										{diesel["billImage"]?(
+											<div className="Form_field">
+												<label className="Form_field_label">Bill Image</label>
+												<a
+												className="Form_field_input"
+												style={{width:'30vw',height:'2.6vw'}}
+												type="text"
+												href={diesel["billImage"]}
+												target="_blank">
+												 Bill Image Link 
+											  </a>
+											</div>
+										):(<div></div>)}
+
+										{diesel["kmOfVehicleImg"]?(
+											<div className="Form_field">
+												<label className="Form_field_label">Vehicle Distance Covered Image</label>
+												<a
+												className="Form_field_input"
+												style={{width:'30vw',height:'2.6vw'}}
+												type="text"
+												href={diesel["kmOfVehicleImg"]}
+												target="_blank">
+												 Image Link
+											  </a>
+											</div>
+										):(<div></div>)}
+
+									</div>
+									):(<div></div>)}
 								
 								<div className="Form_Fields">
 
