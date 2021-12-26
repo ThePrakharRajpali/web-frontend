@@ -29,7 +29,7 @@ class ProfileVehicle extends React.Component {
 
 	  const config = 
 	  {
-			method: "get",
+			method: "post",
 			url: "https://www.naataconnection.com/api/vehicle/",
 			headers: {
 			  "Content-Type": "application/json",
@@ -57,15 +57,19 @@ class ProfileVehicle extends React.Component {
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["registrationNumber"]).toLowerCase().indexOf(query) !== -1 || item["vehicleCode"].indexOf(query) !== -1 || item["vehicleModel"].indexOf(query) !== -1);
-	  this.setState({searchResults: items});
-	  
-	  console.log("Updated Search Results: ",this.state.searchResults);
-	  
-	  var results = document.querySelectorAll(".SearchResult");
-	  results.forEach((result) => {
-		 result.style.display = "flex";
-	  });
+	  if(items == undefined){
+		  alert("No Vehicle exists!!");
+	  }else{
+		  items = items.filter(item => (item["registrationNumber"]).toLowerCase().indexOf(query) !== -1 || item["vehicleCode"].indexOf(query) !== -1 || item["vehicleModel"].indexOf(query) !== -1);
+		  this.setState({searchResults: items});
+
+		  console.log("Updated Search Results: ",this.state.searchResults);
+
+		  var results = document.querySelectorAll(".SearchResult");
+		  results.forEach((result) => {
+			 result.style.display = "flex";
+		  });
+	  }
   }
 
   handleChange(event) { 

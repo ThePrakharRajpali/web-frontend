@@ -29,7 +29,7 @@ class ProfileDriver extends React.Component {
 
 	  const config = 
 	  {
-			method: "get",
+			method: "post",
 			url: "https://www.naataconnection.com/api/users/allDriverwithName",
 			headers: {
 			  "Content-Type": "application/json",
@@ -57,15 +57,20 @@ class ProfileDriver extends React.Component {
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
-	  this.setState({searchResults: items});
+	  if(items == undefined){
+		  alert("No Driver exists!!");
+	  }else{
 	  
-	  console.log("Updated Search Results: ",this.state.searchResults);
-	  
-	  var results = document.querySelectorAll(".SearchResult");
-	  results.forEach((result) => {
-		 result.style.display = "flex";
-	  });
+		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+		  this.setState({searchResults: items});
+
+		  console.log("Updated Search Results: ",this.state.searchResults);
+
+		  var results = document.querySelectorAll(".SearchResult");
+		  results.forEach((result) => {
+			 result.style.display = "flex";
+		  });
+	  }
   }
 
   handleChange(event) { 
@@ -165,6 +170,67 @@ class ProfileDriver extends React.Component {
 	 if(user === null || typeof(user) === 'undefined' || user==null){
 		userComponent = (<div></div>);
 	 }else{
+		 let drivingLicense = this.state.user.drivingLicense;
+		 let idCard1 = this.state.user.idCard1;
+		 let idCard2 = this.state.user.idCard2; 
+		 let profileDocsComponent;
+		 if(drivingLicense || idCard1 || idCard2){
+			 profileDocsComponent = (
+				 <div className="Profile_Docs">
+
+					  <div className="Profile_Docs_Title">Documents</div>
+
+						  {drivingLicense ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + drivingLicense + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; Driving License
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+						 {idCard1 ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + idCard1 + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; ID Card 1
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+						 {idCard2 ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + idCard2 + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; ID Card 2
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+				</div>
+			 );
+		 }else{
+			console.log(drivingLicense,idCard1,idCard2);
+			profileDocsComponent = (
+				 <div></div>
+			 );
+		 }
+		 
 		userComponent = (
 			<div>
 				<div className="Profile_Container">
@@ -178,34 +244,7 @@ class ProfileDriver extends React.Component {
 				  </center>
 				</div>
 				
-				<div className="Profile_Docs">
-					  <div className="Profile_Docs_Title">Documents</div>
-					  
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
-
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
-					  
-				</div>
+				{profileDocsComponent}
 				
 				<div className="Profile_PersonalInfo" style={{top: '0vw', height:'53vw'}}>
 				    <div className="Profile_PersonalInfo_Title">Personal Info</div>	 

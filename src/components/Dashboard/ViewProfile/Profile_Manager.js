@@ -29,7 +29,7 @@ class ProfileManager extends React.Component {
 
 	  const config = 
 	  {
-			method: "get",
+			method: "post",
 			url: "https://www.naataconnection.com/api/users/allManagerwithName",
 			headers: {
 			  "Content-Type": "application/json",
@@ -39,8 +39,8 @@ class ProfileManager extends React.Component {
 		axios(config)
 		.then((res) => {
 			if(res.status==200){
-				console.log(res.data.driver);
-				this.setState({allItems:res.data.driver, itemsLoaded:true})
+				console.log(res.data.manager);
+				this.setState({allItems:res.data.manager, itemsLoaded:true})
 				console.log("curr items: ",this.state.allItems);
 			}else{
 				alert("Pls try after some time");
@@ -57,15 +57,19 @@ class ProfileManager extends React.Component {
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
-	  this.setState({searchResults: items});
-	  
-	  console.log("Updated Search Results: ",this.state.searchResults);
-	  
-	  var results = document.querySelectorAll(".SearchResult");
-	  results.forEach((result) => {
-		 result.style.display = "flex";
-	  });
+	  if(items == undefined){
+		  alert("No Manager exists!!");
+	  }else{
+		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+		  this.setState({searchResults: items});
+
+		  console.log("Updated Search Results: ",this.state.searchResults);
+
+		  var results = document.querySelectorAll(".SearchResult");
+		  results.forEach((result) => {
+			 result.style.display = "flex";
+		  });
+	  }
   }
 
   handleChange(event) { 
@@ -165,6 +169,38 @@ class ProfileManager extends React.Component {
 	 if(user === null || typeof(user) === 'undefined' || user==null){
 		userComponent = (<div></div>);
 	 }else{
+		 
+		 let idCard = this.state.user.idCard;
+		 let profileDocsComponent;
+		 if(idCard){
+			 profileDocsComponent = (
+				 <div className="Profile_Docs">
+
+					  <div className="Profile_Docs_Title">Documents</div>
+
+						 {idCard ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + idCard + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; ID Card
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+				</div>
+			 );
+		 }else{
+			// console.log(drivingLicense,idCard1,idCard2);
+			profileDocsComponent = (
+				 <div></div>
+			 );
+		 }
+		 
 		userComponent = (
 			<div>
 				<div className="Profile_Container">
@@ -183,17 +219,17 @@ class ProfileManager extends React.Component {
 					  
 					  <div className="Profile_Doc">
 						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
+							  <iframe className="Profile_id1" src={user["idCard"]}></iframe>
 							  <div className="Profile_Doc_Label">
 								  <IconContext.Provider value={{ color: "#ffffff" }}>
 										<RiIcons.RiProfileLine />
 								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
+								  &nbsp; &nbsp; ID Card
 							  </div>
 						  </center>
 					  </div>
 
-					  <div className="Profile_Doc">
+					{/*<div className="Profile_Doc">
 						  <center>
 							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
 							  <div className="Profile_Doc_Label">
@@ -203,7 +239,7 @@ class ProfileManager extends React.Component {
 								  &nbsp; &nbsp; Aadhar Id
 							  </div>
 						  </center>
-					  </div>
+					  </div>*/}
 					  
 				</div>
 				
