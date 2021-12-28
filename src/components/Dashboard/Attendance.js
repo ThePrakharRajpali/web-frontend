@@ -1,5 +1,6 @@
 import React, {  } from "react";
 import axios from "axios";
+import { confirmAlert } from "react-confirm-alert";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import moment from 'moment';
@@ -96,16 +97,6 @@ class Attendance extends React.Component {
 	 
   }
 	
-  // fullName(userCode){
-  // var items = this.state.allItems;
-  // var item = items.filter(item => (item["userCode"] == userCode));
-  // return  (item["firstName"]==undefined ? "" : item["firstName"]) 
-  // +" "+ 
-  // (item["middleName"]==undefined ? "" : item["middleName"]) 
-  // +" "+
-  // (item["lastName"]==undefined ? "" : item["lastName"]) ;	  
-  // }
-	
   removeUser(userCode){
 	  
 	  const updateTable = (startDate,endDate, userCodes) => {
@@ -176,38 +167,6 @@ class Attendance extends React.Component {
 	console.log("Entered search query = "+event.target.value); 
 	this.updateSearchResults();
   }
-	
-  // updateTable(){
-  // console.log("enetered update table")
-  // if(this.state.startDate == null || this.state.endDate == null){
-		  
-  // }else{
-  // const data = JSON.stringify({userCode:this.state.userCodes,startDate:changeDateFormat(this.state.startDate),endDate:changeDateFormat(this.state.endDate) });
-  // const config = 
-  // {
-  // method: "post",
-  // url: "https://www.naataconnection.com/api/attendance/getReportByDateAndUserCode",
-  // headers: {
-  // "Content-Type": "application/json",
-  // },
-  // data: data,
-  // };
-
-  // axios(config)
-  // .then((res) => {
-  // if(res.status==200){
-  // console.log("res: ",res);
-  // this.setState({ responses: res });
-  // }else{
-  // alert("Pls Try Again!!!");
-  // }
-  // })
-  // .catch((err) => {
-  // console.log(err);
-  // alert("Pls Try Again!!!")
-  // });
-  // }
-  // }
 	
   handleClick(event) {
 	  
@@ -347,7 +306,7 @@ class Attendance extends React.Component {
 		const newDate1 = new Date(Date.now());
 		const newDate2 = new Date(date2);
 		var time_difference = newDate2 - newDate1;
-		return Math.floor(time_difference / (1000 * 60 * 60 * 24));
+		return Math.ceil(time_difference / (1000 * 60 * 60 * 24));
 	 }
 	
 	const diffNumDays3 = (date1)=>{
@@ -380,6 +339,22 @@ class Attendance extends React.Component {
 	let userCodes = this.state.userCodes;
 	let responses = this.state.responses;
 	  
+	const showTime = (name,time) => {
+    	confirmAlert({
+		  title: "Start Time",
+		  message: name + " marked their attendance at the time " + time,
+			buttons: [
+				{
+				  label: "Okay",
+				  onClick: () => {
+
+				  }
+				}
+			]
+		});
+  
+	}
+	  
 	if(startDate == null || endDate==null){
 		attendaceTableComponent = (
 		    <>
@@ -408,16 +383,16 @@ class Attendance extends React.Component {
 		attendaceTableComponent = (
 		    <>
 				{responses.map((item,index) => {
-			        // console.log("start date: ", startDate," ,doj: ",item["dateOfJoining"]," diff days: ",diffNumDays(startDate,item["dateOfJoining"]));
-			        // console.log("end date: ", endDate," ,diff days2: ",diffNumDays2(endDate));
 			        const NA1 = Math.max(diffNumDays(startDate,item["dateOfJoining"]),0);
 			        const NA2 = Math.max(diffNumDays2(endDate),0);
 			 		const mid = Math.max(diffNumDays(startDate, endDate) - NA1 - NA2 + 1,0);
+			        const fullNameOfUser = fullName(item["userCode"]);
 			        console.log("here ",NA1, mid, NA2);
+					console.log("index ",index," : ",item)
 					return (
 						<tr className={index%2 ? "AttendanceRow1": "AttendanceRow2"}>
 							<td className="AttendanceCell">
-								{fullName(item["userCode"])}
+								{fullNameOfUser}
 								<button className="AttendanceUserDelete" onClick={()=>this.removeUser(item["userCode"])} value={item["userCode"]} type='button'>
 									<IconContext.Provider value={{ color: "#E5584F", size:'1vw' }}>
 										<RiIcons.RiCloseCircleLine />
@@ -436,13 +411,28 @@ class Attendance extends React.Component {
 									</td>
 								  );
 							  })}
-							{Array.from(Array(mid), (e, i) => {
-								return (
+							{item.data.map((itemInner, indexInner) => {
+								console.log("day ",indexInner+1," : ",itemInner);
+								if(itemInner.attendance_status == 1){
+									return (
 									  <td className="AttendanceCell">
-										mid
+										P &nbsp; &nbsp;
+										<IconContext.Provider className="SearchBarIcon" value={{ color: "#F3752B", size:'0.75vw' }}>
+											<AiIcons.AiOutlineClockCircle style={{cursor:"pointer"}}onClick={()=>showTime(fullNameOfUser,itemInner.startTime)}/>&nbsp;
+											<a target="_blank" href={"http://www.google.com/maps/place/"+itemInner.latitude+","+itemInner.longitude}><RiIcons.RiMapPin2Line /></a>
+										</IconContext.Provider>
+									 </td>
+								  );
+								}else{
+									return (
+									  <td className="AttendanceCell">
+										A
 									</td>
 								  );
-							  })}
+								}
+							})
+								
+							}
 							{Array.from(Array(NA2), (e, i) => {
 								return (
 									  <td className="AttendanceCell">

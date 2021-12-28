@@ -81,7 +81,9 @@ const Display = () => {
 				  </Route>
 
 				  <Route exact path="/login">
-					<Login />
+					  {cookies.userCode ? 
+						  <Redirect to="/Dashboard" />
+						  : <Login /> }
 				  </Route>
 
 
