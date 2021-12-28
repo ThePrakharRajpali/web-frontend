@@ -101,3 +101,72 @@
 .text-blue {
   color: var(--blue);
 }
+
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+  .team-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .team-header p {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0;
+    margin-top: -30px;
+  }
+
+  .team-cards {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .team-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .team-header p {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0;
+    margin-top: -30px;
+  }
+
+  .team-cards {
+    flex-direction: column;
+  }
+
+  .team-card {
+    min-width: none;
+    min-height: none;
+    max-width: 350px;
+    max-height: 400px;
+    height: auto;
+    width: auto;
+  }
+
+  .team-card img {
+    min-width: 100px;
+    min-height: 100px;
+    width: 10.5vw;
+    height: 10.5vw;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .designation p {
+    font-size: 16px;
+  }
+  .designation .position {
+    font-size: 12px;
+  }
+
+  .content {
+    font-size: 12px;
+  }
+}
