@@ -7,6 +7,7 @@ import { Team } from "./Team";
 import Landing from "./Landing";
 import Map from "./Map";
 
+
 const About = () => {
   return (
     <div className="AboutPage">

@@ -1,11 +1,11 @@
 import React from "react";
 import "../../../public/css/Dashboard/Dashboard.css";
 
-function ServiceRequests_CreateNew ()  {
+function ServiceRequestsCreateNew ()  {
   return (
     <div className="Dashboard">
       ServiceRequests_CreateNew
     </div>
   );
 };
-export default ServiceRequests_CreateNew;
+export default ServiceRequestsCreateNew;

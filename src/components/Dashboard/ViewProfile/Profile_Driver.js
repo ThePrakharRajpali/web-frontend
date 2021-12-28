@@ -1,259 +1,250 @@
 import React, { useState,useRef } from "react";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+import axios from "axios";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { IconContext } from "react-icons/lib";
 import "../../../public/css/Dashboard/Dashboard.css";
 import "../../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../../public/css/Dashboard/MyProfile.css";
+import profileDum from "../../../public/photos/profileDum.jpg";
 
-const info = {
-		Admin1 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin1 Admin1 Admin1 Admin1",
-            "middleName": "Admin1",
-			"lastName": "Admin1",
-			"emailId":"admin1@gmail.com",
-			"contact":"67585938839",
-			"userCode":"NCADMIN0001",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021",
-			"role":"ADMIN",
-			"active": false,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},	
-		Admin2 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin2",
-            "middleName": "Admin2",
-			"lastName": "Admin2",
-			"emailId":"admin2@gmail.com",
-			"contact":"67585938839",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"userCode":"NCADMIN0002",
-			"role":"ADMIN",
-			"active": true,	
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021","profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},
-		Admin3 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin3",
-            "middleName": "Admin3",
-			"lastName": "Admin3",
-			"emailId":"admin3@gmail.com",
-			"contact":"67585938839",
-			"userCode":"NCADMIN0003",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"role":"ADMIN",
-			"active": true,		
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021","profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},	
-		Admin4 : {
-			"_id" : "615ae85f288c4050a2c49bc4",
-			"firstName" : "Admin4",
-            "middleName": "Admin4",
-			"lastName": "Admin4",
-			"emailId":"admin4@gmail.com",
-			"contact":"67585938839",
-			"userCode":"NCADMIN0004",
-			"secondaryContact":"98789604034",
-			"address":"Address Street, Address Building, Address Lane, Address City, Address City, Address State, Address Country",
-			"city":"Mumbai",
-			"state":"Maharashtra",
-			"emergencyContact":"98789604034",
-			"bloodGroup":"A+ve",
-			"age":25,
-			"dateOfJoining":"25th October 2021",
-			"dateOfTermination":"28th December 2021",
-			"drivingLicenseType":"HTT",
-			"drivingLicenseExpiryDate":"30 November 2021",
-			"role":"ADMIN",
-			"active": true,		     "profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-			"__v":0,
-			"profilePic":"https://raw.githubusercontent.com/Nikitha2309/Private/main/profileDum.jpg?token=APXZ46MZKRP5YYGQAGDCW2DBQZASO",
-		},
-}
-
-const Options = (options, handleClick) => {
-	console.log(options);
-	console.log(options["options"].length);
-	if(options["options"].length){
-		return(
-				<div style={{width:'400px',height:'100px',background:'yellow'}}>
-							{options["options"].map((item, index) => {
-							return <button onClick={handleClick} value={item}>
-									 <div>{item}</div>
-									 <div>{item}</div>
-									 <div>{item}</div>
-								   </button>;
-							})}
-				</div>
-			);
-	}
-	else{
-		return (<div></div>);
-	}
-};
-
-class Profile_Driver extends React.Component {
+class ProfileDriver extends React.Component {
 	
   constructor(props) {
     super(props);
-    this.state = {value: '',myOptions:[],user:null};
+    this.state = {searchQuery: '',searchResults:[],user:null, profile:null, userCode:null, allItems:null, itemsLoaded:false};
+	  
+	this.getallItems();
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
 	this.handleBlock = this.handleBlock.bind(this);
   }
+	
+  async getallItems(){
+	  
+	  console.log("feteching posts now");
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-	console.log("Enetered input = "+event.target.value);
-	var things = ['Admin1','Admin2','Admin3','Admin4'];
-	var thing1 = things[Math.floor(Math.random()*things.length)];
-	var thing2 = things[Math.floor(Math.random()*things.length)];
-		
-	this.setState({myOptions: [thing1,thing2]});
-	console.log(this.state.myOptions);
-	var results = document.querySelectorAll(".SearchResult");
-	results.forEach((result) => {
-		result.style.display = "flex";
-	});
+	  const config = 
+	  {
+			method: "post",
+			url: "https://www.naataconnection.com/api/users/allDriverwithName",
+			headers: {
+			  "Content-Type": "application/json",
+			},
+	  };
+
+		axios(config)
+		.then((res) => {
+			if(res.status==200){
+				console.log(res.data.driver);
+				this.setState({allItems:res.data.driver, itemsLoaded:true})
+				console.log("curr items: ",this.state.allItems);
+			}else{
+				alert("Pls try after some time");
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+			alert("Pls try after some time")
+		});
+	 
+  }
+	
+  updateSearchResults(){
+	  var query = this.state.searchQuery;
+	  var items = this.state.allItems;
+	  
+	  if(items == undefined){
+		  alert("No Driver exists!!");
+	  }else{
+	  
+		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+		  this.setState({searchResults: items});
+
+		  console.log("Updated Search Results: ",this.state.searchResults);
+
+		  var results = document.querySelectorAll(".SearchResult");
+		  results.forEach((result) => {
+			 result.style.display = "flex";
+		  });
+	  }
+  }
+
+  handleChange(event) { 
+    this.setState({searchQuery: event.target.value});
+	console.log("Entered search query = "+event.target.value); 
+	this.updateSearchResults();
   }
 	
   handleClick(event) {
-   	console.log("Clicked input = "+event.target.value);
-	this.setState({user: info[event.target.value]});
-	this.refs.myInput.value=event.target.value;
+   	
 	var results = document.querySelectorAll(".SearchResult");
 	results.forEach((result) => {
 		result.style.display = "none";
+	});
+	  
+	var userCode = event.target.value;
+	console.log("clicked on : ",userCode);
+	  
+	this.setState({userCode:userCode});
+	this.refs.myInput.value=userCode;
+	  
+	const data = JSON.stringify({userCode:userCode});
+	const config = 
+	 {
+		method: "post",
+		url: "https://www.naataconnection.com/api/users/profile",
+		headers: {
+		  "Content-Type": "application/json",
+		},
+		data: data,
+	 };
+
+	axios(config)
+	.then((res) => {
+		if(res.status==200){
+			var user = Object.assign(res.data.data.user, res.data.data.profile);
+			this.setState({user:user});
+			console.log("user: ",user);
+		}else{
+			alert("Pls Try Again!!!");
+		}
+	})
+	.catch((err) => {
+		console.log(err);
+		alert("Pls Try Again!!!")
 	});
 	
   }
 	
   handleBlock(event) {
-   	console.log("Blocked user");
+    	confirmAlert({
+		  title: "Confirm to Block",
+		  message: "Are you sure to block this user ?? This action can't be undone !!",
+		  buttons: [
+			{
+			  label: "Yes",
+			  onClick: () => {
+				  const data = JSON.stringify({"userCode":this.state.userCode});
+				  const config = 
+				  {
+						method: "post",
+						url: "https://www.naataconnection.com/api/block/user",
+						headers: {
+						  "Content-Type": "application/json",
+						},
+						data: data,
+				  };
+				  axios(config)
+					.then((res) => {
+						if(res.status==200){
+							console.log("User Blocked");
+							alert("User Blocked. Please reload the page to see updated profile.");
+						}else{
+							alert("Pls try after some time.");
+						}
+					})
+					.catch((err) => {
+						console.log(err);
+						alert("Pls try after some time.")
+					});
+			  }
+			},
+			{
+			  label: "No",
+			  onClick: () => {
+				  console.log("User Not Blocked");
+			  }
+			}
+		  ]
+		});
   }
 
-	// getDataFromAPI = () => {
-	// 	console.log("Enetered input = ",this.refs.myInput.value);
-
-	// 	// fetch('http://dummy.restapiexample.com/api/v1/employees').then((response) => {
-	// 	// return response.json()
-	// 	// }).then((res) => {
-	// 	// console.log(res.data)
-	// 	// for (var i = 0; i < res.data.length; i++) {
-	// 	// 	myOptions.push(res.data[i].employee_name)
-	// 	// }
-	// 	// setMyOptions(myOptions)
-	// 	// })
-		
-	// 	var things = ['Admin1','Admin2','Admin3','Admin4'];
-	// 	var thing1 = things[Math.floor(Math.random()*things.length)];
-	// 	var thing2 = things[Math.floor(Math.random()*things.length)];
-		
-	// 	setMyOptions(['Admin1','Admin2']);
-	// }
-	
-	// getDataFromLi = (index) => {
-	// 	console.log("Options Fetched from User");
-
-	// 	// fetch('http://dummy.restapiexample.com/api/v1/employees').then((response) => {
-	// 	// return response.json()
-	// 	// }).then((res) => {
-	// 	// console.log(res.data)
-	// 	// for (var i = 0; i < res.data.length; i++) {
-	// 	// 	myOptions.push(res.data[i].employee_name)
-	// 	// }
-	// 	// setMyOptions(myOptions)
-	// 	// })
-		
-	// 	setUser(info.Admin1);
-	// 	console.log(user.firstName);
-	// }
-	
  render() {
 	 let userComponent;
 	 let user = this.state.user;
-	 console.log("here user is ",user);
 	 
 	 if(user === null || typeof(user) === 'undefined' || user==null){
 		userComponent = (<div></div>);
-	 }
-	 else{
+	 }else{
+		 let drivingLicense = this.state.user.drivingLicense;
+		 let idCard1 = this.state.user.idCard1;
+		 let idCard2 = this.state.user.idCard2; 
+		 let profileDocsComponent;
+		 if(drivingLicense || idCard1 || idCard2){
+			 profileDocsComponent = (
+				 <div className="Profile_Docs">
+
+					  <div className="Profile_Docs_Title">Documents</div>
+
+						  {drivingLicense ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + drivingLicense + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; Driving License
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+						 {idCard1 ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + idCard1 + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; ID Card 1
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+						 {idCard2 ? (
+							 <div className="Profile_Doc">
+								  <center>
+									  <iframe className="Profile_id1" src={"https://docs.google.com/viewerng/viewer?url=" + idCard2 + "&embedded=true"}></iframe>
+									  <div className="Profile_Doc_Label">
+										  <IconContext.Provider value={{ color: "#ffffff" }}>
+												<RiIcons.RiProfileLine />
+										  </IconContext.Provider> 
+										  &nbsp; &nbsp; ID Card 2
+									  </div>
+								  </center>
+							 </div>
+						  ):(<div></div>)}
+
+				</div>
+			 );
+		 }else{
+			console.log(drivingLicense,idCard1,idCard2);
+			profileDocsComponent = (
+				 <div></div>
+			 );
+		 }
+		 
 		userComponent = (
 			<div>
 				<div className="Profile_Container">
 				  <center>
-					 <img className="Profile_Pic" src={user["profilePic"]}></img>
-					 <div className="Profile_Name">{user["firstName"] + " " + user["middleName"] + user["lastName"] }</div>
+					 <img className="Profile_Pic" src={user["profileImage"] || profileDum}></img>
+					 <div className="Profile_Name">{(user["firstName"]==undefined ? "" : user["firstName"]) +" "+ (user["middleName"]==undefined ? "" : user["middleName"]) +" "+(user["lastName"]==undefined ? "" : user["lastName"])}</div>
 					  <div className="Profile_Role">{user["role"]}</div>
 					  <div className="Profile_UserCode">{user["userCode"]}</div>
 					  <div className="Profile_UserCode">{user["active"] ? "Status: Active ": "Status: Blocked"}</div>
-					  <button className={user["active"] ? "BlockButton": "BlockButtonDisabled"} onClick={this.handleBlock.bind(this)} disabled={user["active"] ? false: true}>Block User</button>
+					  <button className={user["active"] ? "BlockButton": "BlockButtonDisabled"} onClick={this.handleBlock} disabled={user["active"] ? false: true}>Block User</button>
 				  </center>
 				</div>
 				
-				<div className="Profile_Docs">
-					  <div className="Profile_Docs_Title">Documents</div>
-					  
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
-
-					  <div className="Profile_Doc">
-						  <center>
-							  <iframe className="Profile_id1" src="https://docs.google.com/viewerng/viewer?url=http%3A%2F%2Fwww.africau.edu%2Fimages%2Fdefault%2Fsample.pdf&embedded=true"></iframe>
-							  <div className="Profile_Doc_Label">
-								  <IconContext.Provider value={{ color: "#ffffff" }}>
-										<RiIcons.RiProfileLine />
-								  </IconContext.Provider> 
-								  &nbsp; &nbsp; Aadhar Id
-							  </div>
-						  </center>
-					  </div>
-					  
-				</div>
+				{profileDocsComponent}
 				
 				<div className="Profile_PersonalInfo" style={{top: '0vw', height:'53vw'}}>
 				    <div className="Profile_PersonalInfo_Title">Personal Info</div>	 
@@ -380,38 +371,57 @@ class Profile_Driver extends React.Component {
 		);
 	 }
 	 
-	return (
-		<div className="Dashboard">
-			
-			<div>
-				
-				<input className="SearchBarInput" type="text" placeholder="Search Driver" ref="myInput" onChange={this.handleChange}></input>
-				
-				<div className="SearchBarIcon">
-					<IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
-					<AiIcons.AiOutlineSearch />
-			    </IconContext.Provider> 
-				</div>
-			 
-			</div>
-					
-			<div style={{height:'auto'}} ref="SearchResults">
-				{this.state.myOptions.map((item, index) => {
-				return (
-					<div className="SearchResult">
-						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item + " " + item + " " + item}</button>
-						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item}</button>
-						<button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item}>{index+" "+item}</button>
-					</div>
-					);
-				})}
-			</div>
-			
-			<div>{userComponent}</div>
-			
-		</div>
-	);
+	 let component;
+	 let loaded = this.state.itemsLoaded;
+	 
+	 if(!loaded){
+		 component = (
+			 <div style={{padding:"auto", verticalAlign:"center",horizontalAlign:"center", textAlign:"center", marginTop:"7vw"}}>
+				 <center>
+					 <h1 style={{color:"#0f1185", fontSize:"7vw", margin:"auto" }} >Loading Page !!!</h1>
+				 </center>
+			 </div>
+		 );
+	 }else{
+		 component = (
+			 <div>
+
+				 <div>
+
+				 <input className="SearchBarInput" type="text" placeholder="Search Driver" ref="myInput" onChange={this.handleChange}></input>
+
+				 <div className="SearchBarIcon">
+				 <IconContext.Provider className="SearchBarIcon" value={{ color: "#ffffff", size:'1.33vw' }}>
+				 <AiIcons.AiOutlineSearch />
+				 </IconContext.Provider> 
+				 </div>
+
+				 </div>
+
+				 <div style={{height:'auto'}} ref="SearchResults">
+					 {this.state.searchResults.map((item, index) => {
+						 return (
+							 <div className="SearchResult">
+								 <button className="SearchResultItem" style={{width:'67%'}} onClick={this.handleClick} value={item["userCode"]}>{(item["firstName"]==undefined ? "" : item["firstName"]) +" "+ (item["middleName"]==undefined ? "" : item["middleName"]) +" "+(item["lastName"]==undefined ? "" : item["lastName"])}</button>
+								 <button className="SearchResultItem" style={{width:'33%'}} onClick={this.handleClick} value={item["userCode"]}>{item["userCode"]}</button>
+							 </div>
+							 );
+						 })}
+				 </div>
+
+				 <div>{userComponent}</div>
+
+			 </div>
+		 );
+	 }
+	 
+	 return( 
+		  <div className="Dashboard">
+			 {component} 
+		  </div>	 
+	 );
  }
+	
 };
 
-export default Profile_Driver;
+export default ProfileDriver;

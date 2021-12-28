@@ -74,9 +74,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0.5vw;
-  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/final%20logo.png?token=APXZ46I23T6ZFKGTKJ4G2BDBPGEO6")
-    no-repeat;
+  /* background: url("login_logo.jpg")
+    no-repeat; */
+	/* background-image: url("login_logo.jpg"); */
   background-size: contain;
+	background-repeat: no-repeat;
 }
 .login-container .title {
   text-transform: capitalize;
@@ -126,6 +128,35 @@ font-weight: normal;
 	color: #00B4D8;	
 }
 
+.login-container .OTPinput {
+	width: 23vw ;
+	height: 4vw;
+	margin: 0.5vw auto;
+	padding-left: 0.25vw;
+	padding-right: 0.25vw;
+	background: #E8F6F9;
+	border-radius: 0.75vw;
+	font-size: 1.5vw;
+	line-height: 1.7vw;
+	border-width:thin;
+	border-color:#00B4D8;
+	font-family: SophiaPro;
+font-style: normal;
+font-weight: normal;
+	text-align: center;
+	color: #00B4D8;	
+}
+
+.login-container .OTPinput::placeholder {
+  font-size: 1.5vw;
+  line-height: 1.7vw;
+  text-align: center;
+  color: #00b4d8;
+  font-family: SophiaPro;
+  font-style: normal;
+  font-weight: normal;
+}
+
 .login-container .input::placeholder {
   font-size: 1.5vw;
   line-height: 1.7vw;
@@ -137,8 +168,8 @@ font-weight: normal;
 }
 
 .icon::placeholder {
-  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/User.png?token=APXZ46LFDU5FFC3PLTWL2UTBPGKRY")
-    no-repeat;
+  /* background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/User.png?token=APXZ46LFDU5FFC3PLTWL2UTBPGKRY")
+    no-repeat; */
   background-size: contain;
   align: center;
 }
@@ -167,7 +198,35 @@ font-weight: normal;
   margin-left: 0.6vw;
   width: 2vw;
   height: 2vw;
-  background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Next%20button.png?token=APXZ46KMMJ5PAB22ERAUXILBPGL62")
-    no-repeat;
+  /* background: url("https://raw.githubusercontent.com/Nikitha2309/Private/main/Next%20button.png?token=APXZ46KMMJ5PAB22ERAUXILBPGL62")
+    no-repeat; */
   background-size: contain;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 2vw;
+  /* margin-bottom: 0.75vw; */
+  align-items: center;
+  margin-top: 1vw;
+  /* margin-left: */
+}
+
+.OTP_timer {
+  font-size: 1vw;
+  margin-right: 2vw;
+  color: #7b7b7b;
+  font-family: SophiaPro;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.otp_resend {
+  font-size: 1vw;
+  color: #7b7b7b;
+  font-family: SophiaPro;
+  font-style: normal;
+  font-weight: 400;
 }
