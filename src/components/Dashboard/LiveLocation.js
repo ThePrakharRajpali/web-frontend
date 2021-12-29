@@ -5,57 +5,16 @@ import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import moment from 'moment';
 import { IconContext } from "react-icons/lib";
-import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
-// import { withScriptjs, withGoogleMap, GoogleMap, Circle } from "react-google-maps";
 import "../../public/css/Dashboard/Dashboard.css";
 import "../../public/css/Dashboard/UserProfile/UserProfile.css";
 import "../../public/css/Dashboard/MyProfile.css";
 import "../../public/css/Dashboard/Attendance.css";
-import "../../public/css/Dashboard/LiveLocation.css";
-import "../../public/css/Dashboard/UserRegistration.css";
-
-const info=[
-	{
-		userCode : "NCTP020001",
-		latitude : "-34.397",
-		longitude : "150.644",
-	},
-	{
-		userCode : "NCTP020002",
-		latitude : "43.397",
-		longitude : "50.644"
-	},
-	{
-		userCode : "NCTP020003",
-		latitude : "50.644",
-		longitude : "-34.397"
-	},
-	{
-		userCode : "NCTP020004",
-		latitude : "43.397",
-		longitude : "150.644"
-	},
-	
-]
-
-const containerStyle = {
-  width: '67vw',
-  height: '67vw',
-  marginTop : '3vw',
-  marginLeft : '3vw',
-  borderRadius : '4vw'
-};
-
-const center = {
-  lat: 0,
-  lng: 0
-};
 
 class LiveLocation extends React.Component {
 	
   constructor(props) {
     super(props);
-    this.state = {allItems:null, itemsLoaded:false ,searchQuery: '',searchResults:[], responses:[],userCodes:[]};
+    this.state = {allItems:null, itemsLoaded:false ,searchQuery: '',searchResults:[],userCodes:[], user:null, latitude:null, longitude:null, fullName:null, url:null};
 	  
 	this.getallItems();
 	  
@@ -94,11 +53,10 @@ class LiveLocation extends React.Component {
   }
 	
   removeUser(userCode){
-	  
-	  var user = userCode;
-	  console.log("remove user ",user);
+	  var userSelect = userCode;
+	  console.log("remove user ",userSelect);
 	  var newUserList = this.state.userCodes;
-	  var index = newUserList.indexOf(user);
+	  var index = newUserList.indexOf(userSelect);
 	
 	  if (index !== -1) {
 	    newUserList.splice(index, 1);
@@ -107,11 +65,51 @@ class LiveLocation extends React.Component {
 	  console.log("new users list: ",newUserList)
   }
 	
+  updateUser(userCode){
+	  
+	  // this.setState({user: userCode});
+	  const data = JSON.stringify({userCodes:[userCode]});
+	  const config = 
+	  {
+			method: "post",
+			url: "https://www.naataconnection.com/api/users/",
+			headers: {
+			  "Content-Type": "application/json",
+			},
+		    data: data,
+	  };
+
+		axios(config)
+		.then((res) => {
+			if(res.status==200){
+				// const lati = ((Math.random()-0.5)*200).toString();
+				// const longi = ((Math.random()-0.5)*200).toString();
+				const lati = "16.515072";
+				const longi = "80.6387712";
+				const url = "https://maps.google.com/maps?q="+lati+","+longi+"&hl=es;z=14&amp;output=embed";
+				console.log("lat: ",lati," and long: ",longi, " and url: ",url);
+				this.setState({
+					user:userCode, 
+					latitude:lati, 
+					longitude:longi, 			
+					url:url
+				});
+			}else{
+				alert("Pls try after some time");
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+			alert("Pls try after some time")
+		});
+	  
+  }
+	
   updateSearchResults(){
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 && item["role"]!=="CUSTOMER" || item["userCode"].indexOf(query) !== -1 && item["role"]!=="CUSTOMER");
+	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 && item["role"]!=="CUSTOMER" && item["role"]!=="MANAGER" || item["userCode"].indexOf(query) !== -1 && item["role"]!=="CUSTOMER" && item["role"]!=="MANAGER");
 	  this.setState({searchResults: items});
 	  
 	  console.log("Updated Search Results: ",this.state.searchResults);
@@ -128,8 +126,7 @@ class LiveLocation extends React.Component {
 	this.updateSearchResults();
   }
 	
-  handleClick(event) {
-	  
+  handleClick(event) { 
 	var userCode = event.target.value;
    	console.log("Clicked input = "+userCode);
 	this.refs.searchQuery.value="";
@@ -141,44 +138,11 @@ class LiveLocation extends React.Component {
 	this.setState({ userCodes: this.state.userCodes.concat(userCode) });
   }
 	
+  handleClear(){
+		this.setState({userCodes: []});
+  }
+	
   render() {
-	  
-	const marks=[
-	{
-		userCode : "NCTP020001",
-		latitude : "-34.397",
-		longitude : "150.644",
-	},
-	{
-		userCode : "NCTP020002",
-		latitude : "43.397",
-		longitude : "50.644"
-	},
-	{
-		userCode : "NCTP020003",
-		latitude : "50.644",
-		longitude : "-34.397"
-	},
-	{
-		userCode : "NCTP020004",
-		latitude : "43.397",
-		longitude : "150.644"
-	},
-	
-	]
-	
-	// const Map = withScriptjs(
-	// 	withGoogleMap(props => (
-	// 		<GoogleMap>
-	// 		{props.marks.map(marker => (
-	// 			<Marker
-	// 			  position={{ lat: marker.latitude, lng: marker.longitude }}
-	// 			  key={marker.id}
-	// 			/>
-	// 		))}
-	// 		</GoogleMap>
-	// 	))
-	// );
 	
 	let allItems = this.state.allItems;
 	const fullName = (userCode) => {
@@ -193,7 +157,13 @@ class LiveLocation extends React.Component {
 	 
 	let component;
 	let loaded = this.state.itemsLoaded;
-	   
+	let user = this.state.user;
+	let latitude = this.state.latitude;
+	let longitude = this.state.longitude;
+	let url = this.state.url;
+	let userCodes = this.state.userCodes;
+	  
+	 
 	 if(!loaded){
 		 component = (
 			 <div style={{padding:"auto", verticalAlign:"center",horizontalAlign:"center", textAlign:"center", marginTop:"7vw"}}>
@@ -228,50 +198,83 @@ class LiveLocation extends React.Component {
 						);
 					})}
 				</div>
-				 
-				 <button style={{marginTop:"3vw", background: "#E5584F", width:"8vw"}}id="Reset_Button" className="Register_Button" title="Reset" > Reset</button>
-				 
-				 {/*<Map
-                    googleMapURL="http://maps.googleapis.com/maps/api/js?key=[YOUR GOOGLE MAPS KEY]"
-                    loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `400px` }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
-                    onMapClick={this.setMark}
-                    marks={marks}
-                />;*/}
-				 
-				 { /* <LoadScript googleMapsApiKey="AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s"> */ }
-					  <GoogleMap
-						   mapContainerStyle={containerStyle}
-        				   center={center}
-						   zoom={10}
-						  >
-						{ /* Child components, such as markers, info windows, etc. */ }
-						  {marks.map(marker => (
-							<Marker
-							  position={{ lat: marker.latitude, lng: marker.longitude }}
-							  key={marker.userCode}
-							/>
-						))}
-						
-					  </GoogleMap>
-				  { /*</LoadScript>*/ }
+	 
+				<div className="DateRangeRow">
+					<div style={{margin:"auto", fontSize:"2vw", color:"white"}}>Users Added</div>
+				</div>
 
-			</div>
-			 );
+				<div className="clearAttendanceRow">
+					  <button className="clearAttendanceButton" onClick={this.handleClear}>Clear Dashboard</button>
+				</div>
+
+				<div className="AttendanceTableDiv">
+					<table className="AttendanceTable">
+						<tr className="AttendanceRow1">
+							<td className="AttendanceCell" style={{fontSize:"1.8vw", fontWeight:"bold", width:"65%"}}>Name</td>
+							<td className="AttendanceCell" style={{fontSize:"1.8vw", fontWeight:"bold", width:"25%"}}>User Code</td>
+							<td className="AttendanceCell" style={{fontSize:"1.8vw", fontWeight:"bold", width:"10%"}}>Location</td>
+						</tr>
+					
+					
+						{userCodes.map((item,index) => {
+			        		const fullNameOfUser = fullName(item);
+					return (
+							<tr className={index%2 ? "AttendanceRow1": "AttendanceRow2"}>
+								<td className="AttendanceCell" style={{width:"65%", fontSize:"1.4vw"}}>
+									{fullNameOfUser}
+									<button className="AttendanceUserDelete" onClick={()=>this.removeUser(item)} value={item} type='button'>
+										<IconContext.Provider value={{ color: "#E5584F", size:'1vw' }}>
+											<RiIcons.RiCloseCircleLine />
+										</IconContext.Provider> 
+									</button>
+								</td>
+								<td className="AttendanceCell" style={{width:"25%", fontSize:"1.4vw"}}>{item}</td>
+								<td className="AttendanceCell" style={{width:"10%", fontSize:"1.4vw"}}>
+									<button style={{width: "2vw", height:"2vw", padding: "0.2vw", backgroundColor:"#F3752B", borderRadius:"0.3vw", cursor:"pointer"}} onClick={()=>this.updateUser(item)}>
+										<IconContext.Provider value={{ color: "#ffffff", size:'1vw' }}>
+											<RiIcons.RiMapPin2Fill />
+										</IconContext.Provider> 
+									</button>
+								</td>
+							</tr>
+					 );
+				})}
+					</table>
+				</div>
+				 
+				{ user ? (
+					 <div>
+						 <div className="DateRangeRow" style={{ margin:"auto", padding:"2vw", width:"60vw", height:"fit-content", borderWidth: "5vw", borderBottomRightRadius:"2vw", borderBottomLeftRadius:"2vw",borderColor: "#F3752B", flexDirection:"column"}}>
+							<div style={{margin:"auto", fontSize:"2vw", color:"white"}}>{fullName(user) + "'s Location"}</div>
+						 <iframe
+							src = {url}
+							width="450"
+							height="300"
+							style={{ borderWidth: "5vw", borderBottomRightRadius:"2vw", borderRadius:"2vw",borderColor: "#F3752B", width:"56vw", height:"50vw", margin:"auto", marginTop:"2vw"}}
+							allowfullscreen=""
+							loading="lazy"
+						  ></iframe>
+						 </div>
+					 </div>
+				 ):(
+					 <div>
+					 </div>
+				 )	 
+				}
+				 
+		</div>
+		 );
 	 }
 	 
 	 return( 
-		 <LoadScript googleMapsApiKey="AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s">
 		  <div className="Dashboard">
 			 {component} 
 		  </div>	 
-		</LoadScript>
 	 );
   }
 	
 };
 
-
 export default LiveLocation;
-// AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s
+// {/*src = "https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"*/}
+// src="'https://maps.google.com/maps?q=' + lat + ',' + lng + '&t=&z=15&ie=UTF8&iwloc=&output=embed'"
