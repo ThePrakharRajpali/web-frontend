@@ -86,7 +86,8 @@ class LiveLocation extends React.Component {
 				// const longi = ((Math.random()-0.5)*200).toString();
 				const lati = "16.515072";
 				const longi = "80.6387712";
-				const url = "https://maps.google.com/maps?q="+lati+","+longi+"&hl=es;z=14&amp;output=embed";
+				// const url = "https://maps.google.com/maps?q="+lati+","+longi+"&hl=es;z=14&key=AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s&amp;output=embed";
+				const url = "https://www.google.com/maps/embed/v1/place?q="+lati+","+longi+"&key=AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s";
 				console.log("lat: ",lati," and long: ",longi, " and url: ",url);
 				this.setState({
 					user:userCode, 
