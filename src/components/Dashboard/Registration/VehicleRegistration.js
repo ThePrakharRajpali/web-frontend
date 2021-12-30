@@ -118,7 +118,7 @@ class VehicleRegistration extends React.Component {
 			
 			<div className="UserRegistration">
 				
-				<div className="UserRegistration_Title_main">Register Vehicle</div>
+				<div className="UserRegistration_Title_main" style={{fontColor:"black", fontWeight:"600"}}>Register Vehicle</div>
 					<form>				
 					<div className="Form_Field_Container">
 						
