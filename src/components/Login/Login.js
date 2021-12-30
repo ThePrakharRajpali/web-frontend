@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { instanceOf } from 'prop-types';
+import { confirmAlert } from "react-confirm-alert";
 import { withCookies, Cookies, useCookies } from 'react-cookie';
 import { Redirect } from "react-router-dom";
 import "../../public/css/Login/login.css";
@@ -125,6 +126,23 @@ class LoginContainer extends React.Component {
 	}
 	
 	verifyOTP = () => {
+		
+		const confirm = () => {
+    	confirmAlert({
+		  title: "Continue to Dashboard",
+		  message: " You are logged in succesfully, click okay to continue to dashboard",
+			buttons: [
+				{
+				  label: "Okay",
+				  onClick: () => {
+                      window.location.reload();
+				  }
+				}
+			]
+		});
+  
+		}
+		
 		const { cookies } = this.props;
 		console.log("Input OTP entered!!")
 		const data = JSON.stringify({emailIdOrContact : this.state.input, password:this.state.otpInput});
@@ -149,6 +167,8 @@ class LoginContainer extends React.Component {
 				cookies.set('user', res.data.user, { path: '/' , maxAge:3600*24});
 				cookies.set('userCode', res.data.user.userCode, { path: '/' , maxAge:3600*24});
 				this.setState({redirect:true});
+				 window.location.reload();
+				// confirm();
 			}
 		})
 		.catch((err) => {
@@ -188,7 +208,8 @@ class LoginContainer extends React.Component {
 		 let redirectComponent;
 		 let component;
 		 if(this.state.redirect){
-		 redirectComponent = (<div><Redirect to="/Dashboard"></Redirect></div>);
+		 // /redirectComponent = (<div><Redirect to="/Dashboard"></Redirect></div>);
+			 redirectComponent = (<div></div>);
 		 }
 		 else{
 		 redirectComponent = (<div></div>);
