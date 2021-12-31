@@ -3,7 +3,6 @@ import { Contact } from "./contact";
 import { Gallery } from "./gallery";
 import Landing from "./landing";
 import Services from "./services";
-import Stats from "./stats";
 
 class Home extends Component {
   render() {

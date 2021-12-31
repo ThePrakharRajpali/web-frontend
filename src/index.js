@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
+ import React, { Fragment } from "react";
+import { useCookies } from "react-cookie";
 import ReactDOM from "react-dom";
+import { Redirect } from "react-router-dom";
+import { CookiesProvider, withCookies } from "react-cookie";
 
 import App from "./components/Home/App";
 import Login from "./components/Login/Login";
-import Login_OTP from "./components/Login/Login_OTP";
 import FullTruck from "./components/Service/FullTruck/FullTruck";
 import LastMile from "./components/Service/LastMile/LastMile";
 import Partner from "./components/Partner/Partner";
@@ -14,17 +16,17 @@ import Attendance from "./components/Dashboard/Attendance";
 import Diesel from "./components/Dashboard/Diesel";
 import LiveLocation from "./components/Dashboard/LiveLocation";
 
-import ServiceRequests_CreateNew from "./components/Dashboard/ServiceRequests/New";
-import ServiceRequests_All from "./components/Dashboard/ServiceRequests/All";
-import ServiceRequests_Pending from "./components/Dashboard/ServiceRequests/Pending";
-import ServiceRequests_Active from "./components/Dashboard/ServiceRequests/Active";
-import ServiceRequests_Completed from "./components/Dashboard/ServiceRequests/Completed";
+import ServiceRequestsCreateNew from "./components/Dashboard/ServiceRequests/New";
+import ServiceRequestsAll from "./components/Dashboard/ServiceRequests/All";
+import ServiceRequestsPending from "./components/Dashboard/ServiceRequests/Pending";
+import ServiceRequestsActive from "./components/Dashboard/ServiceRequests/Active";
+import ServiceRequestsCompleted from "./components/Dashboard/ServiceRequests/Completed";
 
-import Profile_Customer from "./components/Dashboard/ViewProfile/Profile_Customer";
-import Profile_Manager from "./components/Dashboard/ViewProfile/Profile_Manager";
-import Profile_Driver from "./components/Dashboard/ViewProfile/Profile_Driver";
-import Profile_DeliveryBoy from "./components/Dashboard/ViewProfile/Profile_DeliveryBoy";
-import Profile_Vehicle from "./components/Dashboard/ViewProfile/Profile_Vehicle";
+import ProfileCustomer from "./components/Dashboard/ViewProfile/Profile_Customer";
+import ProfileManager from "./components/Dashboard/ViewProfile/Profile_Manager";
+import ProfileDriver from "./components/Dashboard/ViewProfile/Profile_Driver";
+import ProfileDeliveryBoy from "./components/Dashboard/ViewProfile/Profile_DeliveryBoy";
+import ProfileVehicle from "./components/Dashboard/ViewProfile/Profile_Vehicle";
 import UserRegistration from "./components/Dashboard/Registration/UserRegistration";
 import SuperUserRegistration from "./components/Dashboard/Registration/SuperUserRegistration";
 import VehicleRegistration from "./components/Dashboard/Registration/VehicleRegistration";
@@ -41,144 +43,236 @@ import "./index.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const Display = () => {
+  const [cookies, setCookie] = useCookies("userCode");
+ 
   return (
-    <Fragment>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Navbar />
-            <App />
-            <Footer />
-          </Route>
+	    <CookiesProvider> 
+			<Fragment>  
+			  <Router>
+				<Switch>
+				  <Route exact path="/">
+					<Navbar />
+					<App />
+					<Footer />
+				  </Route>
 
-          <Route exact path="/FullTruck">
-            <Navbar />
-            <FullTruck />
-            <Footer />
-          </Route>
+				  <Route exact path="/FullTruck">
+					<Navbar />
+					<FullTruck />
+					<Footer />
+				  </Route>
 
-          <Route exact path="/LastMile">
-            <Navbar />
-            <LastMile />
-            <Footer />
-          </Route>
+				  <Route exact path="/LastMile">
+					<Navbar />
+					<LastMile />
+					<Footer />
+				  </Route>
 
-          <Route exact path="/partner">
-            <Navbar />
-            <Partner />
-            <Footer />
-          </Route>
+				  <Route exact path="/partner">
+					<Navbar />
+					<Partner />
+					<Footer />
+				  </Route>
 
-          <Route exact path="/about">
-            <Navbar />
-            <About />
-            <Footer />
-          </Route>
+				  <Route exact path="/about">
+					<Navbar />
+					<About />
+					<Footer />
+				  </Route>
 
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/loginOtpVerification">
-            <Login_OTP />
-          </Route>
+				  <Route exact path="/login">
+					  {cookies.userCode ? 
+						  <Redirect to="/Dashboard" />
+						  : <Login /> }
+				  </Route>
 
-          <Route exact path="/Dashboard/Requests/All">
-            <ControlPanel />
-            <ServiceRequests_All />
-          </Route>
 
-          <Route exact path="/Dashboard/Requests/New">
-            <ControlPanel />
-            <ServiceRequests_CreateNew />
-          </Route>
-          <Route exact path="/Dashboard/Requests/Pending">
-            <ControlPanel />
-            <ServiceRequests_Pending />
-          </Route>
-          <Route exact path="/Dashboard/Requests/Active">
-            <ControlPanel />
-            <ServiceRequests_Active />
-          </Route>
-          <Route exact path="/Dashboard/Requests/Completed">
-            <ControlPanel />
-            <ServiceRequests_Completed />
-          </Route>
-          <Route path="/Dashboard/Requests/id/:id">
-            <ControlPanel />
-            <ServiceRequest />
-          </Route>
+				  <Route exact path="/Dashboard/Requests/All">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ServiceRequestsAll />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
 
-          <Route exact path="/Dashboard/MyProfile">
-            <ControlPanel />
-            <MyProfile />
-          </Route>
-          <Route exact path="/Dashboard/Attendance">
-            <ControlPanel />
-            <Attendance />
-          </Route>
-          <Route exact path="/Dashboard/Diesel">
-            <ControlPanel />
-            <Diesel />
-          </Route>
-          <Route exact path="/Dashboard/LiveLocation">
-            <ControlPanel />
-            <LiveLocation />
-          </Route>
-          <Route exact path="/Dashboard/Profile/Customer">
-            <ControlPanel />
-            <Profile_Customer />
-          </Route>
-          <Route exact path="/Dashboard/Profile/Manager">
-            <ControlPanel />
-            <Profile_Manager />
-          </Route>
-          <Route exact path="/Dashboard/Profile/Driver">
-            <ControlPanel />
-            <Profile_Driver />
-          </Route>
-          <Route exact path="/Dashboard/Profile/DeliveryBoy">
-            <ControlPanel />
-            <Profile_DeliveryBoy />
-          </Route>
-          <Route exact path="/Dashboard/Profile/Vehicle">
-            <ControlPanel />
-            <Profile_Vehicle />
-          </Route>
-          <Route exact path="/Dashboard/UserRegistration">
-            <ControlPanel />
-            <UserRegistration />
-          </Route>
-          <Route exact path="/Dashboard/SuperUserRegistration">
-            <ControlPanel />
-            <SuperUserRegistration />
-          </Route>
-          <Route exact path="/Dashboard/VehicleRegistration">
-            <ControlPanel />
-            <VehicleRegistration />
-          </Route>
+				  <Route exact path="/Dashboard/Requests/New">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ServiceRequestsCreateNew />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Requests/Pending">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ServiceRequestsPending />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Requests/Active">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ServiceRequestsActive />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Requests/Completed">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ServiceRequestsCompleted />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route path="/Dashboard/Requests/id/:id">					
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ServiceRequest />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
 
-          <Route exact path="/Dashboard/Form/General">
-            <ControlPanel />
-            <GeneralFormResponse />
-          </Route>
+				  <Route exact path="/Dashboard/MyProfile">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<MyProfile userCode = {cookies.userCode}/>
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Attendance">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<Attendance />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Diesel">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<Diesel />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/LiveLocation">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<LiveLocation />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Profile/Customer">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ProfileCustomer />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Profile/Manager">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ProfileManager />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Profile/Driver">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ProfileDriver />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Profile/DeliveryBoy">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ProfileDeliveryBoy />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Profile/Vehicle">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<ProfileVehicle />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/UserRegistration">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<UserRegistration />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/SuperUserRegistration">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<SuperUserRegistration />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/VehicleRegistration">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<VehicleRegistration />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
 
-          <Route path="/Dashboard/Form/General/:id">
-            <ControlPanel />
-            <SingleGeneralFormResponse />
-          </Route>
+				  <Route exact path="/Dashboard/Form/General">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<GeneralFormResponse />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
 
-          <Route exact path="/Dashboard/Form/Vendor">
-            <ControlPanel />
-            <VendorFormResponse />
-          </Route>
+				  <Route path="/Dashboard/Form/General/:id">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<SingleGeneralFormResponse />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
 
-          <Route exact path="/Dashboard">
-            <ControlPanel />
-            <MyProfile />
-          </Route>
-        </Switch>
-      </Router>
-    </Fragment>
+				  <Route exact path="/Dashboard/Form/Vendor">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<VendorFormResponse />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+
+				  <Route exact path="/Dashboard">			  
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<MyProfile userCode={cookies.userCode}/>
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				</Switch>
+			  </Router>
+			</Fragment>
+	    </CookiesProvider>
   );
 };
 

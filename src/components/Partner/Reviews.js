@@ -26,26 +26,6 @@ export const Reviews = () => {
   const [translateX, setTranslateX] = useState(0);
   const numOfCards = 4;
 
-  const goPrevCard = (event) => {
-    if (cardIndex !== 1) {
-      setCardIndex(cardIndex - 1);
-      setTranslateX(translateX + 100);
-    } else {
-      setCardIndex(numOfCards);
-      setTranslateX((1 - numOfCards) * 100);
-    }
-  };
-
-  const goNextCard = (event) => {
-    if (cardIndex !== numOfCards) {
-      setCardIndex(cardIndex + 1);
-      setTranslateX(translateX - 100);
-    } else {
-      setCardIndex(1);
-      setTranslateX(0);
-    }
-  };
-
   return (
     <div className="review-section grid-main" id="partner-us">
       <div className="header">

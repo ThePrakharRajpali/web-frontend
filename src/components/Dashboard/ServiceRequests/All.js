@@ -128,7 +128,7 @@ const SearchBar = ({ requests }) => {
   );
 };
 
-const ServiceRequests_All = () => {
+const ServiceRequestsAll = () => {
   const [requests, setRequests] = useState({});
   const [loading, setLoading] = useState(true);
   const data = "";
@@ -164,4 +164,4 @@ const ServiceRequests_All = () => {
   );
 };
 
-export default ServiceRequests_All;
+export default ServiceRequestsAll;
