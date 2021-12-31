@@ -152,7 +152,7 @@ const Navbar = () => {
 
   return (
     <NavbarBS bg="light" expand="lg" fixed="top">
-      <Container>
+      <Container fluid="md">
         <NavbarBS.Brand href="/#home">
           <img src={logo} alt="" />
         </NavbarBS.Brand>

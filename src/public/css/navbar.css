@@ -52,6 +52,10 @@ nav {
 #NavItem-Services,
 #NavItem-Partner,
 #NavItem-Contact {
+  font-family: SophiaPro;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  /* font-size: 1.2rem; */
   color: var(--black);
 }
 
@@ -64,6 +68,7 @@ nav {
 }
 
 .NavItem a {
+  font-family: SophiaPro;
   color: var(--black);
 }
 
@@ -136,14 +141,64 @@ li:hover a {
   background: none;
 }
 
-/* @media screen and (min-width: 768px) and (max-width: 1024px) {
-  .nav-items {
-    display: none;
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+  #NavItem-Home,
+  #NavItem-About,
+  #NavItem-Services,
+  #NavItem-Partner,
+  #NavItem-Contact {
+    font-family: SophiaPro;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    color: var(--black);
+  }
+
+  #NavItem-Home:hover,
+  #NavItem-About:hover,
+  #NavItem-Services:hover,
+  #NavItem-Partner:hover,
+  #NavItem-Contact:hover {
+    color: var(--orange);
+  }
+
+  .NavItem a {
+    font-family: SophiaPro;
+    color: var(--black);
+  }
+
+  .NavItem a:hover {
+    color: var(--orange);
   }
 }
 
-@media screen and (max-width: 768px) {
-  .nav-items {
-    display: none;
+@media screen and (max-width: 699px) {
+  #NavItem-Home,
+  #NavItem-About,
+  #NavItem-Services,
+  #NavItem-Partner,
+  #NavItem-Contact {
+    font-family: SophiaPro;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    color: var(--black);
   }
-} */
+
+  #NavItem-Home:hover,
+  #NavItem-About:hover,
+  #NavItem-Services:hover,
+  #NavItem-Partner:hover,
+  #NavItem-Contact:hover {
+    color: var(--orange);
+  }
+
+  .NavItem a {
+    font-family: SophiaPro;
+    color: var(--black);
+  }
+
+  .NavItem a:hover {
+    color: var(--orange);
+  }
+}
