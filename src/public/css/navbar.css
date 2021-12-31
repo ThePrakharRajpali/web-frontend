@@ -32,11 +32,43 @@ nav {
   grid-template-columns: repeat(5, 1fr);
 }
 
-li a {
+/* .NavItem a {
   padding: 0 10px;
   font-weight: 700;
   text-decoration: none;
   color: var(--black);
+} */
+
+.NavItem {
+  color: var(--black);
+}
+
+.NavItem:hover {
+  color: var(--orange);
+}
+
+#NavItem-Home,
+#NavItem-About,
+#NavItem-Services,
+#NavItem-Partner,
+#NavItem-Contact {
+  color: var(--black);
+}
+
+#NavItem-Home:hover,
+#NavItem-About:hover,
+#NavItem-Services:hover,
+#NavItem-Partner:hover,
+#NavItem-Contact:hover {
+  color: var(--orange);
+}
+
+.NavItem a {
+  color: var(--black);
+}
+
+.NavItem a:hover {
+  color: var(--orange);
 }
 
 li a:visited {
@@ -100,7 +132,11 @@ li:hover a {
   margin: 0;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+#bg-none {
+  background: none;
+}
+
+/* @media screen and (min-width: 768px) and (max-width: 1024px) {
   .nav-items {
     display: none;
   }
@@ -110,4 +146,4 @@ li:hover a {
   .nav-items {
     display: none;
   }
-}
+} */
