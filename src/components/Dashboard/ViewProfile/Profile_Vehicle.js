@@ -60,7 +60,9 @@ class ProfileVehicle extends React.Component {
 	  if(items == undefined){
 		  alert("No Vehicle exists!!");
 	  }else{
-		  items = items.filter(item => (item["registrationNumber"]).toLowerCase().indexOf(query) !== -1 || item["vehicleCode"].indexOf(query) !== -1 || item["vehicleModel"].indexOf(query) !== -1);
+		  items = items.filter(item => 
+							   item!=null && 
+							   ( (item["registrationNumber"]).toLowerCase().indexOf(query) !== -1 || item["vehicleCode"].indexOf(query) !== -1 || item["vehicleModel"].indexOf(query) !== -1) );
 		  this.setState({searchResults: items});
 
 		  console.log("Updated Search Results: ",this.state.searchResults);

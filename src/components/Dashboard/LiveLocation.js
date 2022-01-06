@@ -110,7 +110,14 @@ class LiveLocation extends React.Component {
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 && item["role"]!=="CUSTOMER" && item["role"]!=="MANAGER" || item["userCode"].indexOf(query) !== -1 && item["role"]!=="CUSTOMER" && item["role"]!=="MANAGER");
+	  items = items.filter(item => 
+						   item!=null && 
+						   ( (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 
+						   && item["role"]!=="CUSTOMER" 
+						   && item["role"]!=="MANAGER" 
+						   || item["userCode"].indexOf(query) !== -1 
+						   && item["role"]!=="CUSTOMER" 
+						   && item["role"]!=="MANAGER"));
 	  this.setState({searchResults: items});
 	  
 	  console.log("Updated Search Results: ",this.state.searchResults);
