@@ -96,28 +96,28 @@ export const SidebarData = [
 {
 	title: "Service Requests",
 	icon: <IoIcons.IoMdHelpCircle />,
-	path: "/Dashboard/ServiceRequests/CreateNew",
+	path: "/Dashboard/Requests/New",
 	iconClosed: <RiIcons.RiArrowDownSFill />,
 	iconOpened: <RiIcons.RiArrowUpSFill />,
 	subNav: [
 	{
 		title: "Create New",
-		path: "/Dashboard/ServiceRequests/CreateNew",
+		path: "/Dashboard/Requests/New",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
 		title: "Pending",
-		path: "/Dashboard/ServiceRequests/Pending",
+		path: "/Dashboard/Requests/Pending",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
 		title: "Active",
-		path: "/Dashboard/ServiceRequests/Active",
+		path: "/Dashboard/Requests/Active",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	{
 		title: "Completed",
-		path: "/Dashboard/ServiceRequests/Completed",
+		path: "/Dashboard/Requests/Completed",
 		icon: <IoIcons.IoIosPaper />,
 	},
 	],
