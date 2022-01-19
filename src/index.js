@@ -15,6 +15,7 @@ import MyProfile from "./components/Dashboard/MyProfile";
 import Attendance from "./components/Dashboard/Attendance";
 import Diesel from "./components/Dashboard/Diesel";
 import LiveLocation from "./components/Dashboard/LiveLocation";
+import Notification from "./components/Dashboard/Notification";
 
 import ServiceRequestsCreateNew from "./components/Dashboard/ServiceRequests/New";
 import ServiceRequestsAll from "./components/Dashboard/ServiceRequests/All";
@@ -166,6 +167,14 @@ const Display = () => {
 						  <div>
 							<ControlPanel />
 							<LiveLocation />
+						  </div>
+						  : <Redirect to="/login" /> }
+				  </Route>
+				  <Route exact path="/Dashboard/Notification">
+					  {cookies.userCode ? 
+						  <div>
+							<ControlPanel />
+							<Notification />
 						  </div>
 						  : <Redirect to="/login" /> }
 				  </Route>

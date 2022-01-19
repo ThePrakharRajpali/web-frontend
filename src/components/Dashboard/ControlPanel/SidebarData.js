@@ -34,6 +34,13 @@ export const SidebarData = [
 	iconOpened: <RiIcons.RiArrowUpSFill />,
 },
 {
+	title: "Notification Form",
+	path: "/Dashboard/Notification",
+	icon: <FaIcons.FaWpforms />,
+	iconClosed: <RiIcons.RiArrowDownSFill />,
+	iconOpened: <RiIcons.RiArrowUpSFill />,
+},
+{
 	title: "View Profile",
 	path: "/Dashboard/Profile/Customer",
 	icon: <AiIcons.AiOutlineTeam />,
