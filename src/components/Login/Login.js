@@ -101,7 +101,7 @@ class LoginContainer extends React.Component {
 		const config = 
 		  {
 			method: "post",
-			url: "https://www.naataconnection.com/api/user/login_checkUserAndSendOtp",
+			url: "https://www.naataconnection.com/api/superUser/login_checkSuperUserAndSendOtp",
 			headers: {
 			  "Content-Type": "application/json",
 			},
@@ -149,7 +149,7 @@ class LoginContainer extends React.Component {
 		const config = 
 		  {
 			method: "post",
-			url: "https://www.naataconnection.com/api/user/login_verifyOtp",
+			url: "https://www.naataconnection.com/api/superUser/login_verifyOtp",
 			headers: {
 			  "Content-Type": "application/json",
 			},
@@ -161,11 +161,11 @@ class LoginContainer extends React.Component {
 			alert(res.data.message);
 			console.log(res);
 			if(res.status==200){
-				console.log("res is ",res.data.user.userCode);
+				console.log("res is ",res.data.superUser.userCode);
 				this.setState({loginSuccess:true});
 				// alert("Logged In Successfully :)");
-				cookies.set('user', res.data.user, { path: '/' , maxAge:3600*24});
-				cookies.set('userCode', res.data.user.userCode, { path: '/' , maxAge:3600*24});
+				cookies.set('user', res.data.superUser, { path: '/' , maxAge:3600*24});
+				cookies.set('userCode', res.data.superUser.userCode, { path: '/' , maxAge:3600*24});
 				this.setState({redirect:true});
 				 window.location.reload();
 				// confirm();
