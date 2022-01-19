@@ -34,7 +34,7 @@ class MyProfile extends React.Component {
 	  const config = 
 	  {
 			method: "post",
-			url: "https://www.naataconnection.com/api/users/profile",
+			url: "https://www.naataconnection.com/api/superUsers/profile",
 			headers: {
 			  "Content-Type": "application/json",
 			},
@@ -45,9 +45,10 @@ class MyProfile extends React.Component {
 		.then((res) => {
 			if(res.status==200){
 				console.log(res);
-				console.log(res.data.data.user);
-				console.log(res.data.data.profile);
-				var user = Object.assign(res.data.data.user, res.data.data.profile);
+				console.log(res.data.data.superUser);
+				// console.log(res.data.data.profile);
+				// var user = Object.assign(res.data.data.user, res.data.data.profile);
+				var user = res.data.data.superUser;
 				this.setState({user:user, itemsLoaded:true})
 			}else{
 				alert("Pls try after some time");
