@@ -413,5 +413,3 @@ class LiveLocation extends React.Component {
 };
 
 export default LiveLocation;
-// {/*src = "https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"*/}
-// src="'https://maps.google.com/maps?q=' + lat + ',' + lng + '&t=&z=15&ie=UTF8&iwloc=&output=embed'"
