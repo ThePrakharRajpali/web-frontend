@@ -20,7 +20,7 @@ const Header = () => {
 const Row = ({ data }) => {
   return (
     <Fragment>
-      <ul className="table-row">
+      <ul className="table-service-request-row">
         <li>{data.requestCode}</li>
         <li>{data.status}</li>
         <li>{data.customer}</li>
@@ -43,8 +43,8 @@ const Row = ({ data }) => {
 const List = ({ list }) => {
   // console.log(list);
   return (
-    <div className="table">
-      <ul className="table-header">
+    <div className="table-service-request">
+      <ul className="table-service-request-header">
         <li>Request ID</li>
         <li>Status</li>
         <li>Customer</li>
@@ -52,7 +52,7 @@ const List = ({ list }) => {
         <li>Time</li>
         <li>Edit</li>
       </ul>
-      <div className="request-rows">
+      <div className="request-service-request-rows">
         {list.map((response, index) => {
           if (response.toShow) {
             return <Row key={index} data={response} />;
@@ -100,14 +100,14 @@ const SearchBar = ({ requests }) => {
         </button>
       </div>
 
-      {/* <List
+      <List
         list={requests.data.data.map((request, index) => {
           return { ...request, toShow: true };
         })}
         search={search}
-      /> */}
+      />
 
-      <div className="table">
+      {/* <div className="table">
         <ul className="table-header">
           <li>Request ID</li>
           <li>Status</li>
@@ -123,7 +123,7 @@ const SearchBar = ({ requests }) => {
             }
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -133,7 +133,7 @@ const ServiceRequestsAll = () => {
   const [loading, setLoading] = useState(true);
   const data = "";
   const apiConfig = {
-    method: "get",
+    method: "post",
     url: "https://www.naataconnection.com/api/serviceRequest/",
     headers: {},
     data: data,

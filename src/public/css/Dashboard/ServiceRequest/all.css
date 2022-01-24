@@ -18,19 +18,19 @@
   color: var(--orange);
 }
 
-.table-header {
+.table-service-request-header {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   background-color: #e9e9e9;
   border-radius: 22px 22px 0 0;
 }
 
-.table-row {
+.table-service-request-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 }
 
-.table {
+.table-service-request {
   background: #f6f6f5;
   max-height: 56vh;
   justify-content: space-between;
@@ -45,10 +45,10 @@
   border-radius: 0 0 22px 22px;
 }
 
-.table ul {
+.table-service-request ul {
   height: 55px;
 }
-.table-header li {
+.table-service-request-header li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +56,7 @@
   width: 10vw;
 }
 
-.table-row li {
+.table-service-request-row li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +64,7 @@
   overflow-x: hidden;
 }
 
-.table-row .edit {
+.table-service-request-row .edit {
   display: flex;
   width: 10vw;
   flex-direction: row;

@@ -46,9 +46,9 @@ const Services = () => {
           <img src={preServices2} alt="" />
           <p className="loading-header">
             <Link to="/LastMile">
-              <img src={arrowLeft} alt="" className="arrowLeft" />
               <span className="color-orange">Last</span>-Mile
               <br />
+              <img src={arrowLeft} alt="" className="arrowLeft" />
               delivery
             </Link>
           </p>
