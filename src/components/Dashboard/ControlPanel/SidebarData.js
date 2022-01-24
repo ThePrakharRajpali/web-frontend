@@ -34,6 +34,13 @@ export const SidebarData = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
   {
+    title: "Notification Form",
+    path: "/Dashboard/Notification",
+    icon: <FaIcons.FaWpforms />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+  },
+  {
     title: "View Profile",
     path: "/Dashboard/Profile/Customer",
     icon: <AiIcons.AiOutlineTeam />,
@@ -94,7 +101,7 @@ export const SidebarData = [
   {
     title: "Service Requests",
     icon: <IoIcons.IoMdHelpCircle />,
-    path: "/Dashboard/Requests/All",
+    path: "/Dashboard/Requests/New",
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
@@ -120,7 +127,6 @@ export const SidebarData = [
       },
     ],
   },
-
   {
     title: "Form Responses",
     icon: <IoIcons.IoMdHelpCircle />,

@@ -38,7 +38,7 @@ class ProfileDeliveryBoy extends React.Component {
 
 		axios(config)
 		.then((res) => {
-			if(res.status==200){
+			if(res.status==200 && res.data.deliveryBoy){
 				console.log(res.data.deliveryBoy);
 				this.setState({allItems:res.data.deliveryBoy, itemsLoaded:true})
 				console.log("curr items: ",this.state.allItems);
@@ -60,8 +60,11 @@ class ProfileDeliveryBoy extends React.Component {
 	  if(items == undefined){
 		  alert("No Delivery Boy exists!!");
 	  }else{
-		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
-	  this.setState({searchResults: items});
+		 items = items.filter(item => 
+							   item!=null && 
+							   ( (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 
+							   	|| item["userCode"].indexOf(query) !== -1));
+	  	this.setState({searchResults: items});
 	  
 	  	  console.log("Updated Search Results: ",this.state.searchResults);
 	  

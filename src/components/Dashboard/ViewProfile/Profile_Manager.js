@@ -60,7 +60,10 @@ class ProfileManager extends React.Component {
 	  if(items == undefined){
 		  alert("No Manager exists!!");
 	  }else{
-		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+		  items = items.filter(item => 
+							   item!=null && 
+							   ( (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 
+							   	|| item["userCode"].indexOf(query) !== -1));
 		  this.setState({searchResults: items});
 
 		  console.log("Updated Search Results: ",this.state.searchResults);

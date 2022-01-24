@@ -14,12 +14,13 @@ class LiveLocation extends React.Component {
 	
   constructor(props) {
     super(props);
-    this.state = {allItems:null, itemsLoaded:false ,searchQuery: '',searchResults:[],userCodes:[], user:null, latitude:null, longitude:null, fullName:null, url:null};
+    this.state = {allItems:null, itemsLoaded:false ,searchQuery: '',searchResults:[],userCodes:[], responses:[],user:null, latitude:null, longitude:null, fullName:null, url:null};
 	  
 	this.getallItems();
 	  
     this.handleChange = this.handleChange.bind(this);
 	this.handleClick = this.handleClick.bind(this);
+	  this.handleClear = this.handleClear.bind(this);
   }
 	
   async getallItems(){
@@ -52,7 +53,64 @@ class LiveLocation extends React.Component {
 	 
   }
 	
+  // const updateResponses = (userCodes) => {
+  // const data = JSON.stringify({userCode:userCodes});
+  // const config = 
+  // {
+  // method: "patch",
+  // url: "https://www.naataconnection.com/api/userLiveLocation/update",
+  // headers: {
+  // "Content-Type": "application/json",
+  // },
+  // data: data
+  // };
+
+  // axios(config)
+  // .then((res) => {
+  // if(res.status==200){
+  // console.log(res);
+  // console.log(res.data.data);
+  // this.setState({responses:res.data.data})
+  // }else{
+  // alert("Pls try after some time");
+  // }
+  // })
+  // .catch((err) => {
+  // console.log(err);
+  // alert("Pls try after some time")
+  // });
+  // }
+	
   removeUser(userCode){
+	  
+	  const updateResponses = (userCodes) => {
+		  const data = JSON.stringify({userCode:userCodes});
+		  const config = 
+		  {
+				method: "patch",
+				url: "https://www.naataconnection.com/api/userLiveLocation/update",
+				headers: {
+				  "Content-Type": "application/json",
+				},
+				data: data
+		  };
+
+			axios(config)
+			.then((res) => {
+				if(res.status==200){
+					console.log(res);
+					console.log(res.data.data);
+					this.setState({responses:res.data.data})
+				}else{
+					alert("Pls try after some time");
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+				alert("Pls try after some time")
+			});
+	  }
+	  
 	  var userSelect = userCode;
 	  console.log("remove user ",userSelect);
 	  var newUserList = this.state.userCodes;
@@ -62,55 +120,63 @@ class LiveLocation extends React.Component {
 	    newUserList.splice(index, 1);
 	  }
 	  this.setState({userCodes: newUserList});
+	  updateResponses(newUserList);
 	  console.log("new users list: ",newUserList)
   }
 	
-  updateUser(userCode){
+  // updateUser(userCode){
 	  
-	  // this.setState({user: userCode});
-	  const data = JSON.stringify({userCodes:[userCode]});
-	  const config = 
-	  {
-			method: "post",
-			url: "https://www.naataconnection.com/api/users/",
-			headers: {
-			  "Content-Type": "application/json",
-			},
-		    data: data,
-	  };
+  // // this.setState({user: userCode});
+  // const data = JSON.stringify({userCodes:[userCode]});
+  // const config = 
+  // {
+  // method: "post",
+  // url: "https://www.naataconnection.com/api/users/",
+  // headers: {
+  // "Content-Type": "application/json",
+  // },
+  // data: data,
+  // };
 
-		axios(config)
-		.then((res) => {
-			if(res.status==200){
-				// const lati = ((Math.random()-0.5)*200).toString();
-				// const longi = ((Math.random()-0.5)*200).toString();
-				const lati = "16.515072";
-				const longi = "80.6387712";
-				// const url = "https://maps.google.com/maps?q="+lati+","+longi+"&hl=es;z=14&key=AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s&amp;output=embed";
-				const url = "https://www.google.com/maps/embed/v1/place?q="+lati+","+longi+"&key=AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s";
-				console.log("lat: ",lati," and long: ",longi, " and url: ",url);
-				this.setState({
-					user:userCode, 
-					latitude:lati, 
-					longitude:longi, 			
-					url:url
-				});
-			}else{
-				alert("Pls try after some time");
-			}
-		})
-		.catch((err) => {
-			console.log(err);
-			alert("Pls try after some time")
-		});
+  // axios(config)
+  // .then((res) => {
+  // if(res.status==200){
+  // // const lati = ((Math.random()-0.5)*200).toString();
+  // // const longi = ((Math.random()-0.5)*200).toString();
+  // const lati = "16.515072";
+  // const longi = "80.6387712";
+  // // const url = "https://maps.google.com/maps?q="+lati+","+longi+"&hl=es;z=14&key=AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s&amp;output=embed";
+  // const url = "https://www.google.com/maps/embed/v1/place?q="+lati+","+longi+"&key=AIzaSyCg2784sAScVab_bompeHK1M-SE8CAJR3s";
+  // console.log("lat: ",lati," and long: ",longi, " and url: ",url);
+  // this.setState({
+  // user:userCode, 
+  // latitude:lati, 
+  // longitude:longi, 			
+  // url:url
+  // });
+  // }else{
+  // alert("Pls try after some time");
+  // }
+  // })
+  // .catch((err) => {
+  // console.log(err);
+  // alert("Pls try after some time")
+  // });
 	  
-  }
+  // }
 	
   updateSearchResults(){
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 && item["role"]!=="CUSTOMER" && item["role"]!=="MANAGER" || item["userCode"].indexOf(query) !== -1 && item["role"]!=="CUSTOMER" && item["role"]!=="MANAGER");
+	  items = items.filter(item => 
+						   item!=null && 
+						   ( (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 
+						   && item["role"]!=="CUSTOMER" 
+						   && item["role"]!=="MANAGER" 
+						   || item["userCode"].indexOf(query) !== -1 
+						   && item["role"]!=="CUSTOMER" 
+						   && item["role"]!=="MANAGER"));
 	  this.setState({searchResults: items});
 	  
 	  console.log("Updated Search Results: ",this.state.searchResults);
@@ -128,6 +194,35 @@ class LiveLocation extends React.Component {
   }
 	
   handleClick(event) { 
+	  
+	const updateResponses = (userCodes) => {
+		  const data = JSON.stringify({userCode:userCodes});
+		  const config = 
+		  {
+				method: "patch",
+				url: "https://www.naataconnection.com/api/userLiveLocation/update",
+				headers: {
+				  "Content-Type": "application/json",
+				},
+				data: data
+		  };
+
+			axios(config)
+			.then((res) => {
+				if(res.status==200){
+					console.log(res);
+					console.log(res.data.data);
+					this.setState({responses:res.data.data})
+				}else{
+					alert("Pls try after some time");
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+				alert("Pls try after some time")
+			});
+	  }
+	  
 	var userCode = event.target.value;
    	console.log("Clicked input = "+userCode);
 	this.refs.searchQuery.value="";
@@ -135,12 +230,52 @@ class LiveLocation extends React.Component {
 	results.forEach((result) => {
 		result.style.display = "none";
 	});
-	console.log("updated userCodes : ",this.state.userCodes.concat(userCode));    
+	console.log("updated userCodes : ",this.state.userCodes.concat(userCode));  
+	updateResponses(this.state.userCodes.concat(userCode));
 	this.setState({ userCodes: this.state.userCodes.concat(userCode) });
   }
 	
-  handleClear(){
-		this.setState({userCodes: []});
+  handleClear(event){
+		this.setState({userCodes: [], responses:[]});
+  }
+	
+  giveAlert(item){
+	  
+	  const fullName = (userCode) => {
+	   var items = this.state.allItems;
+	   var item = items.filter(item => (item["userCode"] == userCode))[0];
+	   return  (item["firstName"]==undefined ? "" : item["firstName"]) 
+		       +" "+ 
+			   (item["middleName"]==undefined ? "" : item["middleName"]) 
+			   +" "+
+			   (item["lastName"]==undefined ? "" : item["lastName"]) ;	  
+	  }
+	  
+	  if(item.status==="true"){
+		  confirmAlert({
+		  title: fullName(item.userCode) + " 's current location",
+		  message: "Click the below button to see "+fullName(item.userCode) + "'s current location",
+			buttons: [
+				{
+				  label: "Location",
+				  onClick: () => {
+                      window.open("https://maps.google.com/maps?q="+item.latitude+","+item.longitutde+"&hl=es;z=14&amp;");
+				  }
+				}
+			]
+		 });
+	  }else{
+		  confirmAlert({
+		  title: fullName(item.userCode) + " 's current location",
+		  message: item.message,
+			buttons: [
+				{
+				  label: "Okay",
+				  onClick: () => {}
+				}
+			]
+		});
+	  }
   }
 	
   render() {
@@ -163,6 +298,7 @@ class LiveLocation extends React.Component {
 	let longitude = this.state.longitude;
 	let url = this.state.url;
 	let userCodes = this.state.userCodes;
+	let responses = this.state.responses;
 	  
 	 
 	 if(!loaded){
@@ -217,21 +353,21 @@ class LiveLocation extends React.Component {
 						</tr>
 					
 					
-						{userCodes.map((item,index) => {
-			        		const fullNameOfUser = fullName(item);
+						{responses.map((item,index) => {
+			        		const fullNameOfUser = fullName(item.userCode);
 					return (
 							<tr className={index%2 ? "AttendanceRow1": "AttendanceRow2"}>
 								<td className="AttendanceCell" style={{width:"65%", fontSize:"1.4vw"}}>
 									{fullNameOfUser}
-									<button className="AttendanceUserDelete" onClick={()=>this.removeUser(item)} value={item} type='button'>
+									<button className="AttendanceUserDelete" onClick={()=>this.removeUser(item.userCode)} value={item} type='button'>
 										<IconContext.Provider value={{ color: "#E5584F", size:'1vw' }}>
 											<RiIcons.RiCloseCircleLine />
 										</IconContext.Provider> 
 									</button>
 								</td>
-								<td className="AttendanceCell" style={{width:"25%", fontSize:"1.4vw"}}>{item}</td>
+								<td className="AttendanceCell" style={{width:"25%", fontSize:"1.4vw"}}>{item.userCode}</td>
 								<td className="AttendanceCell" style={{width:"10%", fontSize:"1.4vw"}}>
-									<button style={{width: "2vw", height:"2vw", padding: "0.2vw", backgroundColor:"#F3752B", borderRadius:"0.3vw", cursor:"pointer"}} onClick={()=>this.updateUser(item)}>
+									<button style={{width: "2vw", height:"2vw", padding: "auto", backgroundColor:"#F3752B", borderRadius:"0.3vw", cursor:"pointer"}} onClick={()=>this.giveAlert(item)}>
 										<IconContext.Provider value={{ color: "#ffffff", size:'1vw' }}>
 											<RiIcons.RiMapPin2Fill />
 										</IconContext.Provider> 
@@ -243,7 +379,7 @@ class LiveLocation extends React.Component {
 					</table>
 				</div>
 				 
-				{ user ? (
+				{/*{ user ? (
 					 <div>
 						 <div className="DateRangeRow" style={{ margin:"auto", padding:"2vw", width:"60vw", height:"fit-content", borderWidth: "5vw", borderBottomRightRadius:"2vw", borderBottomLeftRadius:"2vw",borderColor: "#F3752B", flexDirection:"column"}}>
 							<div style={{margin:"auto", fontSize:"2vw", color:"white"}}>{fullName(user) + "'s Location"}</div>
@@ -261,7 +397,7 @@ class LiveLocation extends React.Component {
 					 <div>
 					 </div>
 				 )	 
-				}
+				} */}
 				 
 		</div>
 		 );
@@ -277,5 +413,3 @@ class LiveLocation extends React.Component {
 };
 
 export default LiveLocation;
-// {/*src = "https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"*/}
-// src="'https://maps.google.com/maps?q=' + lat + ',' + lng + '&t=&z=15&ie=UTF8&iwloc=&output=embed'"

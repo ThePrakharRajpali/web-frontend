@@ -38,7 +38,7 @@ class ProfileDriver extends React.Component {
 
 		axios(config)
 		.then((res) => {
-			if(res.status==200){
+			if(res.status==200 && res.data.driver){
 				console.log(res.data.driver);
 				this.setState({allItems:res.data.driver, itemsLoaded:true})
 				console.log("curr items: ",this.state.allItems);
@@ -57,11 +57,14 @@ class ProfileDriver extends React.Component {
 	  var query = this.state.searchQuery;
 	  var items = this.state.allItems;
 	  
-	  if(items == undefined){
+	  if(items == undefined || items == null){
 		  alert("No Driver exists!!");
 	  }else{
 	  
-		  items = items.filter(item => (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 || item["userCode"].indexOf(query) !== -1);
+		  items = items.filter(item => 
+							   item!=null && 
+							   ( (item["firstName"] + " " + item["middleName"] + " " + item["lastName"]).toLowerCase().indexOf(query) !== -1 
+							   	|| item["userCode"].indexOf(query) !== -1));
 		  this.setState({searchResults: items});
 
 		  console.log("Updated Search Results: ",this.state.searchResults);
