@@ -141,7 +141,7 @@ const ServiceRequestsAll = () => {
   const getData = (apiConfig) => {
     return axios(apiConfig)
       .then((response) => {
-        // console.log(JSON.stringify(response.data));
+        console.log(JSON.stringify(response.data));
         setRequests(response);
       })
       .catch((err) => {

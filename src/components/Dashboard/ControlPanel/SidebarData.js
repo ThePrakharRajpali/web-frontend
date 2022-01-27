@@ -101,7 +101,7 @@ export const SidebarData = [
   {
     title: "Service Requests",
     icon: <IoIcons.IoMdHelpCircle />,
-    path: "/Dashboard/Requests/New",
+    path: "/Dashboard/Requests/All",
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
