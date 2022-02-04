@@ -5,8 +5,7 @@ import { Fleet } from "./Fleet";
 import { Client } from "./Client";
 import { Team } from "./Team";
 import Landing from "./Landing";
-import Map from "./Map";
-
+// import Map from "./Map";
 
 const About = () => {
   return (

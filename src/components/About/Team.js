@@ -33,7 +33,7 @@ export const Team = () => {
           <Card
             img={tanuja}
             name="Tanuja Agarwal"
-            position="Proprietor"
+            position="Director"
             content="Under the able leadership of our Proprietor Mrs. Tanuja Agarwal, who started the Last-Mile Delivery services in Indore and upcountry in August 2018. She is an MBA Professional in IT & Marketing, with 3.5 years of work experience in the Insurance sector with Reliance Life Insurance, Bajaj Allianz Life Insurance, and the banking sector with Deutsche Bank & HDFC Bank. "
             color="blue"
           />
@@ -41,7 +41,7 @@ export const Team = () => {
           <Card
             img={arun}
             name="Arun Agarwal"
-            position="Head Business Development"
+            position="Director"
             content="
 A professional with honed communication, interpersonal sales skill, and distinction in escalating business turnovers and development.
 

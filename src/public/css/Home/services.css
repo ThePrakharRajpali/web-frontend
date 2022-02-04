@@ -104,7 +104,7 @@
 }
 
 .arrowLeft {
-  margin: 0 -20px -65px 0;
+  margin-right: 10px;
 }
 
 .service-right .service-content {
@@ -236,6 +236,10 @@
     margin-top: 50px;
   }
   .loading-header {
+    margin: 0;
+  }
+
+  .loading-header span {
     margin: 0;
   }
 

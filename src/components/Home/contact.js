@@ -87,7 +87,6 @@ export const Contact = () => {
           <div className="message-input">
             <label htmlFor="Contact-Message">Message</label> <br />
             <textarea
-              name=""
               id="Contact-Message"
               rows="7"
               name="message"
