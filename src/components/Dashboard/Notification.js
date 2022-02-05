@@ -31,32 +31,40 @@ class Notification extends React.Component {
 		if(!(userCode!="" && title!="" && expiryDate!="" && content!="" && image.files.length != 0)){
 			alert("Please fill all required fields to register the user");
 		}else{
-			alert("posted !!");
+			
+			const formData = new FormData();
+            formData.append("userCode", userCode);
+			formData.append("title", title);
+			formData.append("content", content);
+			formData.append("expiryDate", expiryDate);
+			formData.append("images", image.files[0]);
+			formData.append("isImage", 1);
+				
 			// const data = JSON.stringify({userCode:userCode, title:title, expiryDate:expiryDate, content:content});
 
-			// const config = 
-			//  {
-			// 	method: "post",
-			// 	url: "https://www.naataconnection.com/api/notification/create",
-			// 	headers: {
-			// 	  "Content-Type": "application/json",
-			// 	},
-			// 	data: data,
-			//  };
+			const config = 
+			 {
+				method: "post",
+				url: "https://www.naataconnection.com/api/notification/create",
+				headers: {
+				  "Content-Type": "multipart/form-data",
+				},
+				data: formData,
+			 };
 
-			// axios(config)
-			// .then((res) => {
-			// 	if(res.status==200){
-			// 		alert("Details Submitted.");
-			// 		this.handleReset(); 
-			// 	}else{
-			// 		alert("Pls Try Again!!!");
-			// 	}
-			// })
-			// .catch((err) => {
-			// 	console.log(err);
-			// 	alert("Pls Try Again. EmailId or Phone Number are already in use.")
-			// });
+			axios(config)
+			.then((res) => {
+				if(res.status==200){
+					alert("Details Submitted.");
+					this.handleReset(); 
+				}else{
+					alert("Pls Try Again!!!");
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+				alert("Pls Try Again. EmailId or Phone Number are already in use.")
+			});
 		}
 	
   }
