@@ -63,7 +63,7 @@ class Notification extends React.Component {
 			})
 			.catch((err) => {
 				console.log(err);
-				alert("Pls Try Again. EmailId or Phone Number are already in use.")
+				alert("Pls Try Again. Make sure the file size doesn't exceed 20 MB.")
 			});
 		}
 	
@@ -120,7 +120,7 @@ class Notification extends React.Component {
 						<div className="Form_Fields">
 
 							<div className="Form_field">
-								<label className="Form_field_label">Image</label>
+								<label className="Form_field_label">Image<span> ( File size shouldn't exceed 20MB )</span></label>
 								<input required className="Form_field_input" ref="image" multiple style={{width:'20vw',height:'2.6vw'}} type="file" />
 							</div>
 
