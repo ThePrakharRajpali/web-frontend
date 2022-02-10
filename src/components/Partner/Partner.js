@@ -8,7 +8,7 @@ const Partner = () => {
     <React.Fragment>
       <Content />
       <Client />
-      <Reviews />
+      {/* <Reviews /> */}
       <Form />
     </React.Fragment>
   );
