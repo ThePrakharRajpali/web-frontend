@@ -110,7 +110,7 @@ export const Contact = () => {
         <div className="contact-left">
           <img src={preServicesHeader} alt="" />
           <p className="contact-us-header">
-            <span>Contact</span> us
+            <span>Get in Touch</span>
           </p>
           <p className="contact-us-content">
             Gladiola - 401, <br /> Shalimar township, <br /> A B road, <br />{" "}

@@ -50,23 +50,17 @@ import {
 } from "react-router-dom";
 
 import ReactGA from "react-ga";
+import { createBrowserHistory } from "history";
 
 const GA_TRACKING_ID = "UA-219513451-1";
 
-// const usePageViews = () => {
-//   let location = useLocation();
-//   useEffect(() => {
-//     if (!window.GA_INITIALIZED) {
-//       ReactGA.initialize(GA_TRACKING_ID);
-//       window.GA_INITIALIZED = true;
-//     }
-//     ReactGA.set({ page: location.pathname });
-//     ReactGA.pageview(location.pathname);
-//   }, [location]);
-// };
+const history = createBrowserHistory();
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 ReactGA.initialize(GA_TRACKING_ID);
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 const Display = () => {
   const [cookies, setCookie] = useCookies("userCode");
@@ -74,7 +68,7 @@ const Display = () => {
   return (
     <CookiesProvider>
       <Fragment>
-        <Router>
+        <Router history={history}>
           <Switch>
             <Route exact path="/">
               <Navbar />

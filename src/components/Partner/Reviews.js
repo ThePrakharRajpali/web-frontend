@@ -27,8 +27,8 @@ export const Reviews = () => {
   const numOfCards = 4;
 
   return (
-    <div className="review-section grid-main" id="partner-us">
-      <div className="header">
+    <div className="review-section" id="partner-us">
+      <div className="review-header">
         <img src={grid} alt="" />
         <p>Customer Reviews</p>
       </div>

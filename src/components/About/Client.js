@@ -10,7 +10,7 @@ export const Client = () => {
       <div className="client-section">
         <div className="client-header">
           <img src={grid} alt="" />
-          <p>Our Client</p>
+          <p>Our Clients</p>
         </div>
         <div className="client-content">
           Our clients benefit from the tremendous focus we drive in the total

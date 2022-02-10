@@ -14,7 +14,7 @@ const About = () => {
       <Vision />
       <Value />
       <Fleet />
-      <Client />
+      {/* <Client /> */}
       <Team />
       {/* <Map /> */}
     </div>
