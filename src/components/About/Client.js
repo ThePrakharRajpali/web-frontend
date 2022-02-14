@@ -9,7 +9,7 @@ export const Client = () => {
     <Fragment>
       <div className="client-section">
         <div className="client-header">
-          <img src={grid} alt="" />
+          {/* <img src={grid} alt="" /> */}
           <p>Our Clients</p>
         </div>
         <div className="client-content">
