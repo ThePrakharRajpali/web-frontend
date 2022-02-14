@@ -65,7 +65,7 @@ export const Form = () => {
     <Fragment>
       <div className="contact-form">
         <div className="section-header">
-          <img src={grid} alt="" />
+          {/* <img src={grid} alt="" /> */}
           <p>Vendor Form</p>
         </div>
         <img src={background} alt="" className="background-left" />
