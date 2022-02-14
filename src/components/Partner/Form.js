@@ -63,7 +63,7 @@ export const Form = () => {
 
   return (
     <Fragment>
-      <div className="contact-form grid-main">
+      <div className="contact-form">
         <div className="section-header">
           <img src={grid} alt="" />
           <p>Vendor Form</p>
