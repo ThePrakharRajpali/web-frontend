@@ -8,7 +8,7 @@ const WhatWeOffer = () => {
   return (
     <div className="what-we-offer partner-content-section">
       <div className="what-we-offer-header partner-content-section-header">
-        <img src={grid} alt="" />
+        {/* <img src={grid} alt="" /> */}
         <p>What do we Offer?</p>
       </div>
       <div className="what-we-offer-content partner-content-section-content">
@@ -26,7 +26,7 @@ const WhyPartner = () => {
   return (
     <div className="why-partner partner-content-section">
       <div className="why-partner-header partner-content-section-header">
-        <img src={grid} alt="" />
+        {/* <img src={grid} alt="" /> */}
         <p>Why Should You Partner with Us?</p>
       </div>
       <div className="why-partner-content partner-content-section-content">
@@ -54,7 +54,7 @@ const BespokeRequests = () => {
   return (
     <div className="bespoke-requests partner-content-section">
       <div className="bespoke-requests-header partner-content-section-header">
-        <img src={grid} alt="" />
+        {/* <img src={grid} alt="" /> */}
         <p>Do we accept bespoke requests?</p>
       </div>
       <div className="bespoke-requests-content partner-content-section-content">
