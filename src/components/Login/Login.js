@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 import { instanceOf } from "prop-types";
 import { confirmAlert } from "react-confirm-alert";
 import { withCookies, Cookies, useCookies } from "react-cookie";
@@ -138,7 +139,7 @@ class LoginContainer extends React.Component {
     console.log("Send OTP exited!!");
   };
 
-  verifyOTP = () => {
+  verifyOTP = async () => {
     const confirm = () => {
       confirmAlert({
         title: "Continue to Dashboard",
@@ -155,47 +156,74 @@ class LoginContainer extends React.Component {
       });
     };
 
-    const { cookies } = this.props;
-    console.log("Input OTP entered!!");
-    const data = JSON.stringify({
-      emailIdOrContact: this.state.input,
-      password: this.state.otpInput,
-    });
-    const config = {
-      method: "post",
-      url: "https://www.naataconnection.com/api/superUser/login_verifyOtp",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+	try{
+		const { cookies } = this.props;
+		console.log("Input OTP entered!!");
+		const data = JSON.stringify({
+		  emailIdOrContact: this.state.input,
+		  password: this.state.otpInput,
+		});
+		const config = {
+		  method: "post",
+		  url: "https://www.naataconnection.com/api/superUser/login_verifyOtp",
+		  headers: {
+			"Content-Type": "application/json",
+		  },
+		  data: data,
+		};
+		const res = await axios(config);
+		console.log(res);
+	    console.log(res.status);
+		if (res.status === 200) {
+			console.log("res is ", res.data.superUser.userCode);
+			this.setState({ loginSuccess: true });
+			// alert("Logged In Successfully :)");
+			await cookies.set("user", res.data.superUser, {
+			path: "/",
+			maxAge: 3600 * 24,
+			});
+			await cookies.set("userCode", res.data.superUser.userCode, {
+			path: "/",
+			maxAge: 3600 * 24,
+			});
+			this.setState({ redirect: true });
 
-    axios(config)
-      .then((res) => {
-        alert(res.data.message);
-        console.log(res);
-        if (res.status == 200) {
-          console.log("res is ", res.data.superUser.userCode);
-          this.setState({ loginSuccess: true });
-          // alert("Logged In Successfully :)");
-          cookies.set("user", res.data.superUser, {
-            path: "/",
-            maxAge: 3600 * 24,
-          });
-          cookies.set("userCode", res.data.superUser.userCode, {
-            path: "/",
-            maxAge: 3600 * 24,
-          });
-          this.setState({ redirect: true });
-          window.location.reload();
-          // confirm();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Pls try again with a correct OTP!!");
-      });
-    console.log("Veify OTP exited!!");
+			window.location.reload();
+			// confirm();
+			console.log("Veify OTP exited!!");
+		}
+	}catch(err){
+		console.log(err);
+		alert("Pls try again with a correct OTP!!");
+	}
+	  
+		// .then((res) => {
+		// // alert(res.data.message);
+		// // console.log(res);
+		// // console.log(res.status);
+		// // if (res.status === 200) {
+		// // console.log("res is ", res.data.superUser.userCode);
+		// // this.setState({ loginSuccess: true });
+		// // // alert("Logged In Successfully :)");
+		// // cookies.set("user", res.data.superUser, {
+		// // path: "/",
+		// // maxAge: 3600 * 24,
+		// // });
+		// // cookies.set("userCode", res.data.superUser.userCode, {
+		// // path: "/",
+		// // maxAge: 3600 * 24,
+		// // });
+		// // this.setState({ redirect: true });
+		  
+		// // // window.location.reload();
+		// // // confirm();
+		// // }
+		// })
+		// .catch((err) => {
+		// console.log(err);
+		// alert("Pls try again with a correct OTP!!");
+		// });
+	  
   };
 
   handleClick1 = (event) => {
