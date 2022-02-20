@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { instanceOf } from "prop-types";
 import { confirmAlert } from "react-confirm-alert";
 import { withCookies, Cookies, useCookies } from "react-cookie";
+import Cookies from 'js-cookie';
 // import { Redirect } from "react-router-dom";
 import "../../public/css/Login/login.css";
 import login_logo from "../../public/photos/login_logo.svg";
@@ -187,8 +188,11 @@ class LoginContainer extends React.Component {
 			maxAge: 3600 * 24,
 			});
 			this.setState({ redirect: true });
-
+			console.log("cookies set");
+            const coo = cookies.get('userCode');
+			console.log("cookie is ",coo);
 			window.location.reload();
+			console.log("reloaded");
 			// confirm();
 			console.log("Veify OTP exited!!");
 		}
