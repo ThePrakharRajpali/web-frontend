@@ -79,6 +79,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
   - [Technology Used](#technology-used)
   - [Prerequisites](#prerequisites)
   - [Usage](#usage)
+  - [Routes](#routes)
 
 ## About
 
@@ -116,3 +117,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     ```bash
     npm run build
     ```
+
+## Routes
