@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { instanceOf } from "prop-types";
 import { confirmAlert } from "react-confirm-alert";
 import { withCookies, Cookies, useCookies } from "react-cookie";
-import Cookies from 'js-cookie';
+import Cookies1 from 'js-cookie';
 // import { Redirect } from "react-router-dom";
 import "../../public/css/Login/login.css";
 import login_logo from "../../public/photos/login_logo.svg";
