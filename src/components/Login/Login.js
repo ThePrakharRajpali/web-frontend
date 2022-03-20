@@ -182,10 +182,14 @@ class LoginContainer extends React.Component {
 			await cookies.set("user", res.data.superUser, {
 			path: "/",
 			maxAge: 3600 * 24,
+			httpOnly:false,
+			domain:"naataConnection.com"
 			});
 			await cookies.set("userCode", res.data.superUser.userCode, {
 			path: "/",
 			maxAge: 3600 * 24,
+			httpOnly:false,
+			domain:"naataConnection.com"
 			});
 			this.setState({ redirect: true });
 			console.log("cookies set");
